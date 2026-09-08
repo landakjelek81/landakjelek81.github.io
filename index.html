@@ -1,218 +1,432 @@
-landakjelek81.github.io
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Dunia Landak</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --ink:#1c1b19;
-    --paper:#efe9dc;
-    --panel:#26241f;
-    --line:#3c392f;
-    --gold:#c8992f;
-    --muted:#8f8a78;
+
+  :root {
+    --background: url("background.jpg") center/cover fixed;
+    --overlay: rgba(20, 19, 17, 0.88);
+
+    --ink: #f1ecdf;
+    --paper: #efe9dc;
+    --panel: rgba(38, 36, 31, 0.88);
+    --line: #454137;
+    --gold: #c8992f;
+    --muted: #9a9482;
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--paper);
-    font-family:'IBM Plex Mono', monospace;
-    line-height:1.5;
+
+  * {
+    box-sizing: border-box;
   }
-  header{
-    padding:64px 24px 40px;
-    max-width:880px;
-    margin:0 auto;
-    border-bottom:1px solid var(--line);
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      linear-gradient(var(--overlay), var(--overlay)),
+      var(--background);
+    background-color: #1c1b19;
+    background-attachment: fixed;
+
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.5;
   }
-  header h1{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(2.2rem, 5vw, 3.4rem);
-    margin:0 0 12px;
-    letter-spacing:-0.01em;
+
+  header {
+    padding: 64px 24px 40px;
+    max-width: 880px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
   }
-  header p{
-    color:var(--muted);
-    max-width:52ch;
-    margin:0;
-    font-size:0.95rem;
+
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
   }
-  main{
-    max-width:880px;
-    margin:0 auto;
-    padding:40px 24px 100px;
+
+  header p {
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 0;
+    font-size: 0.95rem;
   }
-  section{
-    margin-bottom:56px;
+
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 100px;
   }
-  section h2{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.4rem;
-    display:flex;
-    align-items:baseline;
-    gap:14px;
-    margin:0 0 20px;
+
+  section {
+    margin-bottom: 56px;
   }
-  section h2 .count{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.8rem;
-    color:var(--muted);
-    font-weight:400;
+
+  section h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 20px;
   }
-  .card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:2px;
-    padding:20px 22px;
-    margin-bottom:2px;
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:12px 20px;
-    align-items:center;
+
+  section h2 .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 400;
   }
-  .card .title{
-    font-size:1.02rem;
-    color:var(--paper);
-    margin:0 0 4px;
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 22px;
+    margin-bottom: 2px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px 20px;
+    align-items: center;
   }
-  .card .desc{
-    grid-column:1 / 2;
-    color:var(--muted);
-    font-size:0.85rem;
-    margin:0;
+
+  .card .title {
+    font-size: 1.02rem;
+    color: var(--paper);
+    margin: 0 0 4px;
   }
-  .card .meta{
-    grid-column:1 / 2;
-    font-size:0.75rem;
-    color:var(--gold);
-    margin-top:6px;
+
+  .card .desc {
+    grid-column: 1 / 2;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0;
   }
-  .card a{
-    grid-row:1 / 3;
-    grid-column:2;
-    color:var(--ink);
-    background:var(--gold);
-    text-decoration:none;
-    padding:9px 16px;
-    font-size:0.8rem;
-    white-space:nowrap;
-    border-radius:1px;
+
+  .card .meta {
+    grid-column: 1 / 2;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-top: 6px;
   }
-  .card a:hover{
-    filter:brightness(1.1);
+
+  .card a {
+    grid-row: 1 / 3;
+    grid-column: 2;
+
+    color: var(--ink);
+    background: var(--gold);
+    text-decoration: none;
+
+    padding: 9px 16px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    border-radius: 1px;
   }
-  footer{
-    max-width:880px;
-    margin:0 auto;
-    padding:24px;
-    color:var(--muted);
-    font-size:0.75rem;
-    border-top:1px solid var(--line);
+
+  .card a:hover {
+    filter: brightness(1.1);
   }
-  @media (max-width:520px){
-    .card{grid-template-columns:1fr;}
-    .card a{grid-row:auto; grid-column:1; justify-self:start; margin-top:8px;}
+
+  footer {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px;
+
+    color: var(--muted);
+    font-size: 0.75rem;
+
+    border-top: 1px solid var(--line);
   }
+
+  @media (max-width: 520px) {
+
+    .card {
+      grid-template-columns: 1fr;
+    }
+
+    .card a {
+      grid-row: auto;
+      grid-column: 1;
+      justify-self: start;
+      margin-top: 8px;
+    }
+
+  }
+
 </style>
+
 </head>
+
 <body>
 
 <header>
+
   <h1>Dunia Landak</h1>
-  <p>Kumpulan aplikasi, program, lagu, dan gambar yang saya buat &mdash; diunggah di sini untuk dibagikan secara bebas.</p>
+
+  <p>
+    Kumpulan aplikasi, program, lagu, dan gambar yang saya buat
+    &mdash; diunggah di sini untuk dibagikan secara bebas.
+  </p>
+
 </header>
 
 <main>
 
+  <!-- ========================= -->
+
+  <!-- APLIKASI -->
+
+  <!-- ========================= -->
+
   <section>
-    <h2>Aplikasi <span class="count">2 berkas</span></h2>
 
-    <div class="card">
-      <div>
-        <p class="title">Winrar</p>
-        <p class="desc">Software untuk kompres dan ekstrak file arsip (ZIP, RAR, dll).</p>
-        <p class="meta">Windows &middot; v3.9 &middot; 1.3 MB</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1orvgznMZm4wwngzwq588KMWxUfzTsfxK/view?usp=sharing">Unduh</a>
-    </div>
+```
+<h2>
+  Aplikasi
+  <span class="count"></span>
+</h2>
 
-    <div class="card">
-      <div>
-        <p class="title">Winamp Pro 5.66</p>
-        <p class="desc">aplikasi untuk mendengarkan musik.</p>
-        <p class="meta">Android &middot; v2.1 &middot; 16.3 MB</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1dF4CTQBNSeeU_NqjB2Rde7aodc_XcvbE/view?usp=drive_link">Unduh</a>
-    </div>
-    
-  <div class="card">
-   <div>
-        <p class="title">VLC 1.1.7</p>
-        <p class="desc">Aplikasi untuk Nonton Film.</p>
-        <p class="meta">Android &middot; v2.1 &middot; 19.4 MB</p>
-      </div>
-      <a href="https://drive.google.com/file/d/1eAawa0KrvTEXglMAMvaT31nsCO8b12XS/view?usp=drive_link">Unduh</a>
-    </div>
-  <section>
-    
-    <h2>Program <span class="count">1 berkas</span></h2>
 
-    <div class="card">
-      <div>
-        <p class="title">Nama Program</p>
-        <p class="desc">Deskripsi singkat program, misalnya script atau tool kecil.</p>
-        <p class="meta">Python &middot; source code &middot; 3 MB</p>
-      </div>
-      <a href="https://github.com/username-kamu/nama-repo" target="_blank" rel="noopener">Lihat kode</a>
-    </div>
+<div class="card">
+
+  <div>
+    <p class="title">Winrar</p>
+
+    <p class="desc">
+      Software untuk kompres dan ekstrak file arsip (ZIP, RAR, dll).
+    </p>
+
+    <p class="meta">
+      Windows &middot; v3.9 &middot; 1.3 MB
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/file/d/1orvgznMZm4wwngzwq588KMWxUfzTsfxK/view?usp=sharing"
+    target="_blank"
+    rel="noopener">
+    Unduh
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div>
+    <p class="title">Winamp Pro 5.66</p>
+
+    <p class="desc">
+      Aplikasi untuk mendengarkan musik.
+    </p>
+
+    <p class="meta">
+      Android &middot; v2.1 &middot; 16.3 MB
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/file/d/1dF4CTQBNSeeU_NqjB2Rde7aodc_XcvbE/view?usp=drive_link"
+    target="_blank"
+    rel="noopener">
+    Unduh
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div>
+    <p class="title">VLC 1.1.7</p>
+
+    <p class="desc">
+      Aplikasi untuk nonton film.
+    </p>
+
+    <p class="meta">
+      Android &middot; v2.1 &middot; 19.4 MB
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/file/d/1eAawa0KrvTEXglMAMvaT31nsCO8b12XS/view?usp=drive_link"
+    target="_blank"
+    rel="noopener">
+    Unduh
+  </a>
+
+</div>
+```
+
   </section>
 
+  <!-- ========================= -->
+
+  <!-- PROGRAM -->
+
+  <!-- ========================= -->
+
   <section>
-    <h2>Lagu <span class="count">2 berkas</span></h2>
 
-    <div class="card">
-      <div>
-        <p class="title">Judul Lagu Satu</p>
-        <p class="desc">Genre, mood, atau cerita singkat di balik lagu ini.</p>
-        <p class="meta">MP3 &middot; 4:12 &middot; original</p>
-      </div>
-      <a href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU" target="_blank" rel="noopener">Dengarkan / Unduh</a>
-    </div>
+```
+<h2>
+  Program
+  <span class="count"></span>
+</h2>
 
-    <div class="card">
-      <div>
-        <p class="title">Judul Lagu Dua</p>
-        <p class="desc">Genre, mood, atau cerita singkat di balik lagu ini.</p>
-        <p class="meta">MP3 &middot; 3:47 &middot; original</p>
-      </div>
-      <a href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU" target="_blank" rel="noopener">Dengarkan / Unduh</a>
-    </div>
+
+<div class="card">
+
+  <div>
+    <p class="title">Nama Program</p>
+
+    <p class="desc">
+      Deskripsi singkat program, misalnya script atau tool kecil.
+    </p>
+
+    <p class="meta">
+      Python &middot; source code &middot; 3 MB
+    </p>
+  </div>
+
+  <a
+    href="https://github.com/username-kamu/nama-repo"
+    target="_blank"
+    rel="noopener">
+    Lihat kode
+  </a>
+
+</div>
+```
+
   </section>
 
-  <section>
-    <h2>Gambar <span class="count">1 berkas</span></h2>
+  <!-- ========================= -->
 
-    <div class="card">
-      <div>
-        <p class="title">Judul Karya Gambar</p>
-        <p class="desc">Teknik, ukuran, atau cerita di balik gambar ini.</p>
-        <p class="meta">PNG &middot; 3000x2000px</p>
-      </div>
-      <a href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU" target="_blank" rel="noopener">Lihat / Unduh</a>
-    </div>
+  <!-- LAGU -->
+
+  <!-- ========================= -->
+
+  <section>
+
+```
+<h2>
+  Lagu
+  <span class="count"></span>
+</h2>
+
+
+<div class="card">
+
+  <div>
+    <p class="title">Judul Lagu Satu</p>
+
+    <p class="desc">
+      Genre, mood, atau cerita singkat di balik lagu ini.
+    </p>
+
+    <p class="meta">
+      MP3 &middot; 4:12 &middot; original
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU"
+    target="_blank"
+    rel="noopener">
+    Dengarkan / Unduh
+  </a>
+
+</div>
+
+
+<div class="card">
+
+  <div>
+    <p class="title">Judul Lagu Dua</p>
+
+    <p class="desc">
+      Genre, mood, atau cerita singkat di balik lagu ini.
+    </p>
+
+    <p class="meta">
+      MP3 &middot; 3:47 &middot; original
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU"
+    target="_blank"
+    rel="noopener">
+    Dengarkan / Unduh
+  </a>
+
+</div>
+```
+
+  </section>
+
+  <!-- ========================= -->
+
+  <!-- GAMBAR -->
+
+  <!-- ========================= -->
+
+  <section>
+
+```
+<h2>
+  Gambar
+  <span class="count"></span>
+</h2>
+
+
+<div class="card">
+
+  <div>
+    <p class="title">Judul Karya Gambar</p>
+
+    <p class="desc">
+      Teknik, ukuran, atau cerita di balik gambar ini.
+    </p>
+
+    <p class="meta">
+      PNG &middot; 3000x2000px
+    </p>
+  </div>
+
+  <a
+    href="https://drive.google.com/GANTI-DENGAN-LINK-KAMU"
+    target="_blank"
+    rel="noopener">
+    Lihat / Unduh
+  </a>
+
+</div>
+```
+
   </section>
 
 </main>
 
 <footer>
-  Dibuat &amp; dihosting dengan GitHub Pages.
+  Dibuat &amp; dihosting oleh mrland.
 </footer>
 
 </body>
