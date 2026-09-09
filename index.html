@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 
 <head>
@@ -16,7 +15,6 @@
       --background: url("images.jfif") center/cover fixed;
       --overlay: rgba(20, 19, 17, 0.88);
 
-      --ink: #f1ecdf;
       --paper: #efe9dc;
       --panel: rgba(38, 36, 31, 0.88);
       --line: #454137;
@@ -27,10 +25,6 @@
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -49,21 +43,17 @@
       line-height: 1.5;
     }
 
-    /* =========================
-       HEADER
-       ========================= */
-
     header {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 70px 24px 45px;
+      padding: 80px 24px 45px;
       border-bottom: 1px solid var(--line);
     }
 
     header h1 {
       font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       margin: 0 0 14px;
       letter-spacing: -0.02em;
     }
@@ -75,161 +65,57 @@
       font-size: 0.9rem;
     }
 
-    /* =========================
-       NAVIGATION
-       ========================= */
-
-    nav {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--line);
-
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      border: 1px solid var(--line);
-      padding: 8px 13px;
-      font-size: 0.78rem;
-      transition: 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--paper);
-      border-color: var(--gold);
-      background: var(--hover);
-    }
-
-    /* =========================
-       MAIN
-       ========================= */
-
     main {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 45px 24px 100px;
+      padding: 55px 24px 100px;
     }
 
-    section {
-      margin-bottom: 70px;
-      scroll-margin-top: 20px;
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
 
-    section h2 {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.7rem;
+    .menu a {
+      display: block;
 
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-
-      margin: 0 0 22px;
-    }
-
-    section h2 .count {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    /* =========================
-       CARD
-       ========================= */
-
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .card {
       background: var(--panel);
       border: 1px solid var(--line);
 
-      padding: 18px 20px;
-
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 15px 25px;
-      align-items: center;
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: #665f4d;
-      background: rgba(45, 42, 36, 0.94);
-      transform: translateX(3px);
-    }
-
-    .card-info {
-      min-width: 0;
-    }
-
-    .card .title {
-      display: inline-block;
+      padding: 30px 25px;
 
       color: var(--paper);
-      font-size: 0.98rem;
-      font-weight: 500;
-
-      margin: 0 0 5px;
-
       text-decoration: none;
-    }
-
-    .card .title:hover {
-      color: var(--gold);
-    }
-
-    .card .desc {
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin: 0;
-    }
-
-    .card .meta {
-      color: var(--gold);
-      font-size: 0.68rem;
-      margin: 7px 0 0;
-    }
-
-    .card .button {
-      display: inline-block;
-
-      color: #211e18;
-      background: var(--gold);
-
-      text-decoration: none;
-
-      padding: 9px 14px;
-
-      font-size: 0.72rem;
-      white-space: nowrap;
-
-      border-radius: 1px;
 
       transition: 0.2s ease;
     }
 
-    .card .button:hover {
-      filter: brightness(1.12);
-      transform: translateY(-1px);
+    .menu a:hover {
+      border-color: var(--gold);
+      background: rgba(45, 42, 36, 0.94);
+      transform: translateY(-3px);
     }
 
-    /* =========================
-       FOOTER
-       ========================= */
+    .menu .number {
+      display: block;
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-bottom: 12px;
+    }
+
+    .menu .title {
+      display: block;
+
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .menu .desc {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
 
     footer {
       max-width: 1000px;
@@ -242,35 +128,22 @@
       border-top: 1px solid var(--line);
     }
 
-    /* =========================
-       MOBILE
-       ========================= */
-
     @media (max-width: 600px) {
 
       header {
-        padding: 50px 18px 35px;
-      }
-
-      nav {
-        padding: 14px 18px;
+        padding: 55px 18px 35px;
       }
 
       main {
-        padding: 35px 18px 70px;
+        padding: 40px 18px 70px;
       }
 
-      .card {
+      .menu {
         grid-template-columns: 1fr;
-        gap: 12px;
       }
 
-      .card .button {
-        justify-self: start;
-      }
-
-      section {
-        margin-bottom: 55px;
+      .menu a {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -279,927 +152,65 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-       ========================= -->
-
   <header>
 
-```
-<h1>Dunia Landak</h1>
+    <h1>Dunia Landak</h1>
 
-<p>
-  Kumpulan aplikasi, program, lagu, dan gambar yang saya buat
-  &mdash; diunggah di sini untuk dibagikan secara bebas.
-</p>
-```
+    <p>
+      Kumpulan aplikasi, program, lagu, dan gambar
+      yang saya buat dan bagikan secara bebas.
+    </p>
 
   </header>
 
-  <!-- =========================
-       NAVIGASI
-       ========================= -->
-
-  <nav>
-
-```
-<a href="#aplikasi">Aplikasi</a>
-<a href="#program">Program</a>
-<a href="#lagu">Lagu</a>
-<a href="#gambar">Gambar</a>
-```
-
-  </nav>
 
   <main>
 
-```
-<!-- =========================================================
-     APLIKASI
-     25 SLOT
-     ========================================================= -->
+    <div class="menu">
 
-<section id="aplikasi">
-
-  <h2>
-    Aplikasi
-    <span class="count">25 item</span>
-  </h2>
-
-  <div class="list" id="aplikasi-list"></div>
-
-</section>
+      <a href="aplikasi.html" target="_blank">
+        <span class="number">01</span>
+        <span class="title">Aplikasi</span>
+        <span class="desc">
+          Kumpulan aplikasi dan software.
+        </span>
+      </a>
 
 
-<!-- =========================================================
-     PROGRAM
-     25 SLOT
-     ========================================================= -->
-
-<section id="program">
-
-  <h2>
-    Program
-    <span class="count">25 item</span>
-  </h2>
-
-  <div class="list" id="program-list"></div>
-
-</section>
+      <a href="program.html" target="_blank">
+        <span class="number">02</span>
+        <span class="title">Program</span>
+        <span class="desc">
+          Program dan source code.
+        </span>
+      </a>
 
 
-<!-- =========================================================
-     LAGU
-     25 SLOT
-     ========================================================= -->
-
-<section id="lagu">
-
-  <h2>
-    Lagu
-    <span class="count">25 item</span>
-  </h2>
-
-  <div class="list" id="lagu-list"></div>
-
-</section>
+      <a href="lagu.html" target="_blank">
+        <span class="number">03</span>
+        <span class="title">Lagu</span>
+        <span class="desc">
+          Koleksi lagu dan audio.
+        </span>
+      </a>
 
 
-<!-- =========================================================
-     GAMBAR
-     25 SLOT
-     ========================================================= -->
+      <a href="gambar.html" target="_blank">
+        <span class="number">04</span>
+        <span class="title">Gambar</span>
+        <span class="desc">
+          Koleksi gambar dan karya.
+        </span>
+      </a>
 
-<section id="gambar">
-
-  <h2>
-    Gambar
-    <span class="count">25 item</span>
-  </h2>
-
-  <div class="list" id="gambar-list"></div>
-
-</section>
-```
+    </div>
 
   </main>
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
 
   <footer>
     Dibuat &amp; dihosting oleh mrland.
   </footer>
-
-  <!-- =========================================================
-       DATA KONTEN
-       
-       EDIT BAGIAN INI SAJA.
-       
-       Kamu tinggal mengganti:
-       - title = nama
-       - desc  = deskripsi
-       - meta  = informasi file
-       - link  = link Google Drive
-       ========================================================= -->
-
-  <script>
-
-    /* =========================================================
-       APLIKASI
-       ========================================================= */
-
-    const aplikasi = [
-
-      {
-        title: "Winrar",
-        desc: "Software untuk kompres dan ekstrak file arsip.",
-        meta: "Windows · v3.9 · 1.3 MB",
-        link: "https://drive.google.com/file/d/1orvgznMZm4wwngzwq588KMWxUfzTsfxK/view?usp=sharing"
-      },
-
-      {
-        title: "Winamp Pro 5.66",
-        desc: "Aplikasi untuk mendengarkan musik.",
-        meta: "Android · v2.1 · 16.3 MB",
-        link: "https://drive.google.com/file/d/1dF4CTQBNSeeU_NqjB2Rde7aodc_XcvbE/view?usp=drive_link"
-      },
-
-      {
-        title: "VLC 1.1.7",
-        desc: "Aplikasi untuk menonton film dan video.",
-        meta: "Android · v2.1 · 19.4 MB",
-        link: "https://drive.google.com/file/d/1eAawa0KrvTEXglMAMvaT31nsCO8b12XS/view?usp=drive_link"
-      },
-
-      {
-        title: "Photoshop CS 3 Portable",
-        desc: "Photo Editing.",
-        meta: "Aplikasi · 48.2 M",
-        link: "https://drive.google.com/file/d/1T4MVD667X0caHekxt_Lxx0z0Cgjjjxee/view?usp=drive_link"
-      },
-
-      {
-        title: "Aplikasi 05",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 06",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 07",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 08",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 09",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 10",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 11",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 12",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 13",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 14",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 15",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 16",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 17",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 18",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 19",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 20",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 21",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 22",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 23",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 24",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Aplikasi 25",
-        desc: "Deskripsi aplikasi.",
-        meta: "File · ukuran",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      }
-
-    ];
-
-
-    /* =========================================================
-       PROGRAM
-       ========================================================= */
-
-    const program = [
-
-      {
-        title: "Nama Program 01",
-        desc: "Deskripsi singkat program.",
-        meta: "Python · Source Code",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 02",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 03",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 04",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 05",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 06",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 07",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 08",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 09",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 10",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 11",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 12",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 13",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 14",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 15",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 16",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 17",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 18",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 19",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 20",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 21",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 22",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 23",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 24",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Nama Program 25",
-        desc: "Deskripsi singkat program.",
-        meta: "Program · File",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      }
-
-    ];
-
-
-    /* =========================================================
-       LAGU
-       ========================================================= */
-
-    const lagu = [
-
-      {
-        title: "Judul Lagu 01",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 02",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 03",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 04",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 05",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 06",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 07",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 08",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 09",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 10",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 11",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 12",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 13",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 14",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 15",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 16",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 17",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 18",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 19",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 20",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 21",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 22",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 23",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 24",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Judul Lagu 25",
-        desc: "Deskripsi atau cerita singkat lagu.",
-        meta: "MP3 · Original",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      }
-
-    ];
-
-
-    /* =========================================================
-       GAMBAR
-       ========================================================= */
-
-    const gambar = [
-
-      {
-        title: "Karya Gambar 01",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 02",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 03",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 04",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 05",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 06",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 07",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 08",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 09",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 10",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 11",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 12",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 13",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 14",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 15",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 16",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 17",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 18",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 19",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 20",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 21",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 22",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 23",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 24",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      },
-
-      {
-        title: "Karya Gambar 25",
-        desc: "Deskripsi singkat karya gambar.",
-        meta: "JPG · PNG",
-        link: "PASTE-LINK-DRIVE-DI-SINI"
-      }
-
-    ];
-
-
-    /* =========================================================
-       MESIN PEMBUAT LIST
-       
-       BAGIAN INI JANGAN DIUBAH.
-       ========================================================= */
-
-    function tampilkanList(data, id) {
-
-      const container = document.getElementById(id);
-
-      data.forEach(function(item) {
-
-        const card = document.createElement("article");
-        card.className = "card";
-
-        card.innerHTML = `
-          <div class="card-info">
-
-            <a
-              class="title"
-              href="${item.link}"
-              target="_blank"
-              rel="noopener noreferrer">
-              ${item.title}
-            </a>
-
-            <p class="desc">
-              ${item.desc}
-            </p>
-
-            <p class="meta">
-              ${item.meta}
-            </p>
-
-          </div>
-
-          <a
-            class="button"
-            href="${item.link}"
-            target="_blank"
-            rel="noopener noreferrer">
-            Buka
-          </a>
-        `;
-
-        container.appendChild(card);
-
-      });
-
-    }
-
-
-    tampilkanList(aplikasi, "aplikasi-list");
-    tampilkanList(program, "program-list");
-    tampilkanList(lagu, "lagu-list");
-    tampilkanList(gambar, "gambar-list");
-
-  </script>
 
 </body>
 </html>
