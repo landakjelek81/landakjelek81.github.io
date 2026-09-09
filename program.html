@@ -160,6 +160,26 @@
       font-size: .7rem;
     }
 
+    /* TOMBOL MUSIK */
+
+    #tombolMusik {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: #1c1b19;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: monospace;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #tombolMusik:hover {
+      background: var(--gold);
+      color: #1c1b19;
+    }
+
     @media (max-width: 600px) {
       header {
         padding: 40px 18px 25px;
@@ -215,6 +235,20 @@
   Dunia Landak · Program
 </footer>
 
+
+<!-- MUSIK -->
+
+<audio id="musik" loop>
+  <source
+    src="https://drive.google.com/uc?export=download&id=1pIXCr736vsCqlCwzXDdwbL1WrmtWelev"
+    type="audio/mpeg">
+</audio>
+
+<button id="tombolMusik" onclick="toggleMusik()">
+  🎵 MUSIK OFF
+</button>
+
+
 <script>
 
 const programs = [
@@ -267,6 +301,7 @@ const list = document.getElementById("programList");
 const categories = [
   ...new Set(programs.map(program => program.category))
 ];
+
 
 categories.forEach(cat => {
   category.innerHTML += `<option value="${cat}">${cat}</option>`;
@@ -343,6 +378,33 @@ search.addEventListener("input", tampilkanProgram);
 category.addEventListener("change", tampilkanProgram);
 
 tampilkanProgram();
+
+
+// ==============================
+// PEMUTAR MUSIK
+// ==============================
+
+const musik = document.getElementById("musik");
+const tombolMusik = document.getElementById("tombolMusik");
+
+
+function toggleMusik() {
+
+  if (musik.paused) {
+
+    musik.play();
+
+    tombolMusik.textContent = "🎵 MUSIK ON";
+
+  } else {
+
+    musik.pause();
+
+    tombolMusik.textContent = "🔇 MUSIK OFF";
+
+  }
+
+}
 
 </script>
 
