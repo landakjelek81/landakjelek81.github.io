@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -128,6 +129,33 @@
       border-top: 1px solid var(--line);
     }
 
+    /* TOMBOL MUSIK */
+
+    #tombolMusik {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+
+      background: var(--panel);
+      color: var(--paper);
+
+      border: 1px solid var(--gold);
+      padding: 10px 15px;
+
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+
+      cursor: pointer;
+      z-index: 9999;
+
+      transition: 0.2s ease;
+    }
+
+    #tombolMusik:hover {
+      background: var(--gold);
+      color: #1c1b19;
+    }
+
     @media (max-width: 600px) {
 
       header {
@@ -145,12 +173,28 @@
       .menu a {
         padding: 25px 20px;
       }
+
+      #tombolMusik {
+        right: 15px;
+        bottom: 15px;
+      }
     }
   </style>
 
 </head>
 
 <body>
+
+  <!-- MUSIK -->
+
+  <audio id="musik" loop preload="auto">
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="tombolMusik" onclick="toggleMusik()">
+    🎵 MUSIK OFF
+  </button>
+
 
   <header>
 
@@ -212,5 +256,33 @@
     Dibuat &amp; dihosting oleh mrland.
   </footer>
 
+
+  <!-- SCRIPT MUSIK -->
+
+  <script>
+    const musik = document.getElementById("musik");
+    const tombolMusik = document.getElementById("tombolMusik");
+
+    function toggleMusik() {
+
+      if (musik.paused) {
+
+        musik.play().then(() => {
+          tombolMusik.textContent = "🎵 MUSIK ON";
+        }).catch(() => {
+          tombolMusik.textContent = "⚠️ MUSIK GAGAL";
+        });
+
+      } else {
+
+        musik.pause();
+        tombolMusik.textContent = "🔇 MUSIK OFF";
+
+      }
+
+    }
+  </script>
+
 </body>
 </html>
+```
