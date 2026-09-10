@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 
 <head>
@@ -12,7 +13,7 @@
 
   <style>
     :root {
-      --background: url("images.jfif") center/cover fixed;
+      --background: url("gambar.jfif") center/cover fixed;
       --overlay: rgba(20, 19, 17, 0.88);
 
       --paper: #efe9dc;
@@ -79,15 +80,11 @@
 
     .menu a {
       display: block;
-
       background: var(--panel);
       border: 1px solid var(--line);
-
       padding: 30px 25px;
-
       color: var(--paper);
       text-decoration: none;
-
       transition: 0.2s ease;
     }
 
@@ -106,7 +103,6 @@
 
     .menu .title {
       display: block;
-
       font-family: 'Fraunces', serif;
       font-size: 1.7rem;
       margin-bottom: 8px;
@@ -121,10 +117,8 @@
       max-width: 1000px;
       margin: 0 auto;
       padding: 25px 24px 40px;
-
       color: var(--muted);
       font-size: 0.7rem;
-
       border-top: 1px solid var(--line);
     }
 
@@ -187,97 +181,103 @@
   <!-- MUSIK -->
 
   <audio id="musik" loop>
-  <source src="./musik.mp3" type="audio/mpeg">
-</audio>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
 
   <button id="tombolMusik" onclick="toggleMusik()">
     🎵 MUSIK OFF
   </button>
 
-
   <header>
 
-    <h1>Dunia Landak</h1>
+```
+<h1>Dunia Landak</h1>
 
-    <p>
-      Kumpulan aplikasi, program, lagu, dan gambar
-      yang saya buat dan bagikan secara bebas.
-    </p>
+<p>
+  Kumpulan aplikasi, program, lagu, dan gambar
+  yang saya buat dan bagikan secara bebas.
+</p>
+```
 
   </header>
 
-
   <main>
 
-    <div class="menu">
+```
+<div class="menu">
 
-      <a href="aplikasi.html" target="_blank">
-        <span class="number">01</span>
-        <span class="title">Aplikasi</span>
-        <span class="desc">
-          Kumpulan aplikasi dan software.
-        </span>
-      </a>
-
-
-      <a href="program.html" target="_blank">
-        <span class="number">02</span>
-        <span class="title">Program</span>
-        <span class="desc">
-          Program dan source code.
-        </span>
-      </a>
+  <a href="aplikasi.html" target="_blank">
+    <span class="number">01</span>
+    <span class="title">Aplikasi</span>
+    <span class="desc">
+      Kumpulan aplikasi dan software.
+    </span>
+  </a>
 
 
-      <a href="lagu.html" target="_blank">
-        <span class="number">03</span>
-        <span class="title">Lagu</span>
-        <span class="desc">
-          Koleksi lagu dan audio.
-        </span>
-      </a>
+  <a href="program.html" target="_blank">
+    <span class="number">02</span>
+    <span class="title">Program</span>
+    <span class="desc">
+      Program dan source code.
+    </span>
+  </a>
 
 
-      <a href="gambar.html" target="_blank">
-        <span class="number">04</span>
-        <span class="title">Gambar</span>
-        <span class="desc">
-          Koleksi gambar dan karya.
-        </span>
-      </a>
+  <a href="lagu.html" target="_blank">
+    <span class="number">03</span>
+    <span class="title">Lagu</span>
+    <span class="desc">
+      Koleksi lagu dan audio.
+    </span>
+  </a>
 
-    </div>
+
+  <a href="gambar.html" target="_blank">
+    <span class="number">04</span>
+    <span class="title">Gambar</span>
+    <span class="desc">
+      Koleksi gambar dan karya.
+    </span>
+  </a>
+
+</div>
+```
 
   </main>
-
 
   <footer>
     Dibuat &amp; dihosting oleh mrland.
   </footer>
 
-
   <!-- SCRIPT MUSIK -->
 
   <script>
     const musik = document.getElementById("musik");
-const tombolMusik = document.getElementById("tombolMusik");
+    const tombolMusik = document.getElementById("tombolMusik");
 
-function toggleMusik() {
-  if (musik.paused) {
-    musik.play()
-      .then(() => {
-        tombolMusik.textContent = "🎵 MUSIK ON";
-      })
-      .catch((error) => {
-        console.log(error);
-        tombolMusik.textContent = "⚠️ MUSIK GAGAL";
-      });
-  } else {
-    musik.pause();
-    tombolMusik.textContent = "🔇 MUSIK OFF";
-  }
+    function toggleMusik() {
+
+      if (musik.paused) {
+
+        musik.play()
+          .then(() => {
+            tombolMusik.textContent = "🎵 MUSIK ON";
+          })
+          .catch((error) => {
+            console.log(error);
+            tombolMusik.textContent = "⚠️ MUSIK GAGAL";
+          });
+
+      } else {
+
+        musik.pause();
+        tombolMusik.textContent = "🔇 MUSIK OFF";
+
+      }
+
+    }
   </script>
 
 </body>
 </html>
-```
