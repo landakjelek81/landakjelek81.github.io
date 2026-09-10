@@ -2,150 +2,254 @@
 
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program - Landak Jelek</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dunia Landak - Program</title>
 
-<style>
-:root{
-  --bg:url("gambar.jfif") center/cover fixed;
-  --card:rgba(0,0,0,.72);
-  --text:#fff;
-  --accent:#00ff88;
-}
+  <style>
+    :root {
+      --bg: url("gambar.jfif") center/cover fixed;
+      --overlay: rgba(20, 19, 17, .88);
+      --paper: #efe9dc;
+      --panel: rgba(38, 36, 31, .88);
+      --line: #454137;
+      --gold: #c8992f;
+      --muted: #9a9482;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(var(--overlay), var(--overlay)),
+        var(--bg);
+      background-color: #1c1b19;
+      color: var(--paper);
+      font-family: monospace;
+    }
 
-header{
-  background:rgba(0,0,0,.85);
-  padding:20px;
-  text-align:center;
-  border-bottom:2px solid var(--accent);
-}
+    header,
+    main,
+    footer {
+      max-width: 1000px;
+      margin: auto;
+    }
 
-header h1{
-  margin:0 0 10px;
-  color:var(--accent);
-}
+    header {
+      padding: 60px 24px 35px;
+      border-bottom: 1px solid var(--line);
+    }
 
-header a{
-  color:white;
-  text-decoration:none;
-}
+    header a {
+      color: var(--gold);
+      text-decoration: none;
+    }
 
-.container{
-  max-width:1000px;
-  margin:30px auto;
-  padding:20px;
-}
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      margin: 15px 0 5px;
+    }
 
-.controls{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
+    header p,
+    .desc {
+      color: var(--muted);
+    }
 
-input,select{
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  font-size:16px;
-}
+    .tools {
+      display: flex;
+      gap: 10px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
 
-input{
-  flex:1;
-  min-width:200px;
-}
+    input,
+    select {
+      padding: 14px 16px;
+      background: rgba(20, 19, 17, .8);
+      border: 1px solid var(--line);
+      color: var(--paper);
+      font-family: monospace;
+      outline: none;
+    }
 
-.card{
-  background:var(--card);
-  padding:20px;
-  margin-bottom:15px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.2);
-}
+    input {
+      flex: 1;
+      min-width: 220px;
+    }
 
-.card h2{
-  margin-top:0;
-  color:var(--accent);
-}
+    input:focus,
+    select:focus {
+      border-color: var(--gold);
+    }
 
-.card p{
-  line-height:1.6;
-}
+    main {
+      padding: 40px 24px 80px;
+    }
 
-.btn{
-  display:inline-block;
-  padding:10px 15px;
-  background:var(--accent);
-  color:#000;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-  margin-top:10px;
-}
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      margin-bottom: 8px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
 
-#tombolMusik{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  padding:12px 18px;
-  border:none;
-  border-radius:30px;
-  background:var(--accent);
-  color:#000;
-  font-weight:bold;
-  cursor:pointer;
-  z-index:1000;
-}
-</style>
+    .info {
+      flex: 1;
+    }
+
+    .label {
+      color: var(--gold);
+      font-size: .72rem;
+      margin-top: 7px;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .category {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .65rem;
+    }
+
+    .desc {
+      margin-top: 4px;
+      font-size: .8rem;
+      line-height: 1.5;
+    }
+
+    .download {
+      padding: 10px 17px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: .75rem;
+      white-space: nowrap;
+    }
+
+    .download:hover {
+      background: var(--gold);
+      color: #1c1b19;
+    }
+
+    .empty {
+      padding: 30px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 25px 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .7rem;
+    }
+
+    /* TOMBOL MUSIK */
+
+    #tombolMusik {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: #1c1b19;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: monospace;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #tombolMusik:hover {
+      background: var(--gold);
+      color: #1c1b19;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 40px 18px 25px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      main {
+        padding: 25px 18px 60px;
+      }
+
+      .card {
+        align-items: flex-start;
+        padding: 16px;
+      }
+
+      .download {
+        padding: 9px 12px;
+      }
+    }
+  </style>
 
 </head>
 
 <body>
 
 <header>
-  <h1>💻 PROGRAM</h1>
-  <a href="index.html">← Kembali ke Beranda</a>
-</header>
+  <a href="index.html">← Kembali ke Dunia Landak</a>
 
-<div class="container">
+  <h1>Program</h1>
 
-  <div class="controls">
-    <input type="text" id="search" placeholder="🔍 Cari program...">
+  <p>Kumpulan program dan source code.</p>
+
+  <div class="tools">
+    <input
+      type="text"
+      id="search"
+      placeholder="Cari program..."
+    >
 
 ```
 <select id="category">
-  <option value="all">Semua Kategori</option>
-  <option value="Media Player">Media Player</option>
-  <option value="Edit Foto">Edit Foto</option>
-  <option value="Compress File">Compress File</option>
-  <option value="Edit File PDF">Edit File PDF</option>
+  <option value="semua">Semua kategori</option>
 </select>
 ```
 
   </div>
+</header>
 
+<main>
   <div id="programList"></div>
+</main>
 
-</div>
+<footer>
+  Dunia Landak · Program
+</footer>
+
+<!-- MUSIK -->
 
 <audio id="musik" loop>
-  <source src="musik.mp3" type="audio/mpeg">
+  <source
+    src="musik.mp3"
+    type="audio/mpeg">
 </audio>
 
-<button id="tombolMusik" onclick="toggleMusik()">🎵 MUSIK ON</button>
+<button id="tombolMusik" onclick="toggleMusik()">
+  🎵 MUSIK OFF
+</button>
 
 <script>
 
@@ -153,105 +257,122 @@ const programs = [
 
   {
     name: "Winamp Pro 5.66",
-    category: "Media Player",
-    desc: "Pemutar musik klasik yang ringan dan mudah digunakan.",
-    drive: "https://drive.google.com/file/d/1pIXCr736vsCqlCwzXDdwbL1WrmtWelev/view?usp=sharing"
+    category: "Music Player",
+    desc: "Aplikasi dengar Music keren",
+    drive: "https://drive.google.com/file/d/1dF4CTQBNSeeU_NqjB2Rde7aodc_XcvbE/view?usp=sharing"
   },
 
   {
     name: "VLC 1.1.7",
-    category: "Media Player",
-    desc: "Pemutar berbagai macam format video dan audio.",
-    drive: "https://drive.google.com/file/d/1example/view?usp=sharing"
+    category: "Video Player",
+    desc: "VLC 1.1.7 adalah versi lama dari pemutar media VLC yang dikenal karena stabilitas dan dukungan format multimedia yang luas tanpa codec tambahan.",
+    drive: "https://drive.google.com/file/d/1eAawa0KrvTEXglMAMvaT31nsCO8b12XS/view?usp=sharing"
   },
 
   {
-    name: "Photoshop CS3 Portable",
-    category: "Edit Foto",
-    desc: "Aplikasi editing foto portable yang ringan.",
-    drive: "https://drive.google.com/file/d/1example/view?usp=sharing"
+    name: "Photoshop CS 3 Portable",
+    category: "Editing Photo",
+    desc: "Adobe Photoshop CS3 Portable adalah versi “tanpa instalasi” dari Photoshop CS3 yang bisa langsung dijalankan dari folder atau flashdisk di Windows, cocok untuk komputer dengan spesifikasi rendah atau yang tidak memungkinkan instalasi software resmi",
+    drive: "https://drive.google.com/file/d/1T4MVD667X0caHekxt_Lxx0z0Cgjjjxee/view?usp=sharing"
   },
 
   {
     name: "Winrar 3.9 Final",
     category: "Compress File",
-    desc: "Aplikasi untuk membuka dan membuat file ZIP atau RAR.",
-    drive: "https://drive.google.com/file/d/1example/view?usp=sharing"
+    desc: "WinRAR 3.9 adalah versi lama dari utilitas pengarsipan dan kompresi file populer untuk Windows yang dikembangkan oleh Eugene Roshal (win.rar GmbH/RARLAB). Versi ini merupakan bagian dari seri WinRAR 3.x yang dirilis pada era 2000-an dan masih menggunakan antarmuka klasik yang khas",
+    drive: "https://drive.google.com/file/d/1orvgznMZm4wwngzwq588KMWxUfzTsfxK/view?usp=sharing"
   },
 
   {
     name: "PDF Editing",
     category: "Edit File PDF",
-    desc: "Aplikasi yang dapat mengedit file-file PDF dengan mudah.",
+    desc: "Aplikasi yang dapat mengedit file-file pdf dengan mudah",
     drive: "https://drive.google.com/file/d/1Mk-9SBJWwriNxxsUXFuSlfCA0jphpPby/view?usp=sharing"
   }
 
 ];
 
+
 const search = document.getElementById("search");
 const category = document.getElementById("category");
-const programList = document.getElementById("programList");
+const list = document.getElementById("programList");
 
-function tampilkanProgram(){
 
-  const keyword = search.value.toLowerCase();
-  const selectedCategory = category.value;
+const categories = [
+  ...new Set(programs.map(program => program.category))
+];
+
+
+categories.forEach(cat => {
+  category.innerHTML += `<option value="${cat}">${cat}</option>`;
+});
+
+
+function tampilkanProgram() {
+
+  const kata = search.value.toLowerCase();
+  const pilihKategori = category.value;
 
   const hasil = programs.filter(program => {
 
-    const cocokNama =
-      program.name.toLowerCase().includes(keyword);
-
-    const cocokDeskripsi =
-      program.desc.toLowerCase().includes(keyword);
+    const cocokSearch =
+      program.name.toLowerCase().includes(kata) ||
+      program.category.toLowerCase().includes(kata) ||
+      program.desc.toLowerCase().includes(kata);
 
     const cocokKategori =
-      selectedCategory === "all" ||
-      program.category === selectedCategory;
+      pilihKategori === "semua" ||
+      program.category === pilihKategori;
 
-    return (cocokNama || cocokDeskripsi) && cocokKategori;
+    return cocokSearch && cocokKategori;
   });
 
-  programList.innerHTML = "";
 
-  if(hasil.length === 0){
-    programList.innerHTML = `
-      <div class="card">
-        <h2>😕 Program tidak ditemukan</h2>
-        <p>Coba gunakan kata pencarian yang lain.</p>
+  if (hasil.length === 0) {
+    list.innerHTML = `
+      <div class="empty">
+        Program tidak ditemukan.
       </div>
     `;
     return;
   }
 
-  hasil.forEach(program => {
 
-    programList.innerHTML += `
+  list.innerHTML = hasil.map(program => {
+
+    const download = program.drive
+      ? `<a class="download"
+           href="${program.drive}"
+           target="_blank"
+           rel="noopener noreferrer">
+           DOWNLOAD
+         </a>`
+      : "";
+
+    return `
       <div class="card">
-        <h2>${program.name}</h2>
 
-        <p>
-          <strong>Kategori:</strong>
-          ${program.category}
-        </p>
+        <div class="info">
 
-        <p>
-          ${program.desc}
-        </p>
+          <div class="label">Program</div>
+          <div class="title">${program.name}</div>
 
-        <a
-          class="btn"
-          href="${program.drive}"
-          target="_blank"
-          rel="noopener noreferrer">
-          ⬇️ DOWNLOAD
-        </a>
+          <div class="label">Kategori</div>
+          <div class="category">${program.category}</div>
+
+          <div class="label">Deskripsi</div>
+          <div class="desc">${program.desc}</div>
+
+        </div>
+
+        ${download}
+
       </div>
     `;
 
-  });
-
+  }).join("");
 }
+
 
 search.addEventListener("input", tampilkanProgram);
 category.addEventListener("change", tampilkanProgram);
@@ -259,24 +380,26 @@ category.addEventListener("change", tampilkanProgram);
 tampilkanProgram();
 
 
+// ==============================
+// PEMUTAR MUSIK
+// ==============================
+
 const musik = document.getElementById("musik");
 const tombolMusik = document.getElementById("tombolMusik");
 
-function toggleMusik(){
 
-  if(musik.paused){
+function toggleMusik() {
 
-    musik.play()
-      .then(() => {
-        tombolMusik.textContent = "🎵 MUSIK ON";
-      })
-      .catch(() => {
-        tombolMusik.textContent = "⚠️ MUSIK GAGAL";
-      });
+  if (musik.paused) {
 
-  }else{
+    musik.play();
+
+    tombolMusik.textContent = "🎵 MUSIK ON";
+
+  } else {
 
     musik.pause();
+
     tombolMusik.textContent = "🔇 MUSIK OFF";
 
   }
