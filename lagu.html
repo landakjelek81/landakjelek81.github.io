@@ -76,10 +76,18 @@ main {
   gap:8px;
 }
 
+.huruf {
+  color:var(--gold);
+  font-size:1rem;
+  font-weight:bold;
+  margin-top:20px;
+  margin-bottom:4px;
+}
+
 .card {
   background:var(--panel);
   border:1px solid var(--line);
-  padding:20px;
+  padding:18px 20px;
   transition:.2s ease;
 }
 
@@ -88,24 +96,23 @@ main {
   transform:translateX(3px);
 }
 
-.huruf {
-  color:var(--gold);
-  font-size:.7rem;
-  margin-bottom:8px;
-}
-
 .artis {
+  display:inline;
   color:var(--paper);
   font-size:1rem;
   font-weight:500;
 }
 
+.artis::after {
+  content:" — ";
+  color:var(--muted);
+}
+
 .judul {
-  display:block;
+  display:inline;
   color:var(--muted);
   text-decoration:none;
   font-size:.8rem;
-  margin-top:4px;
 }
 
 .judul:hover {
@@ -157,39 +164,48 @@ Kumpulan lagu dan audio, disusun berdasarkan abjad.
 
   <!-- W -->
 
-<article class="card">
-
-<div class="huruf">W</div>
-
-<div class="artis"> Westlife </div>
-
-<a class="judul" href="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-Soledad
-</a>
-
-</article>
-
-<article class="card">
-
-<div class="huruf">W</div>
-
-<div class="artis"> White Lion </div>
-
-<a class="judul" href="https://drive.google.com/file/d/13Gjux0jSdskeBlS1pB36ZHkawhSfIS9d/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-When the Children Cry
-</a>
-
-</article>
-
-  <!-- Y -->
+  <div class="huruf">W</div>
 
   <article class="card">
 
-<div class="huruf">Y</div>
+```
+<div class="artis">Westlife</div>
 
-<div class="artis">
-  Yuni Shara
-</div>
+<a
+  class="judul"
+  href="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer">
+  Soledad
+</a>
+```
+
+  </article>
+
+  <article class="card">
+
+```
+<div class="artis">White Lion</div>
+
+<a
+  class="judul"
+  href="https://drive.google.com/file/d/13Gjux0jSdskeBlS1pB36ZHkawhSfIS9d/view?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer">
+  When the Children Cry
+</a>
+```
+
+  </article>
+
+  <!-- Y -->
+
+  <div class="huruf">Y</div>
+
+  <article class="card">
+
+```
+<div class="artis">Yuni Shara</div>
 
 <a
   class="judul"
@@ -198,6 +214,7 @@ When the Children Cry
   rel="noopener noreferrer">
   Kucari Jalan Terbaik
 </a>
+```
 
   </article>
 
