@@ -187,9 +187,9 @@
 
   <!-- MUSIK -->
 
-  <audio id="musik" loop preload="auto">
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="musik" loop>
+  <source src="./musik.mp3" type="audio/mpeg">
+</audio>
 
   <button id="tombolMusik" onclick="toggleMusik()">
     🎵 MUSIK OFF
@@ -261,26 +261,22 @@
 
   <script>
     const musik = document.getElementById("musik");
-    const tombolMusik = document.getElementById("tombolMusik");
+const tombolMusik = document.getElementById("tombolMusik");
 
-    function toggleMusik() {
-
-      if (musik.paused) {
-
-        musik.play().then(() => {
-          tombolMusik.textContent = "🎵 MUSIK ON";
-        }).catch(() => {
-          tombolMusik.textContent = "⚠️ MUSIK GAGAL";
-        });
-
-      } else {
-
-        musik.pause();
-        tombolMusik.textContent = "🔇 MUSIK OFF";
-
-      }
-
-    }
+function toggleMusik() {
+  if (musik.paused) {
+    musik.play()
+      .then(() => {
+        tombolMusik.textContent = "🎵 MUSIK ON";
+      })
+      .catch((error) => {
+        console.log(error);
+        tombolMusik.textContent = "⚠️ MUSIK GAGAL";
+      });
+  } else {
+    musik.pause();
+    tombolMusik.textContent = "🔇 MUSIK OFF";
+  }
   </script>
 
 </body>
