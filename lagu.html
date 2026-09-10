@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 
 <head>
@@ -10,7 +11,7 @@
 <style>
 
 :root {
-  --background:url("images.jfif") center/cover fixed;
+  --background:url("gambar.jfif") center/cover fixed;
   --overlay:rgba(20,19,17,.88);
   --paper:#efe9dc;
   --panel:rgba(38,36,31,.88);
@@ -67,11 +68,48 @@ main {
   padding:40px 24px 80px;
 }
 
+/* DAFTAR LAGU */
+
+.lagu-list {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+}
+
 .card {
   background:var(--panel);
   border:1px solid var(--line);
   padding:20px;
-  margin-bottom:5px;
+  min-height:100px;
+  transition:.2s ease;
+}
+
+.card:hover {
+  border-color:var(--gold);
+  transform:translateY(-3px);
+}
+
+.huruf {
+  color:var(--gold);
+  font-size:.7rem;
+  margin-bottom:10px;
+}
+
+.judul {
+  display:block;
+  color:var(--paper);
+  text-decoration:none;
+  font-size:.9rem;
+}
+
+.judul:hover {
+  color:var(--gold);
+}
+
+.penyanyi {
+  color:var(--muted);
+  font-size:.7rem;
+  margin-top:5px;
 }
 
 footer {
@@ -81,7 +119,34 @@ footer {
   font-size:.7rem;
 }
 
+/* HP */
+
+@media (max-width:700px) {
+
+  .lagu-list {
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width:500px) {
+
+  header {
+    padding:45px 18px 30px;
+  }
+
+  main {
+    padding:30px 18px 60px;
+  }
+
+  .lagu-list {
+    grid-template-columns:1fr;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
@@ -92,14 +157,60 @@ footer {
 
 <h1>Lagu</h1>
 
-<p>Kumpulan lagu dan audio.</p>
+<p>
+Kumpulan lagu dan audio, disusun berdasarkan abjad.
+</p>
 
 </header>
 
 <main>
 
-<div class="card">
-  Belum ada lagu.
+<div class="lagu-list">
+
+  <!-- W -->
+
+  <article class="card">
+
+```
+<div class="huruf">W</div>
+
+<a
+  class="judul"
+  href="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer">
+  Soledad
+</a>
+
+<div class="penyanyi">
+  Westlife
+</div>
+```
+
+  </article>
+
+  <!-- Y -->
+
+  <article class="card">
+
+```
+<div class="huruf">Y</div>
+
+<a
+  class="judul"
+  href="https://drive.google.com/file/d/15FZSjHJlB-3KfcvLPJ7vIVVnqC06CQQi/view?usp=drive_link"
+  target="_blank"
+  rel="noopener noreferrer">
+  Kucari Jalan Terbaik
+</a>
+
+<div class="penyanyi">
+  Yuni Shara
+</div>
+```
+
+  </article>
+
 </div>
 
 </main>
