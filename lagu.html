@@ -114,6 +114,7 @@ main {
 }
 
 .card {
+  display:block;
   background:var(--panel);
   border:1px solid var(--line);
   padding:18px 20px;
@@ -313,33 +314,53 @@ const cards = document.querySelectorAll(".card");
 const huruf = document.querySelectorAll(".huruf");
 const hasil = document.getElementById("hasil");
 
+
+function tampilkanSemuaLagu() {
+
+  cards.forEach(function(card) {
+    card.style.display = "block";
+  });
+
+  huruf.forEach(function(group) {
+    group.style.display = "block";
+  });
+
+  hasil.textContent = "";
+
+}
+
+
 searchInput.addEventListener("input", function() {
 
   const kata = this.value.toLowerCase().trim();
+
+  if (kata === "") {
+    tampilkanSemuaLagu();
+    return;
+  }
 
   let jumlah = 0;
 
   cards.forEach(function(card) {
 
-    const artis = card
-      .querySelector(".artis")
-      .textContent
-      .toLowerCase();
+    const artis =
+      card.querySelector(".artis").textContent.toLowerCase();
 
-    const judul = card
-      .querySelector(".judul")
-      .textContent
-      .toLowerCase();
+    const judul =
+      card.querySelector(".judul").textContent.toLowerCase();
 
-    const cocok =
+    if (
       artis.includes(kata) ||
-      judul.includes(kata);
+      judul.includes(kata)
+    ) {
 
-    if (cocok) {
-      card.style.display = "";
+      card.style.display = "block";
       jumlah++;
+
     } else {
+
       card.style.display = "none";
+
     }
 
   });
@@ -359,24 +380,26 @@ searchInput.addEventListener("input", function() {
         element.classList.contains("card") &&
         element.style.display !== "none"
       ) {
+
         adaLagu = true;
         break;
+
       }
 
       element = element.nextElementSibling;
 
     }
 
-    group.style.display = adaLagu ? "" : "none";
+    if (adaLagu) {
+      group.style.display = "block";
+    } else {
+      group.style.display = "none";
+    }
 
   });
 
 
-  if (kata === "") {
-
-    hasil.textContent = "";
-
-  } else if (jumlah === 0) {
+  if (jumlah === 0) {
 
     hasil.textContent =
       "Tidak ada lagu yang ditemukan.";
@@ -389,6 +412,11 @@ searchInput.addEventListener("input", function() {
   }
 
 });
+
+
+/* Pastikan semua lagu tampil saat halaman pertama dibuka */
+
+tampilkanSemuaLagu();
 
 </script>
 
