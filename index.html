@@ -13,142 +13,313 @@
 
   <style>
     :root {
-      --background: url("gambar.jfif") center/cover fixed;
-      --overlay: rgba(20, 19, 17, 0.88);
+      /* =========================
+         BACKGROUND
+         ========================= */
+
+      --background-image: url("gambar.jfif");
+
       --paper: #efe9dc;
-      --panel: rgba(38, 36, 31, 0.88);
-      --line: #454137;
-      --gold: #c8992f;
-      --muted: #9a9482;
+      --panel: rgba(25, 23, 20, 0.72);
+      --panel-hover: rgba(45, 41, 34, 0.86);
+
+      --line: rgba(220, 205, 170, 0.22);
+      --gold: #d3a43a;
+      --muted: #aaa28e;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      min-height: 100%;
+      background: #151412;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
 
-      background:
-        linear-gradient(var(--overlay), var(--overlay)),
-        var(--background);
-
-      background-color: #1c1b19;
-      background-attachment: fixed;
-
       color: var(--paper);
       font-family: 'IBM Plex Mono', monospace;
       line-height: 1.5;
+
+      /*
+       * BACKGROUND UTAMA
+       * Gambar tetap terlihat tetapi dibuat
+       * sedikit gelap agar tulisan mudah dibaca.
+       */
+      background-image:
+        linear-gradient(
+          180deg,
+          rgba(8, 7, 6, 0.45) 0%,
+          rgba(12, 11, 9, 0.62) 45%,
+          rgba(8, 7, 6, 0.84) 100%
+        ),
+        var(--background-image);
+
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      position: relative;
     }
+
+    /*
+     * Efek cahaya lembut di tengah halaman.
+     */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255, 210, 120, 0.10),
+          transparent 42%
+        );
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /*
+     * Lapisan gelap tambahan untuk bagian bawah.
+     */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 50%,
+          rgba(0, 0, 0, 0.20) 100%
+        );
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
 
     header {
       max-width: 1000px;
       margin: 0 auto;
+
       padding: 80px 24px 45px;
+
       border-bottom: 1px solid var(--line);
     }
 
     header h1 {
       font-family: 'Fraunces', serif;
       font-weight: 600;
+
       font-size: clamp(2.8rem, 7vw, 5rem);
+
       margin: 0 0 14px;
+
       letter-spacing: -0.02em;
+
+      text-shadow:
+        0 3px 20px rgba(0, 0, 0, 0.45);
     }
 
     header p {
       color: var(--muted);
+
       max-width: 650px;
+
       margin: 0;
+
       font-size: 0.9rem;
+
+      text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.5);
     }
+
+    /* =========================
+       MAIN
+       ========================= */
 
     main {
       max-width: 1000px;
       margin: 0 auto;
+
       padding: 55px 24px 100px;
     }
 
+    /* =========================
+       MENU
+       ========================= */
+
     .menu {
       display: grid;
+
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+
+      gap: 14px;
     }
 
     .menu a {
       display: block;
+
+      /*
+       * Efek transparan seperti kaca.
+       * Background asli masih sedikit terlihat.
+       */
       background: var(--panel);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
       border: 1px solid var(--line);
+
       padding: 30px 25px;
+
       color: var(--paper);
+
       text-decoration: none;
-      transition: 0.2s ease;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .menu a:hover {
       border-color: var(--gold);
-      background: rgba(45, 42, 36, 0.94);
-      transform: translateY(-3px);
+
+      background: var(--panel-hover);
+
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
     }
 
     .menu .number {
       display: block;
+
       color: var(--gold);
+
       font-size: 0.7rem;
+
       margin-bottom: 12px;
+
+      letter-spacing: 0.08em;
     }
 
     .menu .title {
       display: block;
+
       font-family: 'Fraunces', serif;
+
       font-size: 1.7rem;
+
       margin-bottom: 8px;
+
+      text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.3);
     }
 
     .menu .desc {
       color: var(--muted);
+
       font-size: 0.75rem;
     }
+
+    /* =========================
+       FOOTER
+       ========================= */
 
     footer {
       max-width: 1000px;
       margin: 0 auto;
+
       padding: 25px 24px 40px;
+
       color: var(--muted);
+
       font-size: 0.7rem;
+
       border-top: 1px solid var(--line);
     }
 
+    /* =========================
+       TOMBOL MUSIK
+       ========================= */
+
     #tombolMusik {
       position: fixed;
+
       right: 20px;
       bottom: 20px;
 
-      background: var(--panel);
+      background: rgba(25, 23, 20, 0.82);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
       color: var(--paper);
 
       border: 1px solid var(--gold);
+
       padding: 10px 15px;
 
       font-family: 'IBM Plex Mono', monospace;
+
       font-size: 0.75rem;
 
       cursor: pointer;
+
       z-index: 9999;
 
-      transition: 0.2s ease;
+      transition:
+        0.2s ease;
+
+      box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     #tombolMusik:hover {
       background: var(--gold);
+
       color: #1c1b19;
+
+      transform: translateY(-2px);
     }
+
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 600px) {
 
+      body {
+        /*
+         * Pada HP background fixed kadang kurang
+         * bagus/performa kurang baik.
+         */
+        background-attachment: scroll;
+
+        background-position: center top;
+      }
+
       header {
         padding: 55px 18px 35px;
+      }
+
+      header h1 {
+        font-size: clamp(2.5rem, 14vw, 4rem);
       }
 
       main {
@@ -157,6 +328,8 @@
 
       .menu {
         grid-template-columns: 1fr;
+
+        gap: 12px;
       }
 
       .menu a {
@@ -168,11 +341,16 @@
         bottom: 15px;
       }
     }
+
   </style>
 
 </head>
 
 <body>
+
+  <!-- =========================
+       MUSIK
+       ========================= -->
 
   <audio id="musik" loop>
     <source src="musik.mp3" type="audio/mpeg">
@@ -182,60 +360,99 @@
     🎵 MUSIK OFF
   </button>
 
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header>
 
+```
 <h1>Dunia Landak</h1>
 
 <p>
   Kumpulan aplikasi, program, lagu, dan gambar
   yang saya buat dan bagikan secara bebas.
 </p>
+```
 
   </header>
 
+  <!-- =========================
+       MENU
+       ========================= -->
+
   <main>
 
+```
 <div class="menu">
 
   <a href="games.html">
     <span class="number">01</span>
-    <span class="title">Games</span>
+
+    <span class="title">
+      Games
+    </span>
+
     <span class="desc">
       Kumpulan games dan permainan.
     </span>
   </a>
 
+
   <a href="program.html">
     <span class="number">02</span>
-    <span class="title">Program</span>
+
+    <span class="title">
+      Program
+    </span>
+
     <span class="desc">
       Program dan source code.
     </span>
   </a>
 
+
   <a href="lagu.html">
     <span class="number">03</span>
-    <span class="title">Lagu</span>
+
+    <span class="title">
+      Lagu
+    </span>
+
     <span class="desc">
       Koleksi lagu dan audio.
     </span>
   </a>
 
+
   <a href="gambar.html">
     <span class="number">04</span>
-    <span class="title">Gambar</span>
+
+    <span class="title">
+      Gambar
+    </span>
+
     <span class="desc">
       Koleksi gambar dan karya.
     </span>
   </a>
 
 </div>
+```
 
   </main>
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
 
   <footer>
     Dibuat &amp; dihosting oleh mrland.
   </footer>
+
+  <!-- =========================
+       JAVASCRIPT MUSIK
+       ========================= -->
 
   <script>
 
@@ -248,16 +465,22 @@
 
         musik.play()
           .then(() => {
+
             tombolMusik.textContent = "🎵 MUSIK ON";
+
           })
           .catch((error) => {
+
             console.log(error);
+
             tombolMusik.textContent = "⚠️ MUSIK GAGAL";
+
           });
 
       } else {
 
         musik.pause();
+
         tombolMusik.textContent = "🔇 MUSIK OFF";
 
       }
