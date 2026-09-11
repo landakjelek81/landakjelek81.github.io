@@ -1,77 +1,440 @@
-<div class="gallery">
+<!DOCTYPE html>
+<html lang="id">
 
-  <!-- AKADEMI PARIWISATA MEDAN -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="card">
+<title>Dunia Landak - Gambar</title>
 
-    <a
-      href="https://drive.google.com/uc?export=view&id=14fh7Y5EdA6LHqJSrRM99TMQAOvyj3Qqi"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+<style>
 
-      <img
-        src="https://drive.google.com/uc?export=view&id=14fh7Y5EdA6LHqJSrRM99TMQAOvyj3Qqi"
-        alt="Akademi Pariwisata Medan"
+/* =========================
+   VARIABEL
+   ========================= */
+
+:root {
+  --background:url("images.jfif") center/cover fixed;
+  --overlay:rgba(20,19,17,.78);
+
+  --paper:#efe9dc;
+  --panel:rgba(38,36,31,.90);
+  --line:#454137;
+
+  --gold:#c8992f;
+  --muted:#9a9482;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+  box-sizing:border-box;
+}
+
+
+/* =========================
+   BODY
+   ========================= */
+
+body {
+  margin:0;
+  min-height:100vh;
+
+  background:
+    linear-gradient(var(--overlay),var(--overlay)),
+    var(--background);
+
+  background-color:#1c1b19;
+  background-attachment:fixed;
+
+  color:var(--paper);
+  font-family:monospace;
+}
+
+
+/* =========================
+   CONTAINER
+   ========================= */
+
+header,
+main,
+footer {
+  max-width:1000px;
+  margin:auto;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+  padding:60px 24px 35px;
+  border-bottom:1px solid var(--line);
+}
+
+header a {
+  color:var(--gold);
+  text-decoration:none;
+
+  transition:opacity .2s ease;
+}
+
+header a:hover {
+  opacity:.7;
+}
+
+h1 {
+  font-family:Georgia,serif;
+  font-size:3rem;
+  margin:15px 0 5px;
+}
+
+header p {
+  color:var(--muted);
+  margin-top:10px;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+  padding:40px 24px 80px;
+}
+
+
+/* =========================
+   GALERI
+   ========================= */
+
+.gallery {
+  display:grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap:18px;
+}
+
+
+/* =========================
+   CARD
+   ========================= */
+
+.card {
+  background:var(--panel);
+
+  border:1px solid var(--line);
+
+  padding:12px;
+
+  margin:0;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+
+  border-color:var(--gold);
+
+  background:rgba(45,42,36,.96);
+}
+
+
+/* =========================
+   LINK
+   ========================= */
+
+.card a {
+  display:block;
+
+  color:var(--paper);
+
+  text-decoration:none;
+}
+
+
+/* =========================
+   GAMBAR
+   ========================= */
+
+.card img {
+  display:block;
+
+  width:100%;
+  height:220px;
+
+  object-fit:cover;
+
+  background:#1c1b19;
+
+  border:1px solid var(--line);
+
+  transition:
+    opacity .2s ease,
+    transform .2s ease;
+}
+
+.card:hover img {
+  opacity:.9;
+  transform:scale(1.01);
+}
+
+
+/* =========================
+   NAMA FILE / JUDUL
+   ========================= */
+
+.filename {
+  display:block;
+
+  padding:13px 5px 5px;
+
+  color:var(--paper);
+
+  font-size:.82rem;
+
+  line-height:1.5;
+
+  word-break:break-word;
+}
+
+.number {
+  display:block;
+
+  color:var(--gold);
+
+  font-size:.65rem;
+
+  margin-bottom:4px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  border-top:1px solid var(--line);
+
+  padding:25px 24px;
+
+  color:var(--muted);
+
+  font-size:.7rem;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width:700px) {
+
+  .gallery {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .card img {
+    height:180px;
+  }
+
+}
+
+
+/* =========================
+   HP
+   ========================= */
+
+@media (max-width:450px) {
+
+  header {
+    padding:45px 18px 30px;
+  }
+
+  h1 {
+    font-size:2.5rem;
+  }
+
+  main {
+    padding:30px 18px 60px;
+  }
+
+  .gallery {
+    grid-template-columns:1fr;
+  }
+
+  .card img {
+    height:auto;
+    min-height:200px;
+    max-height:400px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
+<header>
+
+  <a href="index.html">
+    ← Kembali ke Dunia Landak
+  </a>
+
+  <h1>Gambar</h1>
+
+  <p>
+    Kumpulan gambar dan karya.
+  </p>
+
+</header>
+
+
+<!-- =========================
+     GALERI
+     ========================= -->
+
+<main>
+
+  <div class="gallery">
+
+
+    <!-- =====================
+         GAMBAR 01
+         AKADEMI PARIWISATA MEDAN
+         ===================== -->
+
+    <div class="card">
+
+      <a
+        href="https://drive.google.com/file/d/14fh7Y5EdA6LHqJSrRM99TMQAOvyj3Qqi/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
       >
 
-      <span class="filename">
-        <span class="number">01</span>
-        Akademi Pariwisata Medan
-      </span>
+        <img
+          src="https://drive.google.com/thumbnail?id=14fh7Y5EdA6LHqJSrRM99TMQAOvyj3Qqi&sz=w1200"
+          alt="Akademi Pariwisata Medan"
+          loading="lazy"
+        >
 
-    </a>
+        <span class="filename">
+
+          <span class="number">
+            01
+          </span>
+
+          Akademi Pariwisata Medan
+
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <!-- =====================
+         GAMBAR 02
+         AKPER YBS MEDAN
+         ===================== -->
+
+    <div class="card">
+
+      <a
+        href="https://drive.google.com/file/d/1UP8M9iDbEYJgypt53XsNn3ZMU8CwV5Ng/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="https://drive.google.com/thumbnail?id=1UP8M9iDbEYJgypt53XsNn3ZMU8CwV5Ng&sz=w1200"
+          alt="Akper YBS Medan"
+          loading="lazy"
+        >
+
+        <span class="filename">
+
+          <span class="number">
+            02
+          </span>
+
+          Akper YBS Medan
+
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <!-- =====================
+         GAMBAR 03
+         AL-AZHAR MEDAN
+         ===================== -->
+
+    <div class="card">
+
+      <a
+        href="https://drive.google.com/file/d/15M6pVb_nQO_iuC0Bf6f-UbsNo4WgZBxh/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="https://drive.google.com/thumbnail?id=15M6pVb_nQO_iuC0Bf6f-UbsNo4WgZBxh&sz=w1200"
+          alt="Al-Azhar Medan"
+          loading="lazy"
+        >
+
+        <span class="filename">
+
+          <span class="number">
+            03
+          </span>
+
+          Al-Azhar Medan
+
+        </span>
+
+      </a>
+
+    </div>
+
 
   </div>
 
-
-  <!-- AKPER YBS MEDAN -->
-
-  <div class="card">
-
-    <a
-      href="https://drive.google.com/uc?export=view&id=1UP8M9iDbEYJgypt53XsNn3ZMU8CwV5Ng"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-
-      <img
-        src="https://drive.google.com/uc?export=view&id=1UP8M9iDbEYJgypt53XsNn3ZMU8CwV5Ng"
-        alt="Akper YBS Medan"
-      >
-
-      <span class="filename">
-        <span class="number">02</span>
-        Akper YBS Medan
-      </span>
-
-    </a>
-
-  </div>
+</main>
 
 
-  <!-- AL-AZHAR MEDAN -->
+<!-- =========================
+     FOOTER
+     ========================= -->
 
-  <div class="card">
+<footer>
 
-    <a
-      href="https://drive.google.com/uc?export=view&id=15M6pVb_nQO_iuC0Bf6f-UbsNo4WgZBxh"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+  Dunia Landak · Gambar
 
-      <img
-        src="https://drive.google.com/uc?export=view&id=15M6pVb_nQO_iuC0Bf6f-UbsNo4WgZBxh"
-        alt="Al-Azhar Medan"
-      >
+</footer>
 
-      <span class="filename">
-        <span class="number">03</span>
-        Al-Azhar Medan
-      </span>
 
-    </a>
+</body>
 
-  </div>
-
-</div>
+</html>
