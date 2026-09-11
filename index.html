@@ -206,7 +206,7 @@
 ```
 <div class="menu">
 
-  <a href="games.html" target="_blank">
+  <a href="games.html" target="landakTab">
     <span class="number">01</span>
     <span class="title">Games</span>
     <span class="desc">
@@ -214,7 +214,7 @@
     </span>
   </a>
 
-  <a href="program.html" target="_blank">
+  <a href="program.html" target="landakTab">
     <span class="number">02</span>
     <span class="title">Program</span>
     <span class="desc">
@@ -222,7 +222,7 @@
     </span>
   </a>
 
-  <a href="lagu.html" target="_blank">
+  <a href="lagu.html" target="landakTab">
     <span class="number">03</span>
     <span class="title">Lagu</span>
     <span class="desc">
@@ -230,7 +230,7 @@
     </span>
   </a>
 
-  <a href="gambar.html" target="_blank">
+  <a href="gambar.html" target="landakTab">
     <span class="number">04</span>
     <span class="title">Gambar</span>
     <span class="desc">
@@ -250,6 +250,7 @@
   <!-- SCRIPT MUSIK -->
 
   <script>
+
     const musik = document.getElementById("musik");
     const tombolMusik = document.getElementById("tombolMusik");
 
@@ -274,36 +275,6 @@
       }
 
     }
-
-
-    /*
-      NAVIGASI TAB
-
-      Jika index.html dibuka dari tab utama:
-      - menu membuka tab baru.
-
-      Jika index.html dibuka dari tab yang sudah merupakan
-      hasil dari menu sebelumnya:
-      - menu tetap dibuka di tab yang sama.
-    */
-
-    const menuLinks = document.querySelectorAll(".menu a");
-
-    menuLinks.forEach(function(link) {
-
-      link.addEventListener("click", function(event) {
-
-        if (window.opener) {
-
-          event.preventDefault();
-
-          window.location.href = this.href;
-
-        }
-
-      });
-
-    });
 
   </script>
 
