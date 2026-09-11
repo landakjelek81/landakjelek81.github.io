@@ -190,30 +190,29 @@
 
   <header>
 
-
+```
 <h1>Dunia Landak</h1>
 
 <p>
   Kumpulan aplikasi, program, lagu, dan gambar
   yang saya buat dan bagikan secara bebas.
 </p>
-
+```
 
   </header>
 
   <main>
 
-
+```
 <div class="menu">
 
   <a href="games.html" target="_blank">
-<span class="number">01</span>
-<span class="title">Games</span>
-<span class="desc">
-Kumpulan games dan permainan.
-</span>
-</a>
-
+    <span class="number">01</span>
+    <span class="title">Games</span>
+    <span class="desc">
+      Kumpulan games dan permainan.
+    </span>
+  </a>
 
   <a href="program.html" target="_blank">
     <span class="number">02</span>
@@ -223,7 +222,6 @@ Kumpulan games dan permainan.
     </span>
   </a>
 
-
   <a href="lagu.html" target="_blank">
     <span class="number">03</span>
     <span class="title">Lagu</span>
@@ -231,7 +229,6 @@ Kumpulan games dan permainan.
       Koleksi lagu dan audio.
     </span>
   </a>
-
 
   <a href="gambar.html" target="_blank">
     <span class="number">04</span>
@@ -242,7 +239,7 @@ Kumpulan games dan permainan.
   </a>
 
 </div>
-
+```
 
   </main>
 
@@ -277,7 +274,39 @@ Kumpulan games dan permainan.
       }
 
     }
+
+
+    /*
+      NAVIGASI TAB
+
+      Jika index.html dibuka dari tab utama:
+      - menu membuka tab baru.
+
+      Jika index.html dibuka dari tab yang sudah merupakan
+      hasil dari menu sebelumnya:
+      - menu tetap dibuka di tab yang sama.
+    */
+
+    const menuLinks = document.querySelectorAll(".menu a");
+
+    menuLinks.forEach(function(link) {
+
+      link.addEventListener("click", function(event) {
+
+        if (window.opener) {
+
+          event.preventDefault();
+
+          window.location.href = this.href;
+
+        }
+
+      });
+
+    });
+
   </script>
 
 </body>
+
 </html>
