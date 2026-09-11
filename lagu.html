@@ -68,6 +68,40 @@ main {
   padding:40px 24px 80px;
 }
 
+/* SEARCH */
+
+.search-box {
+  margin-bottom:30px;
+}
+
+.search-box input {
+  width:100%;
+  padding:16px 18px;
+
+  background:rgba(20,19,17,.9);
+  border:1px solid var(--line);
+
+  color:var(--paper);
+  font-family:monospace;
+  font-size:1rem;
+
+  outline:none;
+}
+
+.search-box input:focus {
+  border-color:var(--gold);
+}
+
+.search-box input::placeholder {
+  color:var(--muted);
+}
+
+.hasil {
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.75rem;
+}
+
 .lagu-list {
   display:flex;
   flex-direction:column;
@@ -134,6 +168,10 @@ footer {
     padding:30px 18px 60px;
   }
 
+  h1 {
+    font-size:2.4rem;
+  }
+
 }
 
 </style>
@@ -155,6 +193,18 @@ Kumpulan lagu dan audio, disusun berdasarkan abjad.
 </header>
 
 <main>
+
+<div class="search-box">
+
+<input
+type="search"
+id="searchLagu"
+placeholder="🔎 Cari artis atau judul lagu..."
+autocomplete="off">
+
+<div class="hasil" id="hasil"></div>
+
+</div>
 
 <div class="lagu-list">
 
@@ -188,80 +238,4 @@ Penyesalan </a>
 
 <article class="card">
 
-<div class="artis">Vagetoz</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1n_GQGoKiLBB9YIZ-a7_f-OCQ4ituuogz/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Saat Kau Pergi </a>
-
-</article>
-
-<div class="huruf">W</div>
-
-<article class="card">
-
-<div class="artis">Westlife</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-Soledad </a>
-
-</article>
-
-<article class="card">
-
-<div class="artis">White Lion</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/13Gjux0jSdskeBlS1pB36ZHkawhSfIS9d/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-When the Children Cry </a>
-
-</article>
-
-<article class="card">
-
-<div class="artis">White Lion</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1On3NBrf1FvyWBFchXLZzT7ZF1zDBh9yo/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-You're all that I Need </a>
-
-</article>
-
-<div class="huruf">Y</div>
-
-<article class="card">
-
-<div class="artis">Yuni Shara</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/15FZSjHJlB-3KfcvLPJ7vIVVnqC06CQQi/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-Kucari Jalan Terbaik </a>
-
-</article>
-
-</div>
-
-</main>
-
-<footer>
-Dunia Landak · Lagu
-</footer>
-
-</body>
-</html>
+<di
