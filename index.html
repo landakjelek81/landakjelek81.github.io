@@ -15,13 +15,11 @@
     :root {
       --background: url("gambar.jfif") center/cover fixed;
       --overlay: rgba(20, 19, 17, 0.88);
-
       --paper: #efe9dc;
       --panel: rgba(38, 36, 31, 0.88);
       --line: #454137;
       --gold: #c8992f;
       --muted: #9a9482;
-      --hover: rgba(200, 153, 47, 0.12);
     }
 
     * {
@@ -122,8 +120,6 @@
       border-top: 1px solid var(--line);
     }
 
-    /* TOMBOL MUSIK */
-
     #tombolMusik {
       position: fixed;
       right: 20px;
@@ -178,8 +174,6 @@
 
 <body>
 
-  <!-- MUSIK -->
-
   <audio id="musik" loop>
     <source src="musik.mp3" type="audio/mpeg">
   </audio>
@@ -187,8 +181,6 @@
   <button id="tombolMusik" onclick="toggleMusik()">
     🎵 MUSIK OFF
   </button>
-
-  <!-- HEADER -->
 
   <header>
 
@@ -202,8 +194,6 @@
 ```
 
   </header>
-
-  <!-- MENU -->
 
   <main>
 
@@ -247,13 +237,9 @@
 
   </main>
 
-  <!-- FOOTER -->
-
   <footer>
     Dibuat &amp; dihosting oleh mrland.
   </footer>
-
-  <!-- SCRIPT MUSIK -->
 
   <script>
 
