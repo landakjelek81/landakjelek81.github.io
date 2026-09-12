@@ -1,1631 +1,844 @@
 <!DOCTYPE html>
-
 <html lang="id">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dunia Landak - Lagu</title>
+<title>Lagu - Dunia Landak</title>
 
 <style>
-
-:root {
-  --background:url("gambar.jfif") center/cover fixed;
-  --overlay:rgba(20,19,17,.88);
-  --paper:#efe9dc;
-  --panel:rgba(38,36,31,.88);
-  --panel-hover:rgba(52,49,42,.94);
-  --line:#454137;
-  --line-active:#c8992f;
-  --gold:#c8992f;
-  --gold-light:#e0bd68;
-  --muted:#9a9482;
-  --danger:#b96b5e;
-}
-
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
-  margin:0;
-  min-height:100vh;
-
+  margin: 0;
+  font-family: Arial, sans-serif;
   background:
-    linear-gradient(var(--overlay),var(--overlay)),
-    var(--background);
-
-  background-color:#1c1b19;
-  background-attachment:fixed;
-
-  color:var(--paper);
-  font-family:monospace;
+    linear-gradient(rgba(5, 8, 15, 0.88), rgba(5, 8, 15, 0.94)),
+    url("gambar.jfif") center/cover fixed no-repeat;
+  color: white;
+  min-height: 100vh;
 }
-
-header,
-main,
-footer {
-  max-width:1000px;
-  margin:auto;
-}
-
 
 /* =========================
    HEADER
 ========================= */
 
-header {
-  padding:48px 24px 30px;
-  border-bottom:1px solid var(--line);
+.header {
+  text-align: center;
+  padding: 35px 20px 20px;
 }
 
-.breadcrumb {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-size:.78rem;
-  margin-bottom:24px;
+.header h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 1px;
 }
 
-.breadcrumb a {
-  color:var(--gold);
-  text-decoration:none;
+.header p {
+  margin: 8px 0 0;
+  color: #bfc7d5;
 }
-
-.breadcrumb a:hover {
-  color:var(--gold-light);
-}
-
-.breadcrumb .separator {
-  color:var(--muted);
-}
-
-.breadcrumb .current {
-  color:var(--paper);
-}
-
-h1 {
-  font-family:Georgia,serif;
-  font-size:3rem;
-  margin:0 0 8px;
-}
-
-header p {
-  color:var(--muted);
-  margin:0;
-  line-height:1.6;
-}
-
 
 /* =========================
-   MAIN
+   CONTAINER
 ========================= */
 
-main {
-  padding:34px 24px 80px;
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+  padding-bottom: 50px;
 }
 
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+  margin: 10px 0 18px;
+  color: #9da7b8;
+  font-size: 14px;
+}
+
+.breadcrumb span {
+  color: #ffffff;
+}
 
 /* =========================
    TOOLBAR
 ========================= */
 
 .toolbar {
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-bottom:30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 25px;
 }
 
-
-/* SEARCH */
-
-.search-wrapper {
-  position:relative;
-}
-
-.search-icon {
-  position:absolute;
-  left:16px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--gold);
-  font-size:1.05rem;
-  pointer-events:none;
+.search-box {
+  position: relative;
+  width: 100%;
 }
 
 .search-box input {
-  width:100%;
-  height:46px;
-
-  padding:0 90px 0 44px;
-
-  background:rgba(20,19,17,.94);
-
-  border:1px solid var(--line);
-  border-radius:7px;
-
-  color:var(--paper);
-
-  font-family:monospace;
-  font-size:.9rem;
-
-  outline:none;
-
-  transition:.2s ease;
-}
-
-.search-box input:hover {
-  border-color:#716b5c;
-}
-
-.search-box input:focus {
-  border-color:var(--line-active);
-  box-shadow:0 0 0 2px rgba(200,153,47,.12);
+  width: 100%;
+  height: 46px;
+  padding: 0 46px 0 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  outline: none;
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 15px;
+  transition: 0.2s;
 }
 
 .search-box input::placeholder {
-  color:var(--muted);
+  color: #9ba4b4;
 }
 
+.search-box input:focus {
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
 
-/* CLEAR SEARCH */
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #aeb7c7;
+  pointer-events: none;
+}
 
 .clear-search {
-  position:absolute;
-  right:48px;
-  top:50%;
-  transform:translateY(-50%);
-
-  width:28px;
-  height:28px;
-
-  display:none;
-  align-items:center;
-  justify-content:center;
-
-  border:0;
-  background:transparent;
-
-  color:var(--muted);
-  font-size:1rem;
-
-  cursor:pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #aeb7c7;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
 }
 
 .clear-search:hover {
-  color:var(--paper);
+  background: rgba(255, 255, 255, 0.10);
+  color: white;
 }
-
-
-/* SHORTCUT */
-
-.search-shortcut {
-  position:absolute;
-  right:12px;
-  top:50%;
-  transform:translateY(-50%);
-
-  min-width:25px;
-  height:22px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid var(--line);
-  border-radius:4px;
-
-  color:var(--muted);
-  font-size:.7rem;
-}
-
-
-/* SEARCH RESULT */
-
-.hasil {
-  margin-top:8px;
-  color:var(--muted);
-  font-size:.72rem;
-}
-
 
 /* =========================
-   ACTION BUTTONS
-========================= */
-
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-
-.action-btn {
-  height:40px;
-
-  padding:0 15px;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-
-  background:rgba(38,36,31,.9);
-
-  border:1px solid var(--line);
-  border-radius:6px;
-
-  color:var(--paper);
-
-  font-family:monospace;
-  font-size:.76rem;
-
-  cursor:pointer;
-
-  transition:.2s ease;
-}
-
-.action-btn:hover {
-  border-color:var(--gold);
-  color:var(--gold-light);
-  transform:translateY(-1px);
-}
-
-.action-btn.active {
-  border-color:var(--gold);
-  color:var(--gold-light);
-  background:rgba(200,153,47,.08);
-}
-
-
-/* =========================
-   SONG COUNT
+   LIBRARY INFO
 ========================= */
 
 .library-info {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:15px;
-
-  margin-bottom:20px;
-  padding-bottom:15px;
-
-  border-bottom:1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.library-count {
-  color:var(--muted);
-  font-size:.75rem;
+.song-count {
+  color: #aeb7c7;
+  font-size: 14px;
 }
 
-.library-count strong {
-  color:var(--paper);
+.music-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d9dee8;
+  font-size: 14px;
 }
 
+.music-icon span {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 17px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.action-btn {
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.30);
+  transform: translateY(-1px);
+}
+
+.action-btn.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.38);
+}
 
 /* =========================
    SONG LIST
 ========================= */
 
-.lagu-list {
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+.song-list {
+  display: grid;
+  gap: 12px;
 }
-
-.huruf {
-  color:var(--gold);
-  font-size:1rem;
-  font-weight:bold;
-
-  margin-top:20px;
-  margin-bottom:4px;
-}
-
-
-/* SONG CARD */
 
 .card {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:15px;
-
-  background:var(--panel);
-
-  border:1px solid var(--line);
-
-  padding:15px 16px;
-
-  transition:.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
 }
 
 .card:hover {
-  background:var(--panel-hover);
-  border-color:var(--gold);
-  transform:translateX(3px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.20);
+  transform: translateY(-1px);
 }
 
 .song-info {
-  flex:1;
-  min-width:0;
+  min-width: 0;
+  flex: 1;
 }
 
-.artis {
-  display:inline;
-  color:var(--paper);
-  font-size:1rem;
-  font-weight:500;
+.song-title {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
 }
 
-.artis::after {
-  content:" — ";
-  color:var(--muted);
+.song-artist {
+  margin: 0;
+  color: #9fa8b8;
+  font-size: 14px;
 }
 
-.judul {
-  display:inline;
-
-  color:var(--muted);
-
-  text-decoration:none;
-
-  font-size:.8rem;
+.song-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.judul:hover {
-  color:var(--gold-light);
-}
-
-
-/* FAVORITE BUTTON */
-
+.play-btn,
 .favorite-btn {
-  flex-shrink:0;
-
-  width:36px;
-  height:36px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid var(--line);
-  border-radius:5px;
-
-  background:transparent;
-
-  color:var(--muted);
-
-  font-size:1rem;
-
-  cursor:pointer;
-
-  transition:.2s ease;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
+.play-btn:hover,
 .favorite-btn:hover {
-  border-color:var(--gold);
-  color:var(--gold);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .favorite-btn.active {
-  border-color:var(--gold);
-  color:var(--gold);
-  background:rgba(200,153,47,.1);
+  color: #ff6b81;
+  border-color: rgba(255, 107, 129, 0.35);
+  background: rgba(255, 107, 129, 0.08);
 }
-
 
 /* =========================
    EMPTY MESSAGE
 ========================= */
 
 .empty-message {
-  display:none;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  border:1px dashed var(--line);
-
-  color:var(--muted);
-
-  font-size:.8rem;
+  display: none;
+  text-align: center;
+  padding: 45px 20px;
+  color: #9da7b8;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
 }
-
-
-/* =========================
-   MODAL
-========================= */
-
-.modal {
-  position:fixed;
-  inset:0;
-
-  display:none;
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-
-  background:rgba(0,0,0,.72);
-
-  z-index:1000;
-}
-
-.modal.show {
-  display:flex;
-}
-
-.modal-box {
-  width:100%;
-  max-width:470px;
-
-  background:#25231f;
-
-  border:1px solid var(--line);
-
-  padding:25px;
-
-  box-shadow:0 20px 60px rgba(0,0,0,.5);
-}
-
-.modal-box h2 {
-  margin:0 0 8px;
-
-  font-family:Georgia,serif;
-}
-
-.modal-box p {
-  margin:0 0 20px;
-
-  color:var(--muted);
-
-  font-size:.75rem;
-
-  line-height:1.5;
-}
-
-.form-group {
-  margin-bottom:14px;
-}
-
-.form-group label {
-  display:block;
-
-  margin-bottom:6px;
-
-  color:var(--muted);
-
-  font-size:.72rem;
-}
-
-.form-group input {
-  width:100%;
-
-  height:42px;
-
-  padding:0 12px;
-
-  background:#191815;
-
-  border:1px solid var(--line);
-
-  color:var(--paper);
-
-  font-family:monospace;
-
-  outline:none;
-}
-
-.form-group input:focus {
-  border-color:var(--gold);
-}
-
-.modal-actions {
-  display:flex;
-  justify-content:flex-end;
-
-  gap:8px;
-
-  margin-top:20px;
-}
-
-.modal-btn {
-  height:38px;
-
-  padding:0 15px;
-
-  border:1px solid var(--line);
-  background:transparent;
-
-  color:var(--paper);
-
-  font-family:monospace;
-
-  cursor:pointer;
-}
-
-.modal-btn:hover {
-  border-color:var(--gold);
-}
-
-.modal-btn.primary {
-  background:var(--gold);
-  border-color:var(--gold);
-
-  color:#201d17;
-}
-
-.modal-btn.primary:hover {
-  background:var(--gold-light);
-}
-
 
 /* =========================
    FOOTER
 ========================= */
 
-footer {
-  border-top:1px solid var(--line);
-
-  padding:25px 24px;
-
-  color:var(--muted);
-
-  font-size:.7rem;
+.footer {
+  text-align: center;
+  padding: 25px 20px 35px;
+  color: #778193;
+  font-size: 13px;
 }
 
-
 /* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
-@media (max-width:600px) {
-
-  header {
-    padding:38px 18px 26px;
+@media (max-width: 600px) {
+  .header {
+    padding-top: 25px;
   }
 
-  main {
-    padding:28px 18px 60px;
-  }
-
-  h1 {
-    font-size:2.4rem;
-  }
-
-  .actions {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-  }
-
-  .action-btn:last-child {
-    grid-column:1 / -1;
-  }
-
-  .library-info {
-    align-items:flex-start;
-    flex-direction:column;
+  .header h1 {
+    font-size: 28px;
   }
 
   .card {
-    padding:14px;
+    padding: 14px;
   }
 
-  .artis {
-    font-size:.9rem;
+  .song-title {
+    font-size: 15px;
   }
 
-  .judul {
-    font-size:.76rem;
+  .actions {
+    grid-template-columns: 1fr 1fr;
   }
 
+  .action-btn {
+    font-size: 13px;
+  }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<header>
-
-<nav class="breadcrumb">
-
-<a href="index.html">Dunia Landak</a>
-
-<span class="separator">/</span>
-
-<span class="current">Lagu</span>
-
-</nav>
-
-
-<h1>Lagu</h1>
-
-<p>
-Kumpulan lagu dan audio, disusun berdasarkan abjad.
-</p>
-
+<header class="header">
+  <h1>🎵 Dunia Landak</h1>
+  <p>Koleksi lagu pilihan</p>
 </header>
 
-
-<main>
-
-
-<!-- TOOLBAR -->
-
-<div class="toolbar">
-
-
-<div class="search-box">
-
-<div class="search-wrapper">
-
-<span class="search-icon">♫</span>
-
-<input
-type="search"
-id="searchLagu"
-placeholder="Cari judul lagu atau nama artis..."
-autocomplete="off">
-
-<button
-class="clear-search"
-id="clearSearch"
-type="button"
-title="Hapus pencarian">
-×
-</button>
-
-<span class="search-shortcut">/</span>
-
-</div>
-
-<div
-class="hasil"
-id="hasil">
-</div>
-
-</div>
-
-
-<!-- ACTION BUTTONS -->
-
-<div class="actions">
-
-<button
-class="action-btn"
-id="shuffleBtn"
-type="button">
-🔀 Shuffle
-</button>
-
-<button
-class="action-btn"
-id="favoriteBtn"
-type="button">
-♥ Favorit
-</button>
-
-<button
-class="action-btn"
-id="addSongBtn"
-type="button">
-＋ Tambah Lagu
-</button>
-
-</div>
-
-
-</div>
-
-
-<!-- LIBRARY INFO -->
-
-<div class="library-info">
-
-<div
-class="library-count"
-id="libraryCount">
-<strong>17 lagu</strong> tersedia
-</div>
-
-</div>
-
-
-<!-- SONG LIST -->
-
-<div
-class="lagu-list"
-id="laguList">
-
-
-<!-- ==================== A ==================== -->
-
-<div class="huruf">A</div>
-
-
-<!-- Adele -->
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Adele</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1pIXCr736vsCqlCwzXDdwbL1WrmtWelev/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Easy On Me
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Adele</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1jncMT2hlOTRf1f3mCal1agwjjPrMiWC2/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Rolling in the Deep
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Adele</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1XVRNEUnzh8nZAoOFxMZPvnudNVdF5Wc-/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Send My Love
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Adele</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1Jdx-13xtnNMAAmm-qWQaGd-4fPAcE52w/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Skyfall
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Adele</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/10U3BPtl6gcyqvfQwM_wNGIerEOOnYrtU/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Someone Like You
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<!-- Avenged Sevenfold -->
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Avenged Sevenfold</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1tUGkDjtVzjOibhYp8nG69kaE4xlep8tb/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Afterlife
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Avenged Sevenfold</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1KfRTN0GCTJ_vGxE6NmIRpoC_-MyMnk6S/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Dear God
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<!-- ==================== B ==================== -->
-
-<div class="huruf">B</div>
-
-
-<!-- Beyoncé -->
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Beyoncé</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1Xp88VTqvwmNKuRWcUq4IbAQyKTHuL9eA/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Hello
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Beyoncé</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1XnHKl9heLisEVBcGcfeAGgifQq0VE_ik/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-If I Were a Boy
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Beyoncé</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/18yasYiDVLjrgc0kjwdgyrQ_T_GkZXBgW/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Listen
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<!-- ==================== V ==================== -->
-
-<div class="huruf">V</div>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Vagetoz</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1r2IMCV5yHjA3AKk7yfV0ZHCkx-3So1pj/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-KehadiranMu
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Vagetoz</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1NAZXbVeXHObb2PHvgQjaHUWJgPu_xLUK/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Penyesalan
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Vagetoz</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1n_GQGoKiLBB9YIZ-a7_f-OCQ4ituuogz/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-Saat Kau Pergi
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<!-- ==================== W ==================== -->
-
-<div class="huruf">W</div>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Westlife</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-Soledad
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">White Lion</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/13Gjux0jSdskeBlS1pB36ZHkawhSfIS9d/view?usp=sharing"
-target="_blank"
-rel="noopener noreferrer">
-When the Children Cry
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">White Lion</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/1On3NBrf1FvyWBFchXLZzT7ZF1zDBh9yo/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-You're all that I Need
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<!-- ==================== Y ==================== -->
-
-<div class="huruf">Y</div>
-
-
-<article class="card">
-
-<div class="song-info">
-
-<div class="artis">Yuni Shara</div>
-
-<a
-class="judul"
-href="https://drive.google.com/file/d/15FZSjHJlB-3KfcvLPJ7vIVVnqC06CQQi/view?usp=drive_link"
-target="_blank"
-rel="noopener noreferrer">
-Kucari Jalan Terbaik
-</a>
-
-</div>
-
-<button
-class="favorite-btn"
-type="button"
-title="Tambah ke favorit">
-♡
-</button>
-
-</article>
-
-
-<div
-class="empty-message"
-id="emptyMessage">
-Tidak ada lagu yang ditemukan.
-</div>
-
-
-</div>
+<main class="container">
+
+  <div class="breadcrumb">
+    <span>Dunia Landak</span> / Lagu
+  </div>
+
+  <div class="toolbar">
+
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Cari judul lagu atau nama artis..."
+        autocomplete="off"
+      >
+
+      <button
+        class="clear-search"
+        id="clearSearch"
+        type="button"
+        aria-label="Hapus pencarian">
+        ×
+      </button>
+    </div>
+
+    <div class="library-info">
+
+      <div class="song-count" id="songCount">
+        17 lagu tersedia
+      </div>
+
+      <div class="music-icon">
+        <span>🎧</span>
+        Koleksi Musik
+      </div>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="action-btn"
+        id="shuffleBtn"
+        type="button">
+        🔀 Shuffle
+      </button>
+
+      <button
+        class="action-btn"
+        id="favoriteFilterBtn"
+        type="button">
+        ❤️ Favorit
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="song-list" id="songList">
+
+    <!-- 1 -->
+    <div
+      class="card"
+      data-artist="Adele"
+      data-title="Easy On Me"
+      data-link="https://drive.google.com/file/d/1pIXCr736vsCqlCwzXDdwbL1WrmtWelev/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Easy On Me</h3>
+        <p class="song-artist">Adele</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 2 -->
+    <div
+      class="card"
+      data-artist="Adele"
+      data-title="Rolling in the Deep"
+      data-link="https://drive.google.com/file/d/1jncMT2hlOTRf1f3mCal1agwjjPrMiWC2/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Rolling in the Deep</h3>
+        <p class="song-artist">Adele</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 3 -->
+    <div
+      class="card"
+      data-artist="Adele"
+      data-title="Send My Love"
+      data-link="https://drive.google.com/file/d/1XVRNEUnzh8nZAoOFxMZPvnudNVdF5Wc-/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Send My Love</h3>
+        <p class="song-artist">Adele</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 4 -->
+    <div
+      class="card"
+      data-artist="Adele"
+      data-title="Skyfall"
+      data-link="https://drive.google.com/file/d/1Jdx-13xtnNMAAmm-qWQaGd-4fPAcE52w/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Skyfall</h3>
+        <p class="song-artist">Adele</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 5 -->
+    <div
+      class="card"
+      data-artist="Adele"
+      data-title="Someone Like You"
+      data-link="https://drive.google.com/file/d/10U3BPtl6gcyqvfQwM_wNGIerEOOnYrtU/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Someone Like You</h3>
+        <p class="song-artist">Adele</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 6 -->
+    <div
+      class="card"
+      data-artist="Avenged Sevenfold"
+      data-title="Afterlife"
+      data-link="https://drive.google.com/file/d/1tUGkDjtVzjOibhYp8nG69kaE4xlep8tb/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Afterlife</h3>
+        <p class="song-artist">Avenged Sevenfold</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 7 -->
+    <div
+      class="card"
+      data-artist="Avenged Sevenfold"
+      data-title="Dear God"
+      data-link="https://drive.google.com/file/d/1KfRTN0GCTJ_vGxE6NmIRpoC_-MyMnk6S/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Dear God</h3>
+        <p class="song-artist">Avenged Sevenfold</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 8 -->
+    <div
+      class="card"
+      data-artist="Beyoncé"
+      data-title="Hello"
+      data-link="https://drive.google.com/file/d/1Xp88VTqvwmNKuRWcUq4IbAQyKTHuL9eA/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Hello</h3>
+        <p class="song-artist">Beyoncé</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 9 -->
+    <div
+      class="card"
+      data-artist="Beyoncé"
+      data-title="If I Were a Boy"
+      data-link="https://drive.google.com/file/d/1XnHKl9heLisEVBcGcfeAGgifQq0VE_ik/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">If I Were a Boy</h3>
+        <p class="song-artist">Beyoncé</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 10 -->
+    <div
+      class="card"
+      data-artist="Beyoncé"
+      data-title="Listen"
+      data-link="https://drive.google.com/file/d/18yasYiDVLjrgc0kjwdgyrQ_T_GkZXBgW/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Listen</h3>
+        <p class="song-artist">Beyoncé</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 11 -->
+    <div
+      class="card"
+      data-artist="Vagetoz"
+      data-title="KehadiranMu"
+      data-link="https://drive.google.com/file/d/1r2IMCV5yHjA3AKk7yfV0ZHCkx-3So1pj/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">KehadiranMu</h3>
+        <p class="song-artist">Vagetoz</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 12 -->
+    <div
+      class="card"
+      data-artist="Vagetoz"
+      data-title="Penyesalan"
+      data-link="https://drive.google.com/file/d/1NAZXbVeXHObb2PHvgQjaHUWJgPu_xLUK/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Penyesalan</h3>
+        <p class="song-artist">Vagetoz</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 13 -->
+    <div
+      class="card"
+      data-artist="Vagetoz"
+      data-title="Saat Kau Pergi"
+      data-link="https://drive.google.com/file/d/1n_GQGoKiLBB9YIZ-a7_f-OCQ4ituuogz/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">Saat Kau Pergi</h3>
+        <p class="song-artist">Vagetoz</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 14 -->
+    <div
+      class="card"
+      data-artist="Westlife"
+      data-title="Soledad"
+      data-link="https://drive.google.com/file/d/1zuN0Ko5g0Hr-8JQkmgO2t2J2w-iU4atw/view?usp=drive_link">
+
+      <div class="song-info">
+        <h3 class="song-title">Soledad</h3>
+        <p class="song-artist">Westlife</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 15 -->
+    <div
+      class="card"
+      data-artist="White Lion"
+      data-title="When the Children Cry"
+      data-link="https://drive.google.com/file/d/13Gjux0jSdskeBlS1pB36ZHkawhSfIS9d/view?usp=sharing">
+
+      <div class="song-info">
+        <h3 class="song-title">When the Children Cry</h3>
+        <p class="song-artist">White Lion</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 16 -->
+    <div
+      class="card"
+      data-artist="White Lion"
+      data-title="You're all that I Need"
+      data-link="https://drive.google.com/file/d/1On3NBrf1FvyWBFchXLZzT7ZF1zDBh9yo/view?usp=drive_link">
+
+      <div class="song-info">
+        <h3 class="song-title">You're all that I Need</h3>
+        <p class="song-artist">White Lion</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+    <!-- 17 -->
+    <div
+      class="card"
+      data-artist="Yuni Shara"
+      data-title="Kucari Jalan Terbaik"
+      data-link="https://drive.google.com/file/d/15FZSjHJlB-3KfcvLPJ7vIVVnqC06CQQi/view?usp=drive_link">
+
+      <div class="song-info">
+        <h3 class="song-title">Kucari Jalan Terbaik</h3>
+        <p class="song-artist">Yuni Shara</p>
+      </div>
+
+      <div class="song-actions">
+        <button class="play-btn" type="button">▶</button>
+        <button class="favorite-btn" type="button">♡</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="empty-message" id="emptyMessage">
+    🎵 Lagu tidak ditemukan.
+  </div>
 
 </main>
 
-
-<footer>
-
-Dunia Landak · Lagu
-
+<footer class="footer">
+  © Dunia Landak
 </footer>
 
-
-<!-- =========================
-     TAMBAH LAGU MODAL
-========================= -->
-
-<div
-class="modal"
-id="addSongModal">
-
-<div class="modal-box">
-
-<h2>Tambah Lagu</h2>
-
-<p>
-Masukkan nama artis, judul lagu, dan link Google Drive.
-</p>
-
-
-<div class="form-group">
-
-<label for="newArtist">
-Nama Artis
-</label>
-
-<input
-type="text"
-id="newArtist"
-placeholder="Contoh: Coldplay">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="newTitle">
-Judul Lagu
-</label>
-
-<input
-type="text"
-id="newTitle"
-placeholder="Contoh: Yellow">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="newLink">
-Link Lagu
-</label>
-
-<input
-type="url"
-id="newLink"
-placeholder="https://drive.google.com/...">
-
-</div>
-
-
-<div class="modal-actions">
-
-<button
-class="modal-btn"
-id="cancelAddSong"
-type="button">
-Batal
-</button>
-
-<button
-class="modal-btn primary"
-id="saveSong"
-type="button">
-Simpan Lagu
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
 <script>
+const searchInput = document.getElementById("searchInput");
+const clearSearch = document.getElementById("clearSearch");
+const songCount = document.getElementById("songCount");
+const emptyMessage = document.getElementById("emptyMessage");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const favoriteFilterBtn = document.getElementById("favoriteFilterBtn");
+const songList = document.getElementById("songList");
+
+let favoriteOnly = false;
 
 /* =========================
-   ELEMENT
+   FAVORITE STORAGE
 ========================= */
 
-const searchInput =
-  document.getElementById("searchLagu");
-
-const clearSearch =
-  document.getElementById("clearSearch");
-
-const hasil =
-  document.getElementById("hasil");
-
-const cards =
-  document.querySelectorAll(".card");
-
-const huruf =
-  document.querySelectorAll(".huruf");
-
-const emptyMessage =
-  document.getElementById("emptyMessage");
-
-const favoriteBtn =
-  document.getElementById("favoriteBtn");
-
-const shuffleBtn =
-  document.getElementById("shuffleBtn");
-
-const addSongBtn =
-  document.getElementById("addSongBtn");
-
-const modal =
-  document.getElementById("addSongModal");
-
-const cancelAddSong =
-  document.getElementById("cancelAddSong");
-
-const saveSong =
-  document.getElementById("saveSong");
-
-const libraryCount =
-  document.getElementById("libraryCount");
-
+let favorites = JSON.parse(
+  localStorage.getItem("duniaLandakFavorites") || "[]"
+);
 
 /* =========================
-   FAVORITES
+   INITIAL FAVORITES
 ========================= */
 
-let favorites =
-  JSON.parse(localStorage.getItem("duniaLandakFavorites") || "[]");
+document.querySelectorAll(".card").forEach(card => {
+  const title = card.dataset.title;
+  const favoriteBtn = card.querySelector(".favorite-btn");
 
-
-function getSongKey(card) {
-
-  const artist =
-    card.querySelector(".artis").textContent.trim();
-
-  const title =
-    card.querySelector(".judul").textContent.trim();
-
-  return artist + "||" + title;
-
-}
-
-
-function updateFavoriteButtons() {
-
-  document.querySelectorAll(".favorite-btn")
-    .forEach(function(button) {
-
-      const card =
-        button.closest(".card");
-
-      const key =
-        getSongKey(card);
-
-      if (favorites.includes(key)) {
-
-        button.classList.add("active");
-
-        button.textContent = "♥";
-
-        button.title =
-          "Hapus dari favorit";
-
-      } else {
-
-        button.classList.remove("active");
-
-        button.textContent = "♡";
-
-        button.title =
-          "Tambah ke favorit";
-
-      }
-
-    });
-
-}
-
-
-document.addEventListener("click", function(event) {
-
-  if (
-    event.target.classList.contains("favorite-btn")
-  ) {
-
-    const button =
-      event.target;
-
-    const card =
-      button.closest(".card");
-
-    const key =
-      getSongKey(card);
-
-    if (favorites.includes(key)) {
-
-      favorites =
-        favorites.filter(function(item) {
-
-          return item !== key;
-
-        });
-
-    } else {
-
-      favorites.push(key);
-
-    }
-
-    localStorage.setItem(
-      "duniaLandakFavorites",
-      JSON.stringify(favorites)
-    );
-
-    updateFavoriteButtons();
-
+  if (favorites.includes(title)) {
+    favoriteBtn.classList.add("active");
+    favoriteBtn.textContent = "♥";
   }
-
 });
 
+/* =========================
+   UPDATE COUNT
+========================= */
+
+function updateSongCount() {
+  const cards = [...document.querySelectorAll(".card")];
+
+  const visibleCards = cards.filter(card => {
+    return card.style.display !== "none";
+  });
+
+  songCount.textContent =
+    `${visibleCards.length} lagu tersedia`;
+
+  emptyMessage.style.display =
+    visibleCards.length === 0 ? "block" : "none";
+}
 
 /* =========================
    SEARCH
 ========================= */
 
 function filterLagu() {
+  const keyword = searchInput.value
+    .toLowerCase()
+    .trim();
 
-  const kata =
-    searchInput.value
-      .toLowerCase()
-      .trim();
+  const cards = [...document.querySelectorAll(".card")];
 
-  let jumlah = 0;
+  let visibleCount = 0;
 
+  cards.forEach(card => {
+    const title = card.dataset.title.toLowerCase();
+    const artist = card.dataset.artist.toLowerCase();
 
-  document.querySelectorAll(".card")
-    .forEach(function(card) {
+    const matchSearch =
+      title.includes(keyword) ||
+      artist.includes(keyword);
 
-      const artis =
-        card.querySelector(".artis")
-          .textContent
-          .toLowerCase();
+    const matchFavorite =
+      !favoriteOnly ||
+      favorites.includes(card.dataset.title);
 
-      const judul =
-        card.querySelector(".judul")
-          .textContent
-          .toLowerCase();
+    const visible =
+      matchSearch && matchFavorite;
 
-      let cocok =
-        artis.includes(kata) ||
-        judul.includes(kata);
+    card.style.display =
+      visible ? "flex" : "none";
 
-
-      if (
-        favoriteBtn.classList.contains("active")
-      ) {
-
-        const key =
-          getSongKey(card);
-
-        cocok =
-          cocok &&
-          favorites.includes(key);
-
-      }
-
-
-      if (cocok) {
-
-        card.style.display = "flex";
-
-        jumlah++;
-
-      } else {
-
-        card.style.display = "none";
-
-      }
-
-    });
-
-
-  /* Huruf */
-
-  document.querySelectorAll(".huruf")
-    .forEach(function(group) {
-
-      let adaLagu = false;
-
-      let element =
-        group.nextElementSibling;
-
-
-      while (
-        element &&
-        !element.classList.contains("huruf")
-      ) {
-
-        if (
-          element.classList.contains("card") &&
-          element.style.display !== "none"
-        ) {
-
-          adaLagu = true;
-
-          break;
-
-        }
-
-        element =
-          element.nextElementSibling;
-
-      }
-
-
-      group.style.display =
-        adaLagu ? "block" : "none";
-
-    });
-
-
-  /* Hasil */
-
-  if (jumlah === 0) {
-
-    emptyMessage.style.display =
-      "block";
-
-    hasil.textContent =
-      "Tidak ada lagu yang ditemukan.";
-
-  } else {
-
-    emptyMessage.style.display =
-      "none";
-
-    if (kata !== "") {
-
-      hasil.textContent =
-        jumlah + " lagu ditemukan.";
-
-    } else if (
-      favoriteBtn.classList.contains("active")
-    ) {
-
-      hasil.textContent =
-        jumlah + " lagu favorit.";
-
-    } else {
-
-      hasil.textContent = "";
-
+    if (visible) {
+      visibleCount++;
     }
+  });
 
-  }
+  clearSearch.style.display =
+    keyword ? "block" : "none";
 
+  songCount.textContent =
+    `${visibleCount} lagu tersedia`;
 
-  /* Clear button */
-
-  if (searchInput.value !== "") {
-
-    clearSearch.style.display =
-      "flex";
-
-  } else {
-
-    clearSearch.style.display =
-      "none";
-
-  }
-
+  emptyMessage.style.display =
+    visibleCount === 0 ? "block" : "none";
 }
-
 
 searchInput.addEventListener(
   "input",
   filterLagu
 );
-
 
 /* =========================
    CLEAR SEARCH
@@ -1633,17 +846,12 @@ searchInput.addEventListener(
 
 clearSearch.addEventListener(
   "click",
-  function() {
-
+  () => {
     searchInput.value = "";
-
-    filterLagu();
-
     searchInput.focus();
-
+    filterLagu();
   }
 );
-
 
 /* =========================
    SHORTCUT /
@@ -1651,53 +859,124 @@ clearSearch.addEventListener(
 
 document.addEventListener(
   "keydown",
-  function(event) {
+  event => {
 
     if (
       event.key === "/" &&
-      document.activeElement.tagName !== "INPUT" &&
-      document.activeElement.tagName !== "TEXTAREA"
+      document.activeElement !== searchInput
     ) {
-
       event.preventDefault();
-
       searchInput.focus();
-
     }
-
 
     if (
       event.key === "Escape" &&
       document.activeElement === searchInput
     ) {
-
       searchInput.value = "";
-
       filterLagu();
-
-      searchInput.blur();
-
     }
 
   }
 );
 
+/* =========================
+   FAVORITE BUTTON
+========================= */
+
+document.querySelectorAll(".favorite-btn").forEach(button => {
+
+  button.addEventListener(
+    "click",
+    event => {
+
+      event.stopPropagation();
+
+      const card =
+        button.closest(".card");
+
+      const title =
+        card.dataset.title;
+
+      if (favorites.includes(title)) {
+
+        favorites =
+          favorites.filter(
+            item => item !== title
+          );
+
+        button.classList.remove("active");
+        button.textContent = "♡";
+
+      } else {
+
+        favorites.push(title);
+
+        button.classList.add("active");
+        button.textContent = "♥";
+      }
+
+      localStorage.setItem(
+        "duniaLandakFavorites",
+        JSON.stringify(favorites)
+      );
+
+      if (favoriteOnly) {
+        filterLagu();
+      }
+
+    }
+  );
+
+});
 
 /* =========================
    FAVORITE FILTER
 ========================= */
 
-favoriteBtn.addEventListener(
+favoriteFilterBtn.addEventListener(
   "click",
-  function() {
+  () => {
 
-    favoriteBtn.classList.toggle("active");
+    favoriteOnly = !favoriteOnly;
+
+    favoriteFilterBtn.classList.toggle(
+      "active",
+      favoriteOnly
+    );
 
     filterLagu();
 
   }
 );
 
+/* =========================
+   PLAY SONG
+========================= */
+
+document.querySelectorAll(".play-btn").forEach(button => {
+
+  button.addEventListener(
+    "click",
+    event => {
+
+      event.stopPropagation();
+
+      const card =
+        button.closest(".card");
+
+      const link =
+        card.dataset.link;
+
+      window.open(
+        link,
+        "_blank"
+      );
+
+    }
+  );
+
+});
 
 /* =========================
    SHUFFLE
@@ -1705,310 +984,53 @@ favoriteBtn.addEventListener(
 
 shuffleBtn.addEventListener(
   "click",
-  function() {
+  () => {
+
+    const cards =
+      [...document.querySelectorAll(".card")];
 
     const visibleCards =
-      Array.from(
-        document.querySelectorAll(".card")
-      ).filter(function(card) {
-
-        return card.style.display !== "none";
-
-      });
-
+      cards.filter(
+        card => card.style.display !== "none"
+      );
 
     if (visibleCards.length === 0) {
-
       return;
-
     }
-
 
     const randomIndex =
       Math.floor(
-        Math.random() *
-        visibleCards.length
+        Math.random() * visibleCards.length
       );
 
-
-    const selected =
+    const randomCard =
       visibleCards[randomIndex];
 
-
-    selected.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
+    randomCard.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
     });
 
+    randomCard.style.transform =
+      "scale(1.02)";
 
-    selected.style.borderColor =
-      "var(--gold-light)";
+    randomCard.style.borderColor =
+      "rgba(255,255,255,0.45)";
 
-
-    setTimeout(function() {
-
-      selected.style.borderColor =
-        "";
-
-    },1500);
-
-  }
-);
-
-
-/* =========================
-   TAMBAH LAGU
-========================= */
-
-addSongBtn.addEventListener(
-  "click",
-  function() {
-
-    modal.classList.add("show");
-
-    document
-      .getElementById("newArtist")
-      .focus();
+    setTimeout(() => {
+      randomCard.style.transform = "";
+      randomCard.style.borderColor = "";
+    }, 1000);
 
   }
 );
 
-
-cancelAddSong.addEventListener(
-  "click",
-  function() {
-
-    modal.classList.remove("show");
-
-  }
-);
-
-
-modal.addEventListener(
-  "click",
-  function(event) {
-
-    if (event.target === modal) {
-
-      modal.classList.remove("show");
-
-    }
-
-  }
-);
-
-
 /* =========================
-   SIMPAN LAGU BARU
+   INITIAL COUNT
 ========================= */
-
-saveSong.addEventListener(
-  "click",
-  function() {
-
-    const artist =
-      document
-        .getElementById("newArtist")
-        .value
-        .trim();
-
-    const title =
-      document
-        .getElementById("newTitle")
-        .value
-        .trim();
-
-    const link =
-      document
-        .getElementById("newLink")
-        .value
-        .trim();
-
-
-    if (
-      artist === "" ||
-      title === "" ||
-      link === ""
-    ) {
-
-      alert(
-        "Nama artis, judul lagu, dan link harus diisi."
-      );
-
-      return;
-
-    }
-
-
-    let addedSongs =
-      JSON.parse(
-        localStorage.getItem(
-          "duniaLandakAddedSongs"
-        ) || "[]"
-      );
-
-
-    addedSongs.push({
-      artist:artist,
-      title:title,
-      link:link
-    });
-
-
-    localStorage.setItem(
-      "duniaLandakAddedSongs",
-      JSON.stringify(addedSongs)
-    );
-
-
-    alert(
-      "Lagu berhasil ditambahkan di browser ini."
-    );
-
-
-    document
-      .getElementById("newArtist")
-      .value = "";
-
-    document
-      .getElementById("newTitle")
-      .value = "";
-
-    document
-      .getElementById("newLink")
-      .value = "";
-
-    modal.classList.remove("show");
-
-
-    /* Reload agar lagu baru muncul */
-
-    location.reload();
-
-  }
-);
-
-
-/* =========================
-   JUMLAH LAGU
-========================= */
-
-function updateSongCount() {
-
-  const jumlah =
-    document.querySelectorAll(".card").length;
-
-  libraryCount.innerHTML =
-    "<strong>" +
-    jumlah +
-    " lagu</strong> tersedia";
-
-}
-
-
-/* =========================
-   LOAD LAGU TAMBAHAN
-========================= */
-
-function loadAddedSongs() {
-
-  const addedSongs =
-    JSON.parse(
-      localStorage.getItem(
-        "duniaLandakAddedSongs"
-      ) || "[]"
-    );
-
-
-  if (addedSongs.length === 0) {
-
-    return;
-
-  }
-
-
-  const list =
-    document.getElementById("laguList");
-
-
-  addedSongs.forEach(function(song) {
-
-    const card =
-      document.createElement("article");
-
-    card.className =
-      "card";
-
-
-    card.innerHTML = `
-
-      <div class="song-info">
-
-        <div class="artis">
-          ${escapeHTML(song.artist)}
-        </div>
-
-        <a
-          class="judul"
-          href="${escapeAttribute(song.link)}"
-          target="_blank"
-          rel="noopener noreferrer">
-          ${escapeHTML(song.title)}
-        </a>
-
-      </div>
-
-      <button
-        class="favorite-btn"
-        type="button"
-        title="Tambah ke favorit">
-        ♡
-      </button>
-
-    `;
-
-
-    list.appendChild(card);
-
-  });
-
-}
-
-
-function escapeHTML(text) {
-
-  return text
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeAttribute(text) {
-
-  return text.replace(/"/g,"%22");
-
-}
-
-
-/* =========================
-   START
-========================= */
-
-loadAddedSongs();
 
 updateSongCount();
-
-updateFavoriteButtons();
-
-filterLagu();
-
 </script>
 
-
 </body>
-
 </html>
