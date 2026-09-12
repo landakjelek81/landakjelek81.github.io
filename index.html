@@ -1,7 +1,6 @@
+```html
 <!DOCTYPE html>
-
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,482 +8,595 @@
   <title>Dunia Landak</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
-      /* =========================
-         BACKGROUND
-         ========================= */
-
       --background-image: url("images.jfif");
 
-      --paper: #efe9dc;
-      --panel: rgba(25, 23, 20, 0.72);
-      --panel-hover: rgba(45, 41, 34, 0.86);
+      --text-main: #f5f1e8;
+      --text-soft: #c9c3b7;
+      --text-muted: #999286;
 
-      --line: rgba(220, 205, 170, 0.22);
-      --gold: #d3a43a;
-      --muted: #aaa28e;
+      --card-bg: rgba(18, 17, 15, 0.78);
+      --card-border: rgba(255, 255, 255, 0.10);
+
+      --accent: #f0d39a;
+      --accent-soft: rgba(240, 211, 154, 0.18);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
-      min-height: 100%;
-      background: #151412;
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--text-main);
 
-      color: var(--paper);
-      font-family: 'IBM Plex Mono', monospace;
-      line-height: 1.5;
-
-      /*
-       * BACKGROUND UTAMA
-       * Gambar tetap terlihat tetapi dibuat
-       * sedikit gelap agar tulisan mudah dibaca.
-       */
       background-image:
         linear-gradient(
           180deg,
-          rgba(8, 7, 6, 0.45) 0%,
-          rgba(12, 11, 9, 0.62) 45%,
-          rgba(8, 7, 6, 0.84) 100%
+          rgba(5, 5, 4, 0.70) 0%,
+          rgba(8, 8, 6, 0.82) 45%,
+          rgba(5, 5, 4, 0.95) 100%
         ),
         var(--background-image);
 
       background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      background-position: center;
       background-attachment: fixed;
 
-      position: relative;
+      overflow-x: hidden;
     }
 
-    /*
-     * Efek cahaya lembut di tengah halaman.
-     */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
+    /* =========================
+       CONTAINER
+    ========================= */
 
-      background:
-        radial-gradient(
-          circle at 50% 15%,
-          rgba(255, 210, 120, 0.10),
-          transparent 42%
-        );
-
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /*
-     * Lapisan gelap tambahan untuk bagian bawah.
-     */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          to bottom,
-          transparent 50%,
-          rgba(0, 0, 0, 0.20) 100%
-        );
-
-      pointer-events: none;
-      z-index: -1;
+    .container {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 70px 0 35px;
     }
 
     /* =========================
        HEADER
-       ========================= */
+    ========================= */
 
     header {
-      max-width: 1000px;
-      margin: 0 auto;
-
-      padding: 80px 24px 45px;
-
-      border-bottom: 1px solid var(--line);
+      text-align: center;
+      margin-bottom: 50px;
     }
 
-    header h1 {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-
-      font-size: clamp(2.8rem, 7vw, 5rem);
-
-      margin: 0 0 14px;
-
-      letter-spacing: -0.02em;
-
-      text-shadow:
-        0 3px 20px rgba(0, 0, 0, 0.45);
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 18px;
     }
 
-    header p {
-      color: var(--muted);
+    h1 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(48px, 9vw, 86px);
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: var(--text-main);
+      text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    }
 
+    .subtitle {
       max-width: 650px;
-
-      margin: 0;
-
-      font-size: 0.9rem;
-
-      text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    /* =========================
-       MAIN
-       ========================= */
-
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-
-      padding: 55px 24px 100px;
+      margin: 22px auto 0;
+      color: var(--text-soft);
+      font-size: 14px;
+      line-height: 1.8;
     }
 
     /* =========================
        MENU
-       ========================= */
+    ========================= */
 
     .menu {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
-      gap: 14px;
+      gap: 18px;
     }
 
     .menu a {
-      display: block;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 18px;
 
-      /*
-       * Efek transparan seperti kaca.
-       * Background asli masih sedikit terlihat.
-       */
-      background: var(--panel);
+      min-height: 105px;
+      padding: 22px 24px;
+
+      color: var(--text-main);
+      text-decoration: none;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.055),
+          rgba(255, 255, 255, 0.018)
+        ),
+        var(--card-bg);
+
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+
+      overflow: hidden;
 
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
 
-      border: 1px solid var(--line);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
 
-      padding: 30px 25px;
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+    }
 
-      color: var(--paper);
+    .menu a::before {
+      content: "";
 
-      text-decoration: none;
+      position: absolute;
+      width: 180px;
+      height: 180px;
+
+      top: -100px;
+      right: -70px;
+
+      background: radial-gradient(
+        circle,
+        var(--accent-soft),
+        transparent 70%
+      );
+
+      opacity: 0;
+
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .menu a:hover {
+      transform: translateY(-6px);
+
+      border-color: rgba(240, 211, 154, 0.35);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.085),
+          rgba(255, 255, 255, 0.025)
+        ),
+        rgba(20, 19, 17, 0.86);
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .menu a:hover::before {
+      opacity: 1;
+    }
+
+    /* =========================
+       ICON
+    ========================= */
+
+    .icon {
+      position: relative;
+      z-index: 1;
+
+      flex: 0 0 58px;
+
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 28px;
+
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .menu a:hover .icon {
+      transform: scale(1.1) rotate(-3deg);
+      background: rgba(240, 211, 154, 0.12);
+    }
+
+    /* =========================
+       CARD TEXT
+    ========================= */
+
+    .menu-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-title {
+      font-family: "Fraunces", serif;
+      font-size: 25px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .menu-description {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .arrow {
+      position: relative;
+      z-index: 1;
+
+      margin-left: auto;
+
+      color: var(--text-muted);
+      font-size: 18px;
+
+      transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+    }
+
+    .menu a:hover .arrow {
+      transform: translateX(5px);
+      color: var(--accent);
+    }
+
+    /* =========================
+       MUSIC BUTTON
+    ========================= */
+
+    .music-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 50%;
+
+      background: rgba(15, 14, 12, 0.82);
+      color: var(--text-main);
+
+      font-size: 20px;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
 
       transition:
         transform 0.25s ease,
         background 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        border-color 0.25s ease;
     }
 
-    .menu a:hover {
-      border-color: var(--gold);
+    .music-button:hover {
+      transform: scale(1.08);
 
-      background: var(--panel-hover);
-
-      transform: translateY(-4px);
-
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.35);
+      background: rgba(240, 211, 154, 0.12);
+      border-color: rgba(240, 211, 154, 0.35);
     }
 
-    .menu .number {
-      display: block;
-
-      color: var(--gold);
-
-      font-size: 0.7rem;
-
-      margin-bottom: 12px;
-
-      letter-spacing: 0.08em;
+    .music-button.playing {
+      animation: pulse 1.5s infinite;
     }
 
-    .menu .title {
-      display: block;
+    @keyframes pulse {
+      0% {
+        box-shadow:
+          0 0 0 0 rgba(240, 211, 154, 0.20),
+          0 10px 30px rgba(0, 0, 0, 0.35);
+      }
 
-      font-family: 'Fraunces', serif;
+      70% {
+        box-shadow:
+          0 0 0 12px rgba(240, 211, 154, 0),
+          0 10px 30px rgba(0, 0, 0, 0.35);
+      }
 
-      font-size: 1.7rem;
-
-      margin-bottom: 8px;
-
-      text-shadow:
-        0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .menu .desc {
-      color: var(--muted);
-
-      font-size: 0.75rem;
+      100% {
+        box-shadow:
+          0 0 0 0 rgba(240, 211, 154, 0),
+          0 10px 30px rgba(0, 0, 0, 0.35);
+      }
     }
 
     /* =========================
        FOOTER
-       ========================= */
+    ========================= */
 
     footer {
-      max-width: 1000px;
-      margin: 0 auto;
+      text-align: center;
+      margin-top: 65px;
+      padding-top: 28px;
 
-      padding: 25px 24px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
-      color: var(--muted);
+    .footer-title {
+      font-family: "Fraunces", serif;
+      font-size: 22px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
 
-      font-size: 0.7rem;
+    .footer-text {
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
 
-      border-top: 1px solid var(--line);
+    .copyright {
+      margin-top: 15px;
+      color: rgba(255, 255, 255, 0.35);
+      font-size: 10px;
     }
 
     /* =========================
-       TOMBOL MUSIK
-       ========================= */
+       RESPONSIVE
+    ========================= */
 
-    #tombolMusik {
-      position: fixed;
-
-      right: 20px;
-      bottom: 20px;
-
-      background: rgba(25, 23, 20, 0.82);
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-
-      color: var(--paper);
-
-      border: 1px solid var(--gold);
-
-      padding: 10px 15px;
-
-      font-family: 'IBM Plex Mono', monospace;
-
-      font-size: 0.75rem;
-
-      cursor: pointer;
-
-      z-index: 9999;
-
-      transition:
-        0.2s ease;
-
-      box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    #tombolMusik:hover {
-      background: var(--gold);
-
-      color: #1c1b19;
-
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 600px) {
-
-      body {
-        /*
-         * Pada HP background fixed kadang kurang
-         * bagus/performa kurang baik.
-         */
-        background-attachment: scroll;
-
-        background-position: center top;
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 22px, 900px);
+        padding-top: 50px;
       }
 
       header {
-        padding: 55px 18px 35px;
+        margin-bottom: 35px;
       }
 
-      header h1 {
-        font-size: clamp(2.5rem, 14vw, 4rem);
+      h1 {
+        font-size: clamp(42px, 15vw, 65px);
       }
 
-      main {
-        padding: 40px 18px 70px;
+      .subtitle {
+        font-size: 12px;
+        padding: 0 10px;
       }
 
       .menu {
         grid-template-columns: 1fr;
-
-        gap: 12px;
+        gap: 13px;
       }
 
       .menu a {
-        padding: 25px 20px;
+        min-height: 92px;
+        padding: 18px;
+        gap: 14px;
       }
 
-      #tombolMusik {
-        right: 15px;
-        bottom: 15px;
+      .icon {
+        flex-basis: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+
+      .menu-title {
+        font-size: 22px;
+      }
+
+      .menu-description {
+        font-size: 11px;
+      }
+
+      .music-button {
+        right: 16px;
+        bottom: 16px;
       }
     }
-
   </style>
-
 </head>
 
 <body>
 
-  <!-- =========================
-       MUSIK
-       ========================= -->
+  <main class="container">
 
-  <audio id="musik" loop>
-    <source src="musik.mp3" type="audio/mpeg">
-  </audio>
+    <!-- HEADER -->
+    <header>
+      <div class="eyebrow">Personal Website</div>
 
-  <button id="tombolMusik" onclick="toggleMusik()">
-    🎵 MUSIK OFF
-  </button>
+      <h1>Dunia Landak</h1>
 
-  <!-- =========================
-       HEADER
-       ========================= -->
-
-  <header>
-
-<h1>Dunia Landak</h1>
-
-<p>
-  Kumpulan aplikasi, program, lagu, dan gambar
-  yang saya buat dan bagikan secara bebas.
-</p>
-
-  </header>
-
-  <!-- =========================
-       MENU
-       ========================= -->
-
-  <main>
-
-<div class="menu">
-
-  <a href="games.html">
-    <span class="number">01</span>
-
-    <span class="title">
-      Games
-    </span>
-
-    <span class="desc">
-      Kumpulan games dan permainan.
-    </span>
-  </a>
+      <p class="subtitle">
+        Tempat kecil untuk menyimpan berbagai hal,
+        mulai dari game, program, lagu, hingga gambar.
+      </p>
+    </header>
 
 
-  <a href="program.html">
-    <span class="number">02</span>
+    <!-- MENU UTAMA -->
+    <nav class="menu">
 
-    <span class="title">
-      Program
-    </span>
+      <!-- GAMES -->
+      <a href="games.html">
 
-    <span class="desc">
-      Program dan source code.
-    </span>
-  </a>
+        <span class="icon">🎮</span>
 
+        <div class="menu-content">
+          <div class="menu-title">
+            Games
+          </div>
 
-  <a href="lagu.html">
-    <span class="number">03</span>
+          <div class="menu-description">
+            Koleksi game dan berbagai permainan.
+          </div>
+        </div>
 
-    <span class="title">
-      Lagu
-    </span>
+        <span class="arrow">→</span>
 
-    <span class="desc">
-      Koleksi lagu dan audio.
-    </span>
-  </a>
+      </a>
 
 
-  <a href="gambar.html">
-    <span class="number">04</span>
+      <!-- PROGRAM -->
+      <a href="program.html">
 
-    <span class="title">
-      Gambar
-    </span>
+        <span class="icon">💻</span>
 
-    <span class="desc">
-      Koleksi gambar dan karya.
-    </span>
-  </a>
+        <div class="menu-content">
+          <div class="menu-title">
+            Program
+          </div>
 
-</div>
+          <div class="menu-description">
+            Kumpulan aplikasi dan software.
+          </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+      </a>
+
+
+      <!-- LAGU -->
+      <a href="lagu.html">
+
+        <span class="icon">🎵</span>
+
+        <div class="menu-content">
+          <div class="menu-title">
+            Lagu
+          </div>
+
+          <div class="menu-description">
+            Koleksi lagu favorit yang tersimpan.
+          </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+      </a>
+
+
+      <!-- GAMBAR -->
+      <a href="gambar.html">
+
+        <span class="icon">🖼️</span>
+
+        <div class="menu-content">
+          <div class="menu-title">
+            Gambar
+          </div>
+
+          <div class="menu-description">
+            Galeri gambar dan berbagai koleksi visual.
+          </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+      </a>
+
+    </nav>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+      <div class="footer-title">
+        Dunia Landak
+      </div>
+
+      <p class="footer-text">
+        Dibuat &amp; dihosting oleh mrland.
+      </p>
+
+      <div class="copyright">
+        © Dunia Landak
+      </div>
+
+    </footer>
 
   </main>
 
-  <!-- =========================
-       FOOTER
-       ========================= -->
 
-  <footer>
-    Dibuat &amp; dihosting oleh mrland.
-  </footer>
+  <!-- TOMBOL MUSIK -->
+  <button
+    class="music-button"
+    id="musicButton"
+    type="button"
+    aria-label="Putar atau hentikan musik"
+    title="Putar / Hentikan Musik"
+  >
+    ♪
+  </button>
 
-  <!-- =========================
-       JAVASCRIPT MUSIK
-       ========================= -->
+
+  <!-- AUDIO -->
+  <audio id="backgroundMusic" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
 
   <script>
+    const musicButton = document.getElementById("musicButton");
+    const backgroundMusic = document.getElementById("backgroundMusic");
 
-    const musik = document.getElementById("musik");
-    const tombolMusik = document.getElementById("tombolMusik");
+    let isPlaying = false;
 
-    function toggleMusik() {
+    musicButton.addEventListener("click", function () {
+      if (isPlaying) {
+        backgroundMusic.pause();
 
-      if (musik.paused) {
+        musicButton.classList.remove("playing");
+        musicButton.textContent = "♪";
 
-        musik.play()
-          .then(() => {
-
-            tombolMusik.textContent = "🎵 MUSIK ON";
-
-          })
-          .catch((error) => {
-
-            console.log(error);
-
-            tombolMusik.textContent = "⚠️ MUSIK GAGAL";
-
-          });
-
+        isPlaying = false;
       } else {
+        backgroundMusic.play()
+          .then(() => {
+            musicButton.classList.add("playing");
+            musicButton.textContent = "♫";
 
-        musik.pause();
-
-        tombolMusik.textContent = "🔇 MUSIK OFF";
-
+            isPlaying = true;
+          })
+          .catch(() => {
+            alert("Musik tidak dapat diputar. Pastikan file musik.mp3 tersedia.");
+          });
       }
-
-    }
-
+    });
   </script>
 
 </body>
-
 </html>
+```
