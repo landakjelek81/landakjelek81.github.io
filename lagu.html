@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 
 <html lang="id">
@@ -16,9 +15,13 @@
   --overlay:rgba(20,19,17,.88);
   --paper:#efe9dc;
   --panel:rgba(38,36,31,.88);
+  --panel-hover:rgba(52,49,42,.94);
   --line:#454137;
+  --line-active:#c8992f;
   --gold:#c8992f;
+  --gold-light:#e0bd68;
   --muted:#9a9482;
+  --danger:#b96b5e;
 }
 
 * {
@@ -40,65 +43,272 @@ body {
   font-family:monospace;
 }
 
-header,main,footer {
+header,
+main,
+footer {
   max-width:1000px;
   margin:auto;
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 header {
-  padding:60px 24px 35px;
+  padding:48px 24px 30px;
   border-bottom:1px solid var(--line);
 }
 
-header a {
+.breadcrumb {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.78rem;
+  margin-bottom:24px;
+}
+
+.breadcrumb a {
   color:var(--gold);
   text-decoration:none;
+}
+
+.breadcrumb a:hover {
+  color:var(--gold-light);
+}
+
+.breadcrumb .separator {
+  color:var(--muted);
+}
+
+.breadcrumb .current {
+  color:var(--paper);
 }
 
 h1 {
   font-family:Georgia,serif;
   font-size:3rem;
-  margin:15px 0 5px;
+  margin:0 0 8px;
 }
 
 header p {
   color:var(--muted);
+  margin:0;
+  line-height:1.6;
 }
 
+
+/* =========================
+   MAIN
+========================= */
+
 main {
-  padding:40px 24px 80px;
+  padding:34px 24px 80px;
 }
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:30px;
+}
+
 
 /* SEARCH */
 
-.search-box {
-  margin-bottom:30px;
+.search-wrapper {
+  position:relative;
+}
+
+.search-icon {
+  position:absolute;
+  left:16px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--gold);
+  font-size:1.05rem;
+  pointer-events:none;
 }
 
 .search-box input {
   width:100%;
-  padding:16px 18px;
-  background:rgba(20,19,17,.9);
+  height:46px;
+
+  padding:0 90px 0 44px;
+
+  background:rgba(20,19,17,.94);
+
   border:1px solid var(--line);
+  border-radius:7px;
+
   color:var(--paper);
+
   font-family:monospace;
-  font-size:1rem;
+  font-size:.9rem;
+
   outline:none;
+
+  transition:.2s ease;
+}
+
+.search-box input:hover {
+  border-color:#716b5c;
 }
 
 .search-box input:focus {
-  border-color:var(--gold);
+  border-color:var(--line-active);
+  box-shadow:0 0 0 2px rgba(200,153,47,.12);
 }
 
 .search-box input::placeholder {
   color:var(--muted);
 }
 
+
+/* CLEAR SEARCH */
+
+.clear-search {
+  position:absolute;
+  right:48px;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:28px;
+  height:28px;
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  border:0;
+  background:transparent;
+
+  color:var(--muted);
+  font-size:1rem;
+
+  cursor:pointer;
+}
+
+.clear-search:hover {
+  color:var(--paper);
+}
+
+
+/* SHORTCUT */
+
+.search-shortcut {
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+
+  min-width:25px;
+  height:22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid var(--line);
+  border-radius:4px;
+
+  color:var(--muted);
+  font-size:.7rem;
+}
+
+
+/* SEARCH RESULT */
+
 .hasil {
   margin-top:8px;
   color:var(--muted);
+  font-size:.72rem;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.action-btn {
+  height:40px;
+
+  padding:0 15px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+
+  background:rgba(38,36,31,.9);
+
+  border:1px solid var(--line);
+  border-radius:6px;
+
+  color:var(--paper);
+
+  font-family:monospace;
+  font-size:.76rem;
+
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+.action-btn:hover {
+  border-color:var(--gold);
+  color:var(--gold-light);
+  transform:translateY(-1px);
+}
+
+.action-btn.active {
+  border-color:var(--gold);
+  color:var(--gold-light);
+  background:rgba(200,153,47,.08);
+}
+
+
+/* =========================
+   SONG COUNT
+========================= */
+
+.library-info {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-bottom:20px;
+  padding-bottom:15px;
+
+  border-bottom:1px solid var(--line);
+}
+
+.library-count {
+  color:var(--muted);
   font-size:.75rem;
 }
+
+.library-count strong {
+  color:var(--paper);
+}
+
+
+/* =========================
+   SONG LIST
+========================= */
 
 .lagu-list {
   display:flex;
@@ -110,21 +320,39 @@ main {
   color:var(--gold);
   font-size:1rem;
   font-weight:bold;
+
   margin-top:20px;
   margin-bottom:4px;
 }
 
+
+/* SONG CARD */
+
 .card {
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:15px;
+
   background:var(--panel);
+
   border:1px solid var(--line);
-  padding:18px 20px;
+
+  padding:15px 16px;
+
   transition:.2s ease;
 }
 
 .card:hover {
+  background:var(--panel-hover);
   border-color:var(--gold);
   transform:translateX(3px);
+}
+
+.song-info {
+  flex:1;
+  min-width:0;
 }
 
 .artis {
@@ -141,30 +369,261 @@ main {
 
 .judul {
   display:inline;
+
   color:var(--muted);
+
   text-decoration:none;
+
   font-size:.8rem;
 }
 
 .judul:hover {
+  color:var(--gold-light);
+}
+
+
+/* FAVORITE BUTTON */
+
+.favorite-btn {
+  flex-shrink:0;
+
+  width:36px;
+  height:36px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid var(--line);
+  border-radius:5px;
+
+  background:transparent;
+
+  color:var(--muted);
+
+  font-size:1rem;
+
+  cursor:pointer;
+
+  transition:.2s ease;
+}
+
+.favorite-btn:hover {
+  border-color:var(--gold);
   color:var(--gold);
 }
 
+.favorite-btn.active {
+  border-color:var(--gold);
+  color:var(--gold);
+  background:rgba(200,153,47,.1);
+}
+
+
+/* =========================
+   EMPTY MESSAGE
+========================= */
+
+.empty-message {
+  display:none;
+
+  padding:35px 20px;
+
+  text-align:center;
+
+  border:1px dashed var(--line);
+
+  color:var(--muted);
+
+  font-size:.8rem;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+  position:fixed;
+  inset:0;
+
+  display:none;
+  align-items:center;
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(0,0,0,.72);
+
+  z-index:1000;
+}
+
+.modal.show {
+  display:flex;
+}
+
+.modal-box {
+  width:100%;
+  max-width:470px;
+
+  background:#25231f;
+
+  border:1px solid var(--line);
+
+  padding:25px;
+
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.modal-box h2 {
+  margin:0 0 8px;
+
+  font-family:Georgia,serif;
+}
+
+.modal-box p {
+  margin:0 0 20px;
+
+  color:var(--muted);
+
+  font-size:.75rem;
+
+  line-height:1.5;
+}
+
+.form-group {
+  margin-bottom:14px;
+}
+
+.form-group label {
+  display:block;
+
+  margin-bottom:6px;
+
+  color:var(--muted);
+
+  font-size:.72rem;
+}
+
+.form-group input {
+  width:100%;
+
+  height:42px;
+
+  padding:0 12px;
+
+  background:#191815;
+
+  border:1px solid var(--line);
+
+  color:var(--paper);
+
+  font-family:monospace;
+
+  outline:none;
+}
+
+.form-group input:focus {
+  border-color:var(--gold);
+}
+
+.modal-actions {
+  display:flex;
+  justify-content:flex-end;
+
+  gap:8px;
+
+  margin-top:20px;
+}
+
+.modal-btn {
+  height:38px;
+
+  padding:0 15px;
+
+  border:1px solid var(--line);
+  background:transparent;
+
+  color:var(--paper);
+
+  font-family:monospace;
+
+  cursor:pointer;
+}
+
+.modal-btn:hover {
+  border-color:var(--gold);
+}
+
+.modal-btn.primary {
+  background:var(--gold);
+  border-color:var(--gold);
+
+  color:#201d17;
+}
+
+.modal-btn.primary:hover {
+  background:var(--gold-light);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
   border-top:1px solid var(--line);
+
   padding:25px 24px;
+
   color:var(--muted);
+
   font-size:.7rem;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width:600px) {
 
   header {
-    padding:45px 18px 30px;
+    padding:38px 18px 26px;
   }
 
   main {
-    padding:30px 18px 60px;
+    padding:28px 18px 60px;
+  }
+
+  h1 {
+    font-size:2.4rem;
+  }
+
+  .actions {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .action-btn:last-child {
+    grid-column:1 / -1;
+  }
+
+  .library-info {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .card {
+    padding:14px;
+  }
+
+  .artis {
+    font-size:.9rem;
+  }
+
+  .judul {
+    font-size:.76rem;
   }
 
 }
@@ -173,11 +632,22 @@ footer {
 
 </head>
 
+
 <body>
+
 
 <header>
 
-<a href="index.html">← Kembali ke Dunia Landak</a>
+<nav class="breadcrumb">
+
+<a href="index.html">Dunia Landak</a>
+
+<span class="separator">/</span>
+
+<span class="current">Lagu</span>
+
+</nav>
+
 
 <h1>Lagu</h1>
 
@@ -187,22 +657,96 @@ Kumpulan lagu dan audio, disusun berdasarkan abjad.
 
 </header>
 
+
 <main>
 
+
+<!-- TOOLBAR -->
+
+<div class="toolbar">
+
+
 <div class="search-box">
+
+<div class="search-wrapper">
+
+<span class="search-icon">♫</span>
 
 <input
 type="search"
 id="searchLagu"
-placeholder="🔎 Cari artis atau judul lagu..."
+placeholder="Cari judul lagu atau nama artis..."
 autocomplete="off">
 
-<div class="hasil" id="hasil"></div>
+<button
+class="clear-search"
+id="clearSearch"
+type="button"
+title="Hapus pencarian">
+×
+</button>
+
+<span class="search-shortcut">/</span>
+
+</div>
+
+<div
+class="hasil"
+id="hasil">
+</div>
 
 </div>
 
 
-<div class="lagu-list">
+<!-- ACTION BUTTONS -->
+
+<div class="actions">
+
+<button
+class="action-btn"
+id="shuffleBtn"
+type="button">
+🔀 Shuffle
+</button>
+
+<button
+class="action-btn"
+id="favoriteBtn"
+type="button">
+♥ Favorit
+</button>
+
+<button
+class="action-btn"
+id="addSongBtn"
+type="button">
+＋ Tambah Lagu
+</button>
+
+</div>
+
+
+</div>
+
+
+<!-- LIBRARY INFO -->
+
+<div class="library-info">
+
+<div
+class="library-count"
+id="libraryCount">
+<strong>17 lagu</strong> tersedia
+</div>
+
+</div>
+
+
+<!-- SONG LIST -->
+
+<div
+class="lagu-list"
+id="laguList">
 
 
 <!-- ==================== A ==================== -->
@@ -214,6 +758,8 @@ autocomplete="off">
 
 <article class="card">
 
+<div class="song-info">
+
 <div class="artis">Adele</div>
 
 <a
@@ -224,10 +770,21 @@ rel="noopener noreferrer">
 Easy On Me
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Adele</div>
 
@@ -239,10 +796,21 @@ rel="noopener noreferrer">
 Rolling in the Deep
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Adele</div>
 
@@ -254,10 +822,21 @@ rel="noopener noreferrer">
 Send My Love
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Adele</div>
 
@@ -269,10 +848,21 @@ rel="noopener noreferrer">
 Skyfall
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Adele</div>
 
@@ -284,12 +874,23 @@ rel="noopener noreferrer">
 Someone Like You
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <!-- Avenged Sevenfold -->
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Avenged Sevenfold</div>
 
@@ -301,10 +902,21 @@ rel="noopener noreferrer">
 Afterlife
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Avenged Sevenfold</div>
 
@@ -315,6 +927,15 @@ target="_blank"
 rel="noopener noreferrer">
 Dear God
 </a>
+
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
 
 </article>
 
@@ -328,6 +949,8 @@ Dear God
 
 <article class="card">
 
+<div class="song-info">
+
 <div class="artis">Beyoncé</div>
 
 <a
@@ -338,10 +961,21 @@ rel="noopener noreferrer">
 Hello
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Beyoncé</div>
 
@@ -353,10 +987,21 @@ rel="noopener noreferrer">
 If I Were a Boy
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Beyoncé</div>
 
@@ -368,6 +1013,15 @@ rel="noopener noreferrer">
 Listen
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
@@ -377,6 +1031,8 @@ Listen
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Vagetoz</div>
 
@@ -388,10 +1044,21 @@ rel="noopener noreferrer">
 KehadiranMu
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Vagetoz</div>
 
@@ -403,10 +1070,21 @@ rel="noopener noreferrer">
 Penyesalan
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Vagetoz</div>
 
@@ -418,6 +1096,15 @@ rel="noopener noreferrer">
 Saat Kau Pergi
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
@@ -427,6 +1114,8 @@ Saat Kau Pergi
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Westlife</div>
 
@@ -438,10 +1127,21 @@ rel="noopener noreferrer">
 Soledad
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">White Lion</div>
 
@@ -453,10 +1153,21 @@ rel="noopener noreferrer">
 When the Children Cry
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">White Lion</div>
 
@@ -468,6 +1179,15 @@ rel="noopener noreferrer">
 You're all that I Need
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
 
 
@@ -477,6 +1197,8 @@ You're all that I Need
 
 
 <article class="card">
+
+<div class="song-info">
 
 <div class="artis">Yuni Shara</div>
 
@@ -488,7 +1210,23 @@ rel="noopener noreferrer">
 Kucari Jalan Terbaik
 </a>
 
+</div>
+
+<button
+class="favorite-btn"
+type="button"
+title="Tambah ke favorit">
+♡
+</button>
+
 </article>
+
+
+<div
+class="empty-message"
+id="emptyMessage">
+Tidak ada lagu yang ditemukan.
+</div>
 
 
 </div>
@@ -503,136 +1241,774 @@ Dunia Landak · Lagu
 </footer>
 
 
+<!-- =========================
+     TAMBAH LAGU MODAL
+========================= -->
+
+<div
+class="modal"
+id="addSongModal">
+
+<div class="modal-box">
+
+<h2>Tambah Lagu</h2>
+
+<p>
+Masukkan nama artis, judul lagu, dan link Google Drive.
+</p>
+
+
+<div class="form-group">
+
+<label for="newArtist">
+Nama Artis
+</label>
+
+<input
+type="text"
+id="newArtist"
+placeholder="Contoh: Coldplay">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="newTitle">
+Judul Lagu
+</label>
+
+<input
+type="text"
+id="newTitle"
+placeholder="Contoh: Yellow">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="newLink">
+Link Lagu
+</label>
+
+<input
+type="url"
+id="newLink"
+placeholder="https://drive.google.com/...">
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+class="modal-btn"
+id="cancelAddSong"
+type="button">
+Batal
+</button>
+
+<button
+class="modal-btn primary"
+id="saveSong"
+type="button">
+Simpan Lagu
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
 
-const searchInput = document.getElementById("searchLagu");
-const cards = document.querySelectorAll(".card");
-const huruf = document.querySelectorAll(".huruf");
-const hasil = document.getElementById("hasil");
+/* =========================
+   ELEMENT
+========================= */
+
+const searchInput =
+  document.getElementById("searchLagu");
+
+const clearSearch =
+  document.getElementById("clearSearch");
+
+const hasil =
+  document.getElementById("hasil");
+
+const cards =
+  document.querySelectorAll(".card");
+
+const huruf =
+  document.querySelectorAll(".huruf");
+
+const emptyMessage =
+  document.getElementById("emptyMessage");
+
+const favoriteBtn =
+  document.getElementById("favoriteBtn");
+
+const shuffleBtn =
+  document.getElementById("shuffleBtn");
+
+const addSongBtn =
+  document.getElementById("addSongBtn");
+
+const modal =
+  document.getElementById("addSongModal");
+
+const cancelAddSong =
+  document.getElementById("cancelAddSong");
+
+const saveSong =
+  document.getElementById("saveSong");
+
+const libraryCount =
+  document.getElementById("libraryCount");
 
 
-function tampilkanSemuaLagu() {
+/* =========================
+   FAVORITES
+========================= */
 
-  cards.forEach(function(card) {
-    card.style.display = "block";
-  });
+let favorites =
+  JSON.parse(localStorage.getItem("duniaLandakFavorites") || "[]");
 
-  huruf.forEach(function(group) {
-    group.style.display = "block";
-  });
 
-  hasil.textContent = "";
+function getSongKey(card) {
+
+  const artist =
+    card.querySelector(".artis").textContent.trim();
+
+  const title =
+    card.querySelector(".judul").textContent.trim();
+
+  return artist + "||" + title;
 
 }
 
 
-searchInput.addEventListener("input", function() {
+function updateFavoriteButtons() {
 
-  const kata = this.value.toLowerCase().trim();
+  document.querySelectorAll(".favorite-btn")
+    .forEach(function(button) {
 
-  if (kata === "") {
+      const card =
+        button.closest(".card");
 
-    tampilkanSemuaLagu();
+      const key =
+        getSongKey(card);
 
-    return;
+      if (favorites.includes(key)) {
 
-  }
+        button.classList.add("active");
 
+        button.textContent = "♥";
 
-  let jumlah = 0;
+        button.title =
+          "Hapus dari favorit";
 
+      } else {
 
-  cards.forEach(function(card) {
+        button.classList.remove("active");
 
-    const artis =
-      card.querySelector(".artis").textContent.toLowerCase();
+        button.textContent = "♡";
 
-    const judul =
-      card.querySelector(".judul").textContent.toLowerCase();
-
-
-    if (
-      artis.includes(kata) ||
-      judul.includes(kata)
-    ) {
-
-      card.style.display = "block";
-
-      jumlah++;
-
-    } else {
-
-      card.style.display = "none";
-
-    }
-
-  });
-
-
-  huruf.forEach(function(group) {
-
-    let adaLagu = false;
-
-    let element = group.nextElementSibling;
-
-
-    while (
-      element &&
-      !element.classList.contains("huruf")
-    ) {
-
-      if (
-        element.classList.contains("card") &&
-        element.style.display !== "none"
-      ) {
-
-        adaLagu = true;
-
-        break;
+        button.title =
+          "Tambah ke favorit";
 
       }
 
+    });
 
-      element = element.nextElementSibling;
-
-    }
+}
 
 
-    if (adaLagu) {
+document.addEventListener("click", function(event) {
 
-      group.style.display = "block";
+  if (
+    event.target.classList.contains("favorite-btn")
+  ) {
+
+    const button =
+      event.target;
+
+    const card =
+      button.closest(".card");
+
+    const key =
+      getSongKey(card);
+
+    if (favorites.includes(key)) {
+
+      favorites =
+        favorites.filter(function(item) {
+
+          return item !== key;
+
+        });
 
     } else {
 
-      group.style.display = "none";
+      favorites.push(key);
 
     }
 
-  });
+    localStorage.setItem(
+      "duniaLandakFavorites",
+      JSON.stringify(favorites)
+    );
 
-
-  if (jumlah === 0) {
-
-    hasil.textContent =
-      "Tidak ada lagu yang ditemukan.";
-
-  } else {
-
-    hasil.textContent =
-      jumlah + " lagu ditemukan.";
+    updateFavoriteButtons();
 
   }
 
 });
 
 
-/* Pastikan semua lagu tampil saat halaman pertama dibuka */
+/* =========================
+   SEARCH
+========================= */
 
-tampilkanSemuaLagu();
+function filterLagu() {
+
+  const kata =
+    searchInput.value
+      .toLowerCase()
+      .trim();
+
+  let jumlah = 0;
+
+
+  document.querySelectorAll(".card")
+    .forEach(function(card) {
+
+      const artis =
+        card.querySelector(".artis")
+          .textContent
+          .toLowerCase();
+
+      const judul =
+        card.querySelector(".judul")
+          .textContent
+          .toLowerCase();
+
+      let cocok =
+        artis.includes(kata) ||
+        judul.includes(kata);
+
+
+      if (
+        favoriteBtn.classList.contains("active")
+      ) {
+
+        const key =
+          getSongKey(card);
+
+        cocok =
+          cocok &&
+          favorites.includes(key);
+
+      }
+
+
+      if (cocok) {
+
+        card.style.display = "flex";
+
+        jumlah++;
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+
+  /* Huruf */
+
+  document.querySelectorAll(".huruf")
+    .forEach(function(group) {
+
+      let adaLagu = false;
+
+      let element =
+        group.nextElementSibling;
+
+
+      while (
+        element &&
+        !element.classList.contains("huruf")
+      ) {
+
+        if (
+          element.classList.contains("card") &&
+          element.style.display !== "none"
+        ) {
+
+          adaLagu = true;
+
+          break;
+
+        }
+
+        element =
+          element.nextElementSibling;
+
+      }
+
+
+      group.style.display =
+        adaLagu ? "block" : "none";
+
+    });
+
+
+  /* Hasil */
+
+  if (jumlah === 0) {
+
+    emptyMessage.style.display =
+      "block";
+
+    hasil.textContent =
+      "Tidak ada lagu yang ditemukan.";
+
+  } else {
+
+    emptyMessage.style.display =
+      "none";
+
+    if (kata !== "") {
+
+      hasil.textContent =
+        jumlah + " lagu ditemukan.";
+
+    } else if (
+      favoriteBtn.classList.contains("active")
+    ) {
+
+      hasil.textContent =
+        jumlah + " lagu favorit.";
+
+    } else {
+
+      hasil.textContent = "";
+
+    }
+
+  }
+
+
+  /* Clear button */
+
+  if (searchInput.value !== "") {
+
+    clearSearch.style.display =
+      "flex";
+
+  } else {
+
+    clearSearch.style.display =
+      "none";
+
+  }
+
+}
+
+
+searchInput.addEventListener(
+  "input",
+  filterLagu
+);
+
+
+/* =========================
+   CLEAR SEARCH
+========================= */
+
+clearSearch.addEventListener(
+  "click",
+  function() {
+
+    searchInput.value = "";
+
+    filterLagu();
+
+    searchInput.focus();
+
+  }
+);
+
+
+/* =========================
+   SHORTCUT /
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "/" &&
+      document.activeElement.tagName !== "INPUT" &&
+      document.activeElement.tagName !== "TEXTAREA"
+    ) {
+
+      event.preventDefault();
+
+      searchInput.focus();
+
+    }
+
+
+    if (
+      event.key === "Escape" &&
+      document.activeElement === searchInput
+    ) {
+
+      searchInput.value = "";
+
+      filterLagu();
+
+      searchInput.blur();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   FAVORITE FILTER
+========================= */
+
+favoriteBtn.addEventListener(
+  "click",
+  function() {
+
+    favoriteBtn.classList.toggle("active");
+
+    filterLagu();
+
+  }
+);
+
+
+/* =========================
+   SHUFFLE
+========================= */
+
+shuffleBtn.addEventListener(
+  "click",
+  function() {
+
+    const visibleCards =
+      Array.from(
+        document.querySelectorAll(".card")
+      ).filter(function(card) {
+
+        return card.style.display !== "none";
+
+      });
+
+
+    if (visibleCards.length === 0) {
+
+      return;
+
+    }
+
+
+    const randomIndex =
+      Math.floor(
+        Math.random() *
+        visibleCards.length
+      );
+
+
+    const selected =
+      visibleCards[randomIndex];
+
+
+    selected.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+
+    selected.style.borderColor =
+      "var(--gold-light)";
+
+
+    setTimeout(function() {
+
+      selected.style.borderColor =
+        "";
+
+    },1500);
+
+  }
+);
+
+
+/* =========================
+   TAMBAH LAGU
+========================= */
+
+addSongBtn.addEventListener(
+  "click",
+  function() {
+
+    modal.classList.add("show");
+
+    document
+      .getElementById("newArtist")
+      .focus();
+
+  }
+);
+
+
+cancelAddSong.addEventListener(
+  "click",
+  function() {
+
+    modal.classList.remove("show");
+
+  }
+);
+
+
+modal.addEventListener(
+  "click",
+  function(event) {
+
+    if (event.target === modal) {
+
+      modal.classList.remove("show");
+
+    }
+
+  }
+);
+
+
+/* =========================
+   SIMPAN LAGU BARU
+========================= */
+
+saveSong.addEventListener(
+  "click",
+  function() {
+
+    const artist =
+      document
+        .getElementById("newArtist")
+        .value
+        .trim();
+
+    const title =
+      document
+        .getElementById("newTitle")
+        .value
+        .trim();
+
+    const link =
+      document
+        .getElementById("newLink")
+        .value
+        .trim();
+
+
+    if (
+      artist === "" ||
+      title === "" ||
+      link === ""
+    ) {
+
+      alert(
+        "Nama artis, judul lagu, dan link harus diisi."
+      );
+
+      return;
+
+    }
+
+
+    let addedSongs =
+      JSON.parse(
+        localStorage.getItem(
+          "duniaLandakAddedSongs"
+        ) || "[]"
+      );
+
+
+    addedSongs.push({
+      artist:artist,
+      title:title,
+      link:link
+    });
+
+
+    localStorage.setItem(
+      "duniaLandakAddedSongs",
+      JSON.stringify(addedSongs)
+    );
+
+
+    alert(
+      "Lagu berhasil ditambahkan di browser ini."
+    );
+
+
+    document
+      .getElementById("newArtist")
+      .value = "";
+
+    document
+      .getElementById("newTitle")
+      .value = "";
+
+    document
+      .getElementById("newLink")
+      .value = "";
+
+    modal.classList.remove("show");
+
+
+    /* Reload agar lagu baru muncul */
+
+    location.reload();
+
+  }
+);
+
+
+/* =========================
+   JUMLAH LAGU
+========================= */
+
+function updateSongCount() {
+
+  const jumlah =
+    document.querySelectorAll(".card").length;
+
+  libraryCount.innerHTML =
+    "<strong>" +
+    jumlah +
+    " lagu</strong> tersedia";
+
+}
+
+
+/* =========================
+   LOAD LAGU TAMBAHAN
+========================= */
+
+function loadAddedSongs() {
+
+  const addedSongs =
+    JSON.parse(
+      localStorage.getItem(
+        "duniaLandakAddedSongs"
+      ) || "[]"
+    );
+
+
+  if (addedSongs.length === 0) {
+
+    return;
+
+  }
+
+
+  const list =
+    document.getElementById("laguList");
+
+
+  addedSongs.forEach(function(song) {
+
+    const card =
+      document.createElement("article");
+
+    card.className =
+      "card";
+
+
+    card.innerHTML = `
+
+      <div class="song-info">
+
+        <div class="artis">
+          ${escapeHTML(song.artist)}
+        </div>
+
+        <a
+          class="judul"
+          href="${escapeAttribute(song.link)}"
+          target="_blank"
+          rel="noopener noreferrer">
+          ${escapeHTML(song.title)}
+        </a>
+
+      </div>
+
+      <button
+        class="favorite-btn"
+        type="button"
+        title="Tambah ke favorit">
+        ♡
+      </button>
+
+    `;
+
+
+    list.appendChild(card);
+
+  });
+
+}
+
+
+function escapeHTML(text) {
+
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(text) {
+
+  return text.replace(/"/g,"%22");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadAddedSongs();
+
+updateSongCount();
+
+updateFavoriteButtons();
+
+filterLagu();
 
 </script>
+
 
 </body>
 
 </html>
-```
