@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="id">
@@ -200,11 +201,16 @@ autocomplete="off">
 
 </div>
 
+
 <div class="lagu-list">
 
-<!-- A -->
+
+<!-- ==================== A ==================== -->
 
 <div class="huruf">A</div>
+
+
+<!-- Adele -->
 
 <article class="card">
 
@@ -220,6 +226,7 @@ Easy On Me
 
 </article>
 
+
 <article class="card">
 
 <div class="artis">Adele</div>
@@ -233,6 +240,7 @@ Rolling in the Deep
 </a>
 
 </article>
+
 
 <article class="card">
 
@@ -248,6 +256,7 @@ Send My Love
 
 </article>
 
+
 <article class="card">
 
 <div class="artis">Adele</div>
@@ -261,6 +270,7 @@ Skyfall
 </a>
 
 </article>
+
 
 <article class="card">
 
@@ -277,9 +287,94 @@ Someone Like You
 </article>
 
 
-<!-- V -->
+<!-- Avenged Sevenfold -->
+
+<article class="card">
+
+<div class="artis">Avenged Sevenfold</div>
+
+<a
+class="judul"
+href="https://drive.google.com/file/d/1tUGkDjtVzjOibhYp8nG69kaE4xlep8tb/view?usp=sharing"
+target="_blank"
+rel="noopener noreferrer">
+Afterlife
+</a>
+
+</article>
+
+
+<article class="card">
+
+<div class="artis">Avenged Sevenfold</div>
+
+<a
+class="judul"
+href="https://drive.google.com/file/d/1KfRTN0GCTJ_vGxE6NmIRpoC_-MyMnk6S/view?usp=sharing"
+target="_blank"
+rel="noopener noreferrer">
+Dear God
+</a>
+
+</article>
+
+
+<!-- ==================== B ==================== -->
+
+<div class="huruf">B</div>
+
+
+<!-- Beyoncé -->
+
+<article class="card">
+
+<div class="artis">Beyoncé</div>
+
+<a
+class="judul"
+href="https://drive.google.com/file/d/1Xp88VTqvwmNKuRWcUq4IbAQyKTHuL9eA/view?usp=sharing"
+target="_blank"
+rel="noopener noreferrer">
+Hello
+</a>
+
+</article>
+
+
+<article class="card">
+
+<div class="artis">Beyoncé</div>
+
+<a
+class="judul"
+href="https://drive.google.com/file/d/1XnHKl9heLisEVBcGcfeAGgifQq0VE_ik/view?usp=sharing"
+target="_blank"
+rel="noopener noreferrer">
+If I Were a Boy
+</a>
+
+</article>
+
+
+<article class="card">
+
+<div class="artis">Beyoncé</div>
+
+<a
+class="judul"
+href="https://drive.google.com/file/d/18yasYiDVLjrgc0kjwdgyrQ_T_GkZXBgW/view?usp=sharing"
+target="_blank"
+rel="noopener noreferrer">
+Listen
+</a>
+
+</article>
+
+
+<!-- ==================== V ==================== -->
 
 <div class="huruf">V</div>
+
 
 <article class="card">
 
@@ -295,6 +390,7 @@ KehadiranMu
 
 </article>
 
+
 <article class="card">
 
 <div class="artis">Vagetoz</div>
@@ -308,6 +404,7 @@ Penyesalan
 </a>
 
 </article>
+
 
 <article class="card">
 
@@ -324,9 +421,10 @@ Saat Kau Pergi
 </article>
 
 
-<!-- W -->
+<!-- ==================== W ==================== -->
 
 <div class="huruf">W</div>
+
 
 <article class="card">
 
@@ -342,6 +440,7 @@ Soledad
 
 </article>
 
+
 <article class="card">
 
 <div class="artis">White Lion</div>
@@ -355,6 +454,7 @@ When the Children Cry
 </a>
 
 </article>
+
 
 <article class="card">
 
@@ -371,9 +471,10 @@ You're all that I Need
 </article>
 
 
-<!-- Y -->
+<!-- ==================== Y ==================== -->
 
 <div class="huruf">Y</div>
+
 
 <article class="card">
 
@@ -389,13 +490,18 @@ Kucari Jalan Terbaik
 
 </article>
 
+
 </div>
 
 </main>
 
+
 <footer>
+
 Dunia Landak · Lagu
+
 </footer>
+
 
 <script>
 
@@ -425,11 +531,16 @@ searchInput.addEventListener("input", function() {
   const kata = this.value.toLowerCase().trim();
 
   if (kata === "") {
+
     tampilkanSemuaLagu();
+
     return;
+
   }
 
+
   let jumlah = 0;
+
 
   cards.forEach(function(card) {
 
@@ -439,12 +550,14 @@ searchInput.addEventListener("input", function() {
     const judul =
       card.querySelector(".judul").textContent.toLowerCase();
 
+
     if (
       artis.includes(kata) ||
       judul.includes(kata)
     ) {
 
       card.style.display = "block";
+
       jumlah++;
 
     } else {
@@ -459,7 +572,9 @@ searchInput.addEventListener("input", function() {
   huruf.forEach(function(group) {
 
     let adaLagu = false;
+
     let element = group.nextElementSibling;
+
 
     while (
       element &&
@@ -472,18 +587,25 @@ searchInput.addEventListener("input", function() {
       ) {
 
         adaLagu = true;
+
         break;
 
       }
+
 
       element = element.nextElementSibling;
 
     }
 
+
     if (adaLagu) {
+
       group.style.display = "block";
+
     } else {
+
       group.style.display = "none";
+
     }
 
   });
@@ -513,3 +635,4 @@ tampilkanSemuaLagu();
 </body>
 
 </html>
+```
