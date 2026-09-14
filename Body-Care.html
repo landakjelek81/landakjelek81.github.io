@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -68,6 +67,7 @@
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #292929;
         }
 
         .product-card:hover {
@@ -81,6 +81,7 @@
             object-fit: contain;
             padding: 20px;
             background: #151515;
+            display: block;
         }
 
         .product-info {
@@ -89,19 +90,40 @@
 
         .product-info h2 {
             font-size: 19px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .category {
+            color: #999;
+            font-size: 13px;
+            text-transform: uppercase;
             margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .bpom {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 18px;
         }
 
         .price {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .detail {
+        .size {
             color: #bbb;
             font-size: 14px;
-            line-height: 1.8;
         }
 
         @media (max-width: 900px) {
@@ -121,6 +143,7 @@
 
             h1 {
                 font-size: 26px;
+                margin-bottom: 30px;
             }
 
             .product-grid {
@@ -129,6 +152,10 @@
 
             .product-image {
                 height: 280px;
+            }
+
+            .product-info {
+                padding: 18px;
             }
         }
     </style>
@@ -152,144 +179,311 @@
 
         <!-- 1. Whitening Night Body Lotion -->
         <div class="product-card">
-            <img src="pemutih tubuh.png"
+
+            <img src="./whitening body.png"
                  alt="Whitening Night Body Lotion"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Whitening Night Body Lotion</h2>
-                <div class="price">Rp 84.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 100 ml</div>
-                    <div>🧴 BPOM: -</div>
+                <h2>Whitening Night Body Lotion</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> -
+                </div>
+
+                <div class="description">
+                    Lotion malam yang dilengkapi dengan kandungan
+                    Kojic Acid, Vitamin C, Polyglutamic Acid dan Lidah
+                    buaya sebagai antioksidan yang dapat membantu
+                    mencerahkan kulit dan melembabkan karena kulit
+                    beregenerasi 2x lipat lebih baik pada malam hari.
+                    Sehingga dapat mencerahkan secara maksimal.
+                </div>
+
+                <div class="price">
+                    Rp 84.000
+                </div>
+
+                <div class="size">
+                    Isi: 100 ml
+                </div>
+
             </div>
         </div>
 
 
         <!-- 2. Whitening Moisturizing Cream -->
         <div class="product-card">
-            <img src="pemutih-pelembap.png"
+
+            <img src="./whitening-moisturizing.png"
                  alt="Whitening Moisturizing Cream"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Whitening Moisturizing Cream</h2>
-                <div class="price">Rp 94.500</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 100 ml</div>
-                    <div>🧴 BPOM: -</div>
+                <h2>Whitening Moisturizing Cream</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> -
+                </div>
+
+                <div class="description">
+                    Moisturizing Cream yang mengandung zat aktif lebih
+                    dari satu bahan herbal yang membantu mencerahkan
+                    dan melembutkan kulit. Sediaan berbentuk cream
+                    sehingga tidak membuat kulit kering, serta dengan
+                    kandungan Niacinamide, Shea Butter, Minyak biji
+                    bunga matahari, Lidah buaya dan Vitamin E sebagai
+                    antioksidan alami dan mengandung UV filter.
+                    Aman digunakan pada area wajah dan badan.
+                </div>
+
+                <div class="price">
+                    Rp 94.500
+                </div>
+
+                <div class="size">
+                    Isi: 100 ml
+                </div>
+
             </div>
         </div>
 
 
         <!-- 3. Scrub Cream Coffee -->
         <div class="product-card">
-            <img src="scrub-cream.png"
+
+            <img src="./scrub-cream.png"
                  alt="Scrub Cream Coffee"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Scrub Cream Coffee</h2>
-                <div class="price">Rp 42.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 125 gr</div>
-                    <div>🧴 BPOM: -</div>
+                <h2>Scrub Cream Coffee</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> -
+                </div>
+
+                <div class="description">
+                    Mengandung Coffee Arabica Seed Powder, Minyak
+                    zaitun dan Susu, bermanfaat untuk membantu
+                    membersihkan kulit dari minyak dan kotoran,
+                    membantu merawat kulit, membuat kulit lebih halus,
+                    lembut tetap sehat dan terawat.
+                </div>
+
+                <div class="price">
+                    Rp 42.000
+                </div>
+
+                <div class="size">
+                    Isi: 125 gr
+                </div>
+
             </div>
         </div>
 
 
         <!-- 4. Massage Oil Bulus -->
         <div class="product-card">
-            <img src="minyak pijat.png"
+
+            <img src="./massage-oil.png"
                  alt="Massage Oil Bulus"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Massage Oil Bulus</h2>
-                <div class="price">Rp 100.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 20 ml</div>
-                    <div>🧴 BPOM: -</div>
+                <h2>Massage Oil Bulus</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> -
+                </div>
+
+                <div class="description">
+                    Merupakan sediaan Bodycare varian Massage Oil
+                    dengan kandungan utama Turtle Oil (Minyak bulus)
+                    untuk melembutkan kulit.
+                </div>
+
+                <div class="price">
+                    Rp 100.000
+                </div>
+
+                <div class="size">
+                    Isi: 20 ml
+                </div>
+
             </div>
         </div>
 
 
         <!-- 5. Lulur Rempah Bengkoang -->
         <div class="product-card">
-            <img src="lulur-rempah.png"
+
+            <img src="./lulur-rempah.png"
                  alt="Lulur Rempah Bengkoang"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Lulur Rempah Bengkoang</h2>
-                <div class="price">Rp 42.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 100 gr</div>
-                    <div>🧴 BPOM: -</div>
+                <h2>Lulur Rempah Bengkoang</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> -
+                </div>
+
+                <div class="description">
+                    Lulur rempah bengkuang dengan kandungan utama
+                    Ekstrak bengkuang dan rempah-rempah, Ekstrak
+                    Herbal pilihan dan Madu yang membantu
+                    membersihkan, menghaluskan, melembapkan,
+                    mencerahkan kulit serta mengangkat sel-sel kulit
+                    mati sehingga kulit terasa bersih, segar, cerah,
+                    halus dan lembut.
+                </div>
+
+                <div class="price">
+                    Rp 42.000
+                </div>
+
+                <div class="size">
+                    Isi: 100 gr
+                </div>
+
             </div>
         </div>
 
 
         <!-- 6. Lightening Body Lotion -->
         <div class="product-card">
-            <img src="tubuh bercahaya.png"
+
+            <img src="./lightening body.png"
                  alt="Lightening Body Lotion"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Lightening Body Lotion</h2>
-                <div class="price">Rp 52.500</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 100 ml</div>
-                    <div>🧴 BPOM: NA18190122375</div>
+                <h2>Lightening Body Lotion</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> NA18190122375
+                </div>
+
+                <div class="description">
+                    Membantu mencerahkan kulit, dan memelihara
+                    kelembapan kulit, memberi nutrisi kulit,
+                    antioksidan dan melindungi kulit dari paparan
+                    sinar matahari.
+                </div>
+
+                <div class="price">
+                    Rp 52.500
+                </div>
+
+                <div class="size">
+                    Isi: 100 ml
+                </div>
+
             </div>
         </div>
 
 
         <!-- 7. Deodorant Spray Mini -->
         <div class="product-card">
-            <img src="semprotan deodoran mini.png"
+
+            <img src="./deodorant spray mini.png"
                  alt="Deodorant Spray Mini"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Deodorant Spray Mini</h2>
-                <div class="price">Rp 42.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 60 ml</div>
-                    <div>🧴 BPOM: NA18200900002</div>
+                <h2>Deodorant Spray Mini</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> NA18200900002
+                </div>
+
+                <div class="description">
+                    Membantu mengurangi keringat berlebih dan membantu
+                    mengurangi bau badan tidak sedap akibat bakteri.
+                </div>
+
+                <div class="price">
+                    Rp 42.000
+                </div>
+
+                <div class="size">
+                    Isi: 60 ml
+                </div>
+
             </div>
         </div>
 
 
         <!-- 8. Deodorant Spray Premium -->
         <div class="product-card">
-            <img src="semprotan deodoran premium.png"
+
+            <img src="./deodorant spray premium.png"
                  alt="Deodorant Spray Premium"
                  class="product-image">
 
             <div class="product-info">
-                <h2>Deodorant Spray Premium</h2>
-                <div class="price">Rp 63.000</div>
 
-                <div class="detail">
-                    <div>📦 Isi: 60 ml</div>
-                    <div>🧴 BPOM: NA18210900070</div>
+                <h2>Deodorant Spray Premium</h2>
+
+                <div class="category">
+                    Body Care
                 </div>
+
+                <div class="bpom">
+                    <strong>BPOM:</strong> NA18210900070
+                </div>
+
+                <div class="description">
+                    Deodoran dengan kandungan Extra Extract Lime yang
+                    dapat membantu mengurangi keringat berlebih dan
+                    membantu mengurangi bau badan tidak sedap akibat
+                    bakteri.
+                </div>
+
+                <div class="price">
+                    Rp 63.000
+                </div>
+
+                <div class="size">
+                    Isi: 60 ml
+                </div>
+
             </div>
         </div>
 
@@ -299,4 +493,3 @@
 
 </body>
 </html>
-```
