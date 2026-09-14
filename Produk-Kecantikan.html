@@ -4,11 +4,10 @@
 
 <head>
 
-```
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+   content="width=device-width, initial-scale=1.0">
 
 <title>Produk Kecantikan</title>
 
@@ -25,7 +24,6 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 
-
     /* =========================
        HEADER
     ========================= */
@@ -37,13 +35,10 @@
 
     .logo {
         display: inline-block;
-
         font-size: 24px;
         font-weight: bold;
-
         color: #ffffff;
         text-decoration: none;
-
         transition: 0.2s;
     }
 
@@ -53,12 +48,9 @@
 
     .subtitle {
         margin-top: 6px;
-
         font-size: 12px;
-
         color: #888888;
     }
-
 
     /* =========================
        CONTAINER
@@ -67,18 +59,32 @@
     .container {
         width: 84%;
         max-width: 900px;
-
         margin: 35px auto;
+    }
+
+    /* =========================
+       TOMBOL KEMBALI
+    ========================= */
+
+    .back {
+        display: inline-block;
+        margin-bottom: 25px;
+        color: #aaaaaa;
+        text-decoration: none;
+        font-size: 13px;
+        transition: 0.2s;
+    }
+
+    .back:hover {
+        color: #ffffff;
+        transform: translateX(-3px);
     }
 
     .title {
         font-size: 18px;
-
         margin-bottom: 20px;
-
         color: #dddddd;
     }
-
 
     /* =========================
        MENU PRODUK
@@ -86,41 +92,27 @@
 
     .menu {
         display: grid;
-
-        grid-template-columns:
-            repeat(2, 1fr);
-
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
     .menu a {
         display: block;
-
         padding: 15px 18px;
-
         background: #191919;
-
         border: 1px solid #333333;
-
         color: #dddddd;
-
         text-decoration: none;
-
         font-size: 13px;
-
         transition: 0.2s;
     }
 
     .menu a:hover {
         background: #252525;
-
         border-color: #666666;
-
         color: #ffffff;
-
         transform: translateX(3px);
     }
-
 
     /* =========================
        MENU LAINNYA
@@ -132,44 +124,31 @@
 
     .section-title {
         font-size: 13px;
-
         color: #888888;
-
         margin-bottom: 12px;
-
         text-transform: uppercase;
-
         letter-spacing: 1px;
     }
 
     .other-menu {
         display: flex;
-
         flex-direction: column;
-
         gap: 8px;
     }
 
     .other-menu a {
         padding: 12px 15px;
-
         color: #aaaaaa;
-
         text-decoration: none;
-
         border-bottom: 1px solid #292929;
-
         font-size: 12px;
-
         transition: 0.2s;
     }
 
     .other-menu a:hover {
         color: #ffffff;
-
         padding-left: 20px;
     }
-
 
     /* =========================
        FOOTER
@@ -177,18 +156,12 @@
 
     footer {
         margin-top: 60px;
-
         padding: 20px;
-
         text-align: center;
-
         border-top: 1px solid #292929;
-
         font-size: 11px;
-
         color: #666666;
     }
-
 
     /* =========================
        HP / MOBILE
@@ -207,192 +180,113 @@
     }
 
 </style>
-```
 
 </head>
 
 <body>
 
-```
-<!-- =========================
-     HEADER
-========================= -->
-
 <header class="header">
 
-    <!-- Kembali ke halaman utama Dunia Landak -->
-    <a href="index.html" class="logo">
-        Dunia Landak
-    </a>
+<a href="index.html" class="logo">
+    Dunia Landak
+</a>
 
-    <div class="subtitle">
-        Produk Kecantikan
-    </div>
+<div class="subtitle">
+    Produk Kecantikan
+</div>
 
 </header>
 
-
-
-<!-- =========================
-     MENU PRODUK
-========================= -->
-
 <main class="container">
 
-    <div class="title">
-        Kategori Produk
+<a href="index.html" class="back">
+    ← Kembali ke Menu Utama
+</a>
+
+<div class="title">
+    Kategori Produk
+</div>
+
+<div class="menu">
+
+    <a href="Acne-Series.html">
+        Acne Series
+    </a>
+
+    <a href="#">
+        Body Care
+    </a>
+
+    <a href="#">
+        Face Care
+    </a>
+
+    <a href="#">
+        Face Mask
+    </a>
+
+    <a href="#">
+        Face Wash
+    </a>
+
+    <a href="#">
+        Hair Care
+    </a>
+
+    <a href="#">
+        Herbal
+    </a>
+
+    <a href="#">
+        Kiddos
+    </a>
+
+    <a href="#">
+        Personal Care
+    </a>
+
+    <a href="#">
+        Toothpaste
+    </a>
+
+</div>
+
+
+<div class="section">
+
+    <div class="section-title">
+        Menu Lainnya
     </div>
 
+    <div class="other-menu">
 
-    <div class="menu">
-
-
-        <!-- =========================
-             ACNE SERIES
-        ========================= -->
-
-        <a href="Acne-Series.html">
-            Acne Series
+        <a href="lagu.html">
+            Lagu
         </a>
 
-
-        <!-- =========================
-             BODY CARE
-        ========================= -->
-
-        <a href="#">
-            Body Care
+        <a href="program.html">
+            Program
         </a>
 
-
-        <!-- =========================
-             FACE CARE
-        ========================= -->
-
-        <a href="#">
-            Face Care
+        <a href="games.html">
+            Games
         </a>
 
-
-        <!-- =========================
-             FACE MASK
-        ========================= -->
-
-        <a href="#">
-            Face Mask
+        <a href="gambar.html">
+            Gambar
         </a>
-
-
-        <!-- =========================
-             FACE WASH
-        ========================= -->
-
-        <a href="#">
-            Face Wash
-        </a>
-
-
-        <!-- =========================
-             HAIR CARE
-        ========================= -->
-
-        <a href="#">
-            Hair Care
-        </a>
-
-
-        <!-- =========================
-             HERBAL
-        ========================= -->
-
-        <a href="#">
-            Herbal
-        </a>
-
-
-        <!-- =========================
-             KIDDOS
-        ========================= -->
-
-        <a href="#">
-            Kiddos
-        </a>
-
-
-        <!-- =========================
-             PERSONAL CARE
-        ========================= -->
-
-        <a href="#">
-            Personal Care
-        </a>
-
-
-        <!-- =========================
-             TOOTHPASTE
-        ========================= -->
-
-        <a href="#">
-            Toothpaste
-        </a>
-
 
     </div>
 
-
-
-    <!-- =========================
-         MENU LAINNYA
-    ========================= -->
-
-    <div class="section">
-
-        <div class="section-title">
-            Menu Lainnya
-        </div>
-
-
-        <div class="other-menu">
-
-
-            <a href="lagu.html">
-                Lagu
-            </a>
-
-
-            <a href="program.html">
-                Program
-            </a>
-
-
-            <a href="games.html">
-                Games
-            </a>
-
-
-            <a href="gambar.html">
-                Gambar
-            </a>
-
-
-        </div>
-
-    </div>
+</div>
 
 </main>
 
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-    Dunia Landak
+Dunia Landak
 
 </footer>
-```
 
 </body>
 
