@@ -1,415 +1,294 @@
+```html
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Body Care - Dunia Landak</title>
 
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: #111;
-        color: #f5f5f5;
-        min-height: 100vh;
-    }
-
-    header {
-        padding: 25px 8%;
-        border-bottom: 1px solid #333;
-    }
-
-    .logo {
-        color: #fff;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 40px auto;
-    }
-
-    .back {
-        display: inline-block;
-        margin-bottom: 25px;
-        color: #aaa;
-        text-decoration: none;
-        font-size: 14px;
-    }
-
-    .back:hover {
-        color: #fff;
-    }
-
-    h1 {
-        font-size: 42px;
-        margin-bottom: 12px;
-    }
-
-    .intro {
-        color: #aaa;
-        margin-bottom: 40px;
-        line-height: 1.6;
-    }
-
-    .products {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .product-card {
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 16px;
-        overflow: hidden;
-        transition: 0.3s;
-    }
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        border-color: #666;
-    }
-
-    .product-image {
-        width: 100%;
-        height: 300px;
-        background: #222;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .product-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        padding: 20px;
-    }
-
-    .product-info {
-        padding: 25px;
-    }
-
-    .category {
-        font-size: 12px;
-        color: #888;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 8px;
-    }
-
-    h2 {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-
-    .price {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-
-    .description {
-        color: #aaa;
-        font-size: 14px;
-        line-height: 1.7;
-        margin-bottom: 18px;
-    }
-
-    .details {
-        border-top: 1px solid #333;
-        padding-top: 15px;
-        color: #888;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-
-    @media (max-width: 900px) {
-        .products {
-            grid-template-columns: 1fr 1fr;
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-    }
 
-    @media (max-width: 600px) {
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+        }
+
+        header {
+            background: #000;
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .back {
+            display: inline-block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .back:hover {
+            color: white;
+        }
+
         h1 {
+            text-align: center;
+            margin-bottom: 40px;
             font-size: 32px;
         }
 
-        .products {
-            grid-template-columns: 1fr;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
         }
 
         .product-image {
-            height: 320px;
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            padding: 20px;
+            background: #151515;
         }
-    }
-</style>
 
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h2 {
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .detail {
+            color: #bbb;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 20px;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 280px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <a href="index.html" class="logo">Dunia Landak</a>
+    <a href="./index.html" class="logo">Dunia Landak</a>
 </header>
 
 <div class="container">
 
-    <a href="Produk-Kecantikan.html" class="back">
+    <a href="./Produk-Kecantikan.html" class="back">
         ← Kembali ke Produk Kecantikan
     </a>
 
     <h1>Body Care</h1>
 
-    <p class="intro">
-        Koleksi perawatan tubuh untuk membantu menjaga kebersihan,
-        kelembapan, kelembutan, dan kesehatan kulit agar tetap terawat.
-    </p>
+    <div class="product-grid">
 
-    <div class="products">
-
-        <!-- Whitening Night Body Lotion -->
+        <!-- 1. Whitening Night Body Lotion -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Whitening-Night-Body-Lotion.png"
-                     alt="Whitening Night Body Lotion">
-            </div>
+            <img src="pemutih tubuh.png"
+                 alt="Whitening Night Body Lotion"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Whitening Night Body Lotion</h2>
-
                 <div class="price">Rp 84.000</div>
 
-                <p class="description">
-                    Lotion malam yang dilengkapi dengan kandungan Kojic Acid,
-                    Vitamin C, Polyglutamic Acid dan Lidah buaya sebagai
-                    antioksidan yang dapat membantu mencerahkan kulit dan
-                    melembapkan karena kulit beregenerasi 2x lipat lebih baik
-                    pada malam hari. Sehingga dapat membantu mencerahkan
-                    secara maksimal.
-                </p>
-
-                <div class="details">
-                    BPOM: —<br>
-                    Isi: 100 ml
+                <div class="detail">
+                    <div>📦 Isi: 100 ml</div>
+                    <div>🧴 BPOM: -</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Whitening Moisturizing Cream -->
+        <!-- 2. Whitening Moisturizing Cream -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Whitening-Moisturizing-Cream.png"
-                     alt="Whitening Moisturizing Cream">
-            </div>
+            <img src="pemutih-pelembap.png"
+                 alt="Whitening Moisturizing Cream"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Whitening Moisturizing Cream</h2>
-
                 <div class="price">Rp 94.500</div>
 
-                <p class="description">
-                    Moisturizing Cream yang mengandung zat aktif lebih dari
-                    satu bahan herbal yang membantu mencerahkan dan
-                    melembutkan kulit. Sediaan berbentuk cream sehingga tidak
-                    membuat kulit kering, dengan kandungan Niacinamide,
-                    Shea Butter, Minyak Biji Bunga Matahari, Lidah Buaya dan
-                    Vitamin E sebagai antioksidan alami serta mengandung
-                    UV filter. Aman digunakan pada area wajah dan badan.
-                </p>
-
-                <div class="details">
-                    BPOM: —<br>
-                    Isi: 100 ml
+                <div class="detail">
+                    <div>📦 Isi: 100 ml</div>
+                    <div>🧴 BPOM: -</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Scrub Cream Coffee -->
+        <!-- 3. Scrub Cream Coffee -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Scrub-Cream-Coffee.png"
-                     alt="Scrub Cream Coffee">
-            </div>
+            <img src="scrub-cream.png"
+                 alt="Scrub Cream Coffee"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Scrub Cream Coffee</h2>
-
                 <div class="price">Rp 42.000</div>
 
-                <p class="description">
-                    Mengandung Coffee Arabica Seed Powder, Minyak Zaitun
-                    dan Susu, bermanfaat untuk membantu membersihkan kulit
-                    dari minyak dan kotoran, membantu merawat kulit,
-                    membuat kulit lebih halus dan lembut serta tetap sehat
-                    dan terawat.
-                </p>
-
-                <div class="details">
-                    BPOM: —<br>
-                    Isi: 125 gr
+                <div class="detail">
+                    <div>📦 Isi: 125 gr</div>
+                    <div>🧴 BPOM: -</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Massage Oil Bulus -->
+        <!-- 4. Massage Oil Bulus -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Massage-Oil-Bulus.png"
-                     alt="Massage Oil Bulus">
-            </div>
+            <img src="minyak pijat.png"
+                 alt="Massage Oil Bulus"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Massage Oil Bulus</h2>
-
                 <div class="price">Rp 100.000</div>
 
-                <p class="description">
-                    Merupakan sediaan body care varian massage oil dengan
-                    kandungan utama Turtle Oil (Minyak Bulus) yang membantu
-                    melembutkan kulit.
-                </p>
-
-                <div class="details">
-                    BPOM: —<br>
-                    Isi: 20 ml
+                <div class="detail">
+                    <div>📦 Isi: 20 ml</div>
+                    <div>🧴 BPOM: -</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Lulur Rempah Bengkoang -->
+        <!-- 5. Lulur Rempah Bengkoang -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Lulur-Rempah-Bengkoang.png"
-                     alt="Lulur Rempah Bengkoang">
-            </div>
+            <img src="lulur-rempah.png"
+                 alt="Lulur Rempah Bengkoang"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Lulur Rempah Bengkoang</h2>
-
                 <div class="price">Rp 42.000</div>
 
-                <p class="description">
-                    Lulur rempah bengkuang dengan kandungan utama Ekstrak
-                    Bengkuang dan rempah-rempah, Ekstrak Herbal pilihan
-                    dan Madu yang membantu membersihkan, menghaluskan,
-                    melembapkan, mencerahkan kulit serta mengangkat sel-sel
-                    kulit mati sehingga kulit terasa bersih, segar, cerah,
-                    halus dan lembut.
-                </p>
-
-                <div class="details">
-                    BPOM: —<br>
-                    Isi: 100 gr
+                <div class="detail">
+                    <div>📦 Isi: 100 gr</div>
+                    <div>🧴 BPOM: -</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Lightening Body Lotion -->
+        <!-- 6. Lightening Body Lotion -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Lightening-Body-Lotion.png"
-                     alt="Lightening Body Lotion">
-            </div>
+            <img src="tubuh bercahaya.png"
+                 alt="Lightening Body Lotion"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Lightening Body Lotion</h2>
-
                 <div class="price">Rp 52.500</div>
 
-                <p class="description">
-                    Membantu mencerahkan kulit dan memelihara kelembapan
-                    kulit, memberi nutrisi kulit, memberikan manfaat
-                    antioksidan serta membantu melindungi kulit dari
-                    paparan sinar matahari.
-                </p>
-
-                <div class="details">
-                    BPOM: NA18190122375<br>
-                    Isi: 100 ml
+                <div class="detail">
+                    <div>📦 Isi: 100 ml</div>
+                    <div>🧴 BPOM: NA18190122375</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Deodorant Spray Mini -->
+        <!-- 7. Deodorant Spray Mini -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Deodorant-Spray-Mini.png"
-                     alt="Deodorant Spray Mini">
-            </div>
+            <img src="semprotan deodoran mini.png"
+                 alt="Deodorant Spray Mini"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Deodorant Spray Mini</h2>
-
                 <div class="price">Rp 42.000</div>
 
-                <p class="description">
-                    Membantu mengurangi keringat berlebih dan membantu
-                    mengurangi bau badan tidak sedap akibat bakteri.
-                </p>
-
-                <div class="details">
-                    BPOM: NA18200900002<br>
-                    Isi: 60 ml
+                <div class="detail">
+                    <div>📦 Isi: 60 ml</div>
+                    <div>🧴 BPOM: NA18200900002</div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Deodorant Spray Premium -->
+        <!-- 8. Deodorant Spray Premium -->
         <div class="product-card">
-            <div class="product-image">
-                <img src="Deodorant-Spray-Premium.png"
-                     alt="Deodorant Spray Premium">
-            </div>
+            <img src="semprotan deodoran premium.png"
+                 alt="Deodorant Spray Premium"
+                 class="product-image">
 
             <div class="product-info">
-                <div class="category">Body Care</div>
-
                 <h2>Deodorant Spray Premium</h2>
-
                 <div class="price">Rp 63.000</div>
 
-                <p class="description">
-                    Deodoran dengan kandungan Extra Extract Lime yang dapat
-                    membantu mengurangi keringat berlebih dan membantu
-                    mengurangi bau badan tidak sedap akibat bakteri.
-                </p>
-
-                <div class="details">
-                    BPOM: NA18210900070<br>
-                    Isi: 60 ml
+                <div class="detail">
+                    <div>📦 Isi: 60 ml</div>
+                    <div>🧴 BPOM: NA18210900070</div>
                 </div>
             </div>
         </div>
