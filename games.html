@@ -1,147 +1,177 @@
 <!DOCTYPE html>
-
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dunia Landak - Games</title>
+  <title>Games - Dunia Landak</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --background: url("gambar.jfif") center/cover fixed;
-      --overlay: rgba(20, 19, 17, 0.88);
-      --paper: #efe9dc;
-      --panel: rgba(38, 36, 31, 0.88);
-      --line: #454137;
-      --gold: #c8992f;
-      --muted: #9a9482;
-    }
-
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
+      color: #f5eadc;
       background:
-        linear-gradient(var(--overlay), var(--overlay)),
-        var(--background);
-      background-color: #1c1b19;
+        linear-gradient(rgba(35, 20, 12, 0.88), rgba(35, 20, 12, 0.94)),
+        url("gambar.jfif");
+      background-size: cover;
+      background-position: center;
       background-attachment: fixed;
-      color: var(--paper);
-      font-family: 'IBM Plex Mono', monospace;
-      line-height: 1.5;
+      font-family: "IBM Plex Mono", monospace;
     }
 
     header {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 60px 24px 35px;
-      border-bottom: 1px solid var(--line);
+      padding: 40px 20px 25px;
     }
 
-    header a {
-      color: var(--gold);
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #d8b08a;
       text-decoration: none;
-      font-size: 0.72rem;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      color: #fff;
     }
 
     h1 {
-      font-family: 'Fraunces', serif;
-      font-size: 3rem;
-      margin: 15px 0 5px;
+      margin: 0;
+      font-family: "Fraunces", serif;
+      font-size: 46px;
+      line-height: 1.1;
+      color: #fff4e8;
     }
 
-    header p {
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin: 0;
+    .subtitle {
+      margin-top: 10px;
+      color: #cbb8a5;
+      font-size: 14px;
     }
 
     main {
       max-width: 1000px;
-      margin: auto;
-      padding: 35px 24px 80px;
+      margin: 0 auto;
+      padding: 10px 20px 40px;
     }
 
     .list {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 18px 20px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
-      transition: 0.2s ease;
+
+      padding: 22px;
+
+      background: rgba(58, 35, 22, 0.86);
+      border: 1px solid rgba(214, 174, 133, 0.18);
+      border-radius: 16px;
+
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
     .card:hover {
-      border-color: #665f4d;
-      transform: translateX(3px);
+      transform: translateY(-3px);
+      border-color: rgba(214, 174, 133, 0.4);
     }
 
     .title {
-      color: var(--paper);
+      display: inline-block;
+      color: #fff4e8;
+      font-family: "Fraunces", serif;
+      font-size: 24px;
+      font-weight: 700;
       text-decoration: none;
-      font-size: 0.95rem;
+      margin-bottom: 8px;
     }
 
     .title:hover {
-      color: var(--gold);
+      color: #e6c39d;
     }
 
     .desc {
-      color: var(--muted);
-      font-size: 0.75rem;
-      margin: 5px 0 0;
+      margin: 0 0 10px;
+      color: #d7c5b4;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .meta {
-      color: var(--gold);
-      font-size: 0.67rem;
-      margin: 6px 0 0;
+      margin: 0;
+      color: #a99481;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .button {
-      background: var(--gold);
-      color: #211e18;
-      padding: 9px 14px;
+      display: inline-block;
+      padding: 11px 15px;
+
+      color: #2c1a10;
+      background: #e1bd94;
+
+      border-radius: 10px;
       text-decoration: none;
-      font-size: 0.7rem;
+      font-size: 12px;
+      font-weight: 600;
+
+      white-space: nowrap;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .button:hover {
-      background: #e0b64c;
+      background: #f0d1ad;
+      transform: translateY(-1px);
     }
 
     footer {
       max-width: 1000px;
-      margin: auto;
-      border-top: 1px solid var(--line);
-      padding: 25px 24px 40px;
-      color: var(--muted);
-      font-size: 0.7rem;
+      margin: 0 auto;
+      padding: 0 20px 35px;
+      color: #806d5b;
+      font-size: 11px;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 45px 18px 30px;
+    @media (max-width: 760px) {
+      .list {
+        grid-template-columns: 1fr;
       }
 
-      main {
-        padding: 30px 18px 60px;
+      h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding-top: 30px;
+      }
+
+      h1 {
+        font-size: 34px;
       }
 
       .card {
@@ -149,40 +179,31 @@
       }
 
       .button {
-        justify-self: start;
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
-
 </head>
 
 <body>
 
   <header>
-
-    <a href="index.html">
-      ← Kembali ke Dunia Landak
-    </a>
+    <a class="back" href="index.html">← Kembali</a>
 
     <h1>Games</h1>
 
-    <p>
+    <p class="subtitle">
       Kumpulan games dan permainan.
     </p>
-
   </header>
 
-
   <main>
-
     <div class="list">
-
 
       <!-- ZOMBIE SHOOTER -->
       <article class="card">
-
         <div>
-
           <a
             class="title"
             href="https://drive.google.com/file/d/1p94neGHys94dGhZpmup5fcMlNe2SNt4U/view?usp=sharing"
@@ -198,7 +219,6 @@
           <p class="meta">
             All Windows · v3.9 · 45.5 MB
           </p>
-
         </div>
 
         <a
@@ -208,15 +228,12 @@
           rel="noopener noreferrer">
           Buka
         </a>
-
       </article>
 
 
       <!-- ZOMBIE APOCALYPSE -->
       <article class="card">
-
         <div>
-
           <a
             class="title"
             href="https://drive.google.com/file/d/1UCzaBa4oUwck1aYKIi_B3aRGwlgwRiX6/view?usp=sharing"
@@ -232,7 +249,6 @@
           <p class="meta">
             All Windows · 72.5 MB
           </p>
-
         </div>
 
         <a
@@ -242,15 +258,12 @@
           rel="noopener noreferrer">
           Buka
         </a>
-
       </article>
 
 
       <!-- SAMURAI VENGEANCE II -->
       <article class="card">
-
         <div>
-
           <a
             class="title"
             href="https://drive.google.com/file/d/1J8jdrpR84j8WLzYoTg7ASPeY8Tml9VPs/view?usp=sharing"
@@ -266,7 +279,6 @@
           <p class="meta">
             All Windows · 72.2 MB
           </p>
-
         </div>
 
         <a
@@ -276,15 +288,12 @@
           rel="noopener noreferrer">
           Buka
         </a>
-
       </article>
 
 
       <!-- KUMPULAN GAMES MINI CLASS -->
       <article class="card">
-
         <div>
-
           <a
             class="title"
             href="https://drive.google.com/file/d/1QiUcWJNZLBA-yKDf7XF1NTGRBFu-5EQE/view?usp=drive_link"
@@ -300,7 +309,6 @@
           <p class="meta">
             All Windows · 93.5 MB
           </p>
-
         </div>
 
         <a
@@ -310,19 +318,74 @@
           rel="noopener noreferrer">
           Buka
         </a>
-
       </article>
 
 
+      <!-- GRAND PRIX F1 -->
+      <article class="card">
+        <div>
+          <a
+            class="title"
+            href="https://drive.google.com/file/d/1ViBm5srBSutlPFGe9yyt-DKS-m2MLiQl/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer">
+            Grand Prix F1
+          </a>
+
+          <p class="desc">
+            Game Balapan F1
+          </p>
+
+          <p class="meta">
+            All Windows · 140.3 MB
+          </p>
+        </div>
+
+        <a
+          class="button"
+          href="https://drive.google.com/file/d/1ViBm5srBSutlPFGe9yyt-DKS-m2MLiQl/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">
+          Buka
+        </a>
+      </article>
+
+
+      <!-- GREAT DAVINCI CODE -->
+      <article class="card">
+        <div>
+          <a
+            class="title"
+            href="https://drive.google.com/file/d/1-QnFmTgPzKZzpy_UK8Op9WVpDR7SZ2Ej/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer">
+            Great DaVinci Code
+          </a>
+
+          <p class="desc">
+            Games Teka teki Gambar
+          </p>
+
+          <p class="meta">
+            All Windows · 11.7 MB
+          </p>
+        </div>
+
+        <a
+          class="button"
+          href="https://drive.google.com/file/d/1-QnFmTgPzKZzpy_UK8Op9WVpDR7SZ2Ej/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer">
+          Buka
+        </a>
+      </article>
+
     </div>
-
   </main>
-
 
   <footer>
     Dunia Landak · Games
   </footer>
 
 </body>
-
 </html>
