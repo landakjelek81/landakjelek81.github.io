@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Dunia Landak - Program</title>
 
   <style>
@@ -103,6 +105,7 @@
 
     .info {
       flex: 1;
+      min-width: 0;
     }
 
     .label {
@@ -129,6 +132,7 @@
       margin-top: 4px;
       font-size: .8rem;
       line-height: 1.5;
+      overflow-wrap: anywhere;
     }
 
     .download {
@@ -138,6 +142,7 @@
       text-decoration: none;
       font-size: .75rem;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .download:hover {
@@ -203,7 +208,6 @@
       }
     }
   </style>
-
 </head>
 
 <body>
@@ -221,9 +225,13 @@
       type="text"
       id="search"
       placeholder="Cari program..."
+      maxlength="100"
+      autocomplete="off"
+      spellcheck="false"
+      aria-label="Cari program"
     >
 
-    <select id="category">
+    <select id="category" aria-label="Pilih kategori">
       <option value="semua">Semua kategori</option>
     </select>
 
@@ -240,20 +248,27 @@
 
 <!-- MUSIK -->
 
-<audio id="musik" loop>
+<audio id="musik" loop preload="none">
   <source
     src="musik.mp3"
     type="audio/mpeg">
 </audio>
 
-<button id="tombolMusik" onclick="toggleMusik()">
+<button
+  id="tombolMusik"
+  type="button"
+  aria-label="Putar musik">
   🎵 MUSIK OFF
 </button>
 
 <script>
+"use strict";
 
+/*
+ * DATA PROGRAM
+ * Semua data di bawah ini adalah data statis milik website.
+ */
 const programs = [
-
   {
     name: "Winamp Pro 5.66",
     category: "Music Player",
@@ -309,112 +324,261 @@ const programs = [
     desc: "Aplikasi untuk membantu mengubah atau mengonversi format file video ke berbagai format lainnya.",
     drive: "https://drive.google.com/file/d/1US9oJuvFPh07Fh_QoKUbsEy9gWPj4qeK/view?usp=sharing"
   }
-
 ];
 
+
+/* ELEMENT UTAMA */
 
 const search = document.getElementById("search");
 const category = document.getElementById("category");
 const list = document.getElementById("programList");
 
+const musik = document.getElementById("musik");
+const tombolMusik = document.getElementById("tombolMusik");
+
+
+/*
+ * CEK LINK DOWNLOAD
+ * Hanya izinkan URL HTTPS dari Google Drive.
+ */
+function linkGoogleDriveValid(urlString) {
+  try {
+    const url = new URL(urlString);
+
+    return (
+      url.protocol === "https:" &&
+      (
+        url.hostname === "drive.google.com" ||
+        url.hostname === "www.drive.google.com"
+      )
+    );
+  } catch {
+    return false;
+  }
+}
+
+
+/*
+ * ISI KATEGORI
+ * Menggunakan createElement + textContent,
+ * bukan innerHTML.
+ */
 
 const categories = [
-  ...new Set(programs.map(program => program.category))
+  ...new Set(
+    programs
+      .map(program => program.category)
+      .filter(categoryName => typeof categoryName === "string")
+  )
 ];
 
-
 categories.forEach(cat => {
-  category.innerHTML += `<option value="${cat}">${cat}</option>`;
+  const option = document.createElement("option");
+
+  option.value = cat;
+  option.textContent = cat;
+
+  category.appendChild(option);
 });
 
 
+/*
+ * BUAT ELEMEN TEKS
+ */
+
+function buatTeks(className, text) {
+  const element = document.createElement("div");
+
+  element.className = className;
+  element.textContent = text;
+
+  return element;
+}
+
+
+/*
+ * TAMPILKAN PROGRAM
+ */
+
 function tampilkanProgram() {
 
-  const kata = search.value.toLowerCase();
+  const kata = search.value
+    .trim()
+    .toLocaleLowerCase("id-ID");
+
   const pilihKategori = category.value;
 
   const hasil = programs.filter(program => {
 
+    const name = String(program.name || "");
+    const programCategory = String(program.category || "");
+    const desc = String(program.desc || "");
+
     const cocokSearch =
-      program.name.toLowerCase().includes(kata) ||
-      program.category.toLowerCase().includes(kata) ||
-      program.desc.toLowerCase().includes(kata);
+      name.toLocaleLowerCase("id-ID").includes(kata) ||
+      programCategory.toLocaleLowerCase("id-ID").includes(kata) ||
+      desc.toLocaleLowerCase("id-ID").includes(kata);
 
     const cocokKategori =
       pilihKategori === "semua" ||
-      program.category === pilihKategori;
+      programCategory === pilihKategori;
 
     return cocokSearch && cocokKategori;
   });
 
 
+  /*
+   * Bersihkan daftar menggunakan DOM,
+   * bukan innerHTML.
+   */
+  list.replaceChildren();
+
+
   if (hasil.length === 0) {
-    list.innerHTML = `
-      <div class="empty">
-        Program tidak ditemukan.
-      </div>
-    `;
+
+    const empty = document.createElement("div");
+
+    empty.className = "empty";
+    empty.textContent = "Program tidak ditemukan.";
+
+    list.appendChild(empty);
+
     return;
   }
 
 
-  list.innerHTML = hasil.map(program => {
+  const fragment = document.createDocumentFragment();
 
-    const download = program.drive
-      ? `<a class="download"
-           href="${program.drive}"
-           target="_blank"
-           rel="noopener noreferrer">
-           DOWNLOAD
-         </a>`
-      : "";
 
-    return `
-      <div class="card">
+  hasil.forEach(program => {
 
-        <div class="info">
+    const card = document.createElement("div");
+    card.className = "card";
 
-          <div class="label">Program</div>
-          <div class="title">${program.name}</div>
 
-          <div class="label">Kategori</div>
-          <div class="category">${program.category}</div>
+    const info = document.createElement("div");
+    info.className = "info";
 
-          <div class="label">Deskripsi</div>
-          <div class="desc">${program.desc}</div>
 
-        </div>
+    const labelProgram = buatTeks(
+      "label",
+      "Program"
+    );
 
-        ${download}
+    const title = buatTeks(
+      "title",
+      String(program.name || "")
+    );
 
-      </div>
-    `;
+    const labelKategori = buatTeks(
+      "label",
+      "Kategori"
+    );
 
-  }).join("");
+    const categoryBadge = buatTeks(
+      "category",
+      String(program.category || "")
+    );
+
+    const labelDeskripsi = buatTeks(
+      "label",
+      "Deskripsi"
+    );
+
+    const desc = buatTeks(
+      "desc",
+      String(program.desc || "")
+    );
+
+
+    info.appendChild(labelProgram);
+    info.appendChild(title);
+
+    info.appendChild(labelKategori);
+    info.appendChild(categoryBadge);
+
+    info.appendChild(labelDeskripsi);
+    info.appendChild(desc);
+
+
+    card.appendChild(info);
+
+
+    /*
+     * Hanya buat tombol jika link benar-benar
+     * menggunakan HTTPS dan Google Drive.
+     */
+    if (linkGoogleDriveValid(program.drive)) {
+
+      const download = document.createElement("a");
+
+      download.className = "download";
+      download.href = program.drive;
+      download.target = "_blank";
+      download.rel = "noopener noreferrer";
+      download.textContent = "DOWNLOAD";
+
+      card.appendChild(download);
+    }
+
+
+    fragment.appendChild(card);
+
+  });
+
+
+  list.appendChild(fragment);
 }
 
 
-search.addEventListener("input", tampilkanProgram);
-category.addEventListener("change", tampilkanProgram);
+/*
+ * EVENT PENCARIAN & KATEGORI
+ */
 
-tampilkanProgram();
+search.addEventListener(
+  "input",
+  tampilkanProgram
+);
+
+category.addEventListener(
+  "change",
+  tampilkanProgram
+);
 
 
-// ==============================
-// PEMUTAR MUSIK
-// ==============================
-
-const musik = document.getElementById("musik");
-const tombolMusik = document.getElementById("tombolMusik");
-
+/*
+ * PEMUTAR MUSIK
+ */
 
 function toggleMusik() {
 
   if (musik.paused) {
 
-    musik.play();
+    const playPromise = musik.play();
 
-    tombolMusik.textContent = "🎵 MUSIK ON";
+    if (playPromise !== undefined) {
+
+      playPromise
+        .then(() => {
+
+          tombolMusik.textContent = "🎵 MUSIK ON";
+          tombolMusik.setAttribute(
+            "aria-label",
+            "Jeda musik"
+          );
+
+        })
+        .catch(() => {
+
+          tombolMusik.textContent = "🎵 MUSIK OFF";
+          tombolMusik.setAttribute(
+            "aria-label",
+            "Putar musik"
+          );
+
+        });
+
+    }
 
   } else {
 
@@ -422,10 +586,26 @@ function toggleMusik() {
 
     tombolMusik.textContent = "🔇 MUSIK OFF";
 
-  }
+    tombolMusik.setAttribute(
+      "aria-label",
+      "Putar musik"
+    );
 
+  }
 }
 
+
+tombolMusik.addEventListener(
+  "click",
+  toggleMusik
+);
+
+
+/*
+ * TAMPILKAN DATA PERTAMA KALI
+ */
+
+tampilkanProgram();
 </script>
 
 </body>
