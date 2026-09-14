@@ -1,0 +1,364 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Produk Kecantikan</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            background: #111111;
+
+            color: #eeeeee;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+
+        /* HEADER */
+
+        .header {
+
+            padding: 25px 8%;
+
+            border-bottom:
+                1px solid #333333;
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #ffffff;
+        }
+
+
+        .subtitle {
+
+            margin-top: 6px;
+
+            font-size: 12px;
+
+            color: #888888;
+        }
+
+
+        /* CONTAINER */
+
+        .container {
+
+            width: 84%;
+
+            max-width: 900px;
+
+            margin: 35px auto;
+        }
+
+
+        .title {
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+            color: #dddddd;
+        }
+
+
+        /* MENU PRODUK */
+
+        .menu {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .menu a {
+
+            display: block;
+
+            padding: 15px 18px;
+
+            background: #191919;
+
+            border:
+                1px solid #333333;
+
+            color: #dddddd;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            transition: 0.2s;
+        }
+
+
+        .menu a:hover {
+
+            background: #252525;
+
+            border-color: #666666;
+
+            color: #ffffff;
+
+            transform:
+                translateX(3px);
+        }
+
+
+        /* MENU LAIN */
+
+        .section {
+
+            margin-top: 40px;
+        }
+
+
+        .section-title {
+
+            font-size: 13px;
+
+            color: #888888;
+
+            margin-bottom: 12px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+        .other-menu {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+
+        .other-menu a {
+
+            padding: 12px 15px;
+
+            color: #aaaaaa;
+
+            text-decoration: none;
+
+            border-bottom:
+                1px solid #292929;
+
+            font-size: 12px;
+        }
+
+
+        .other-menu a:hover {
+
+            color: #ffffff;
+
+            padding-left: 20px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+
+            margin-top: 60px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid #292929;
+
+            font-size: 11px;
+
+            color: #666666;
+        }
+
+
+        /* HP */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 90%;
+            }
+
+
+            .menu {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+            Dunia Landak
+        </div>
+
+        <div class="subtitle">
+            Produk Kecantikan
+        </div>
+
+    </header>
+
+
+    <!-- MENU -->
+
+    <main class="container">
+
+        <div class="title">
+            Kategori Produk
+        </div>
+
+
+        <div class="menu">
+
+
+            <a href="#">
+                Acne Series
+            </a>
+
+
+            <a href="#">
+                Body Care
+            </a>
+
+
+            <a href="#">
+                Face Care
+            </a>
+
+
+            <a href="#">
+                Face Mask
+            </a>
+
+
+            <a href="#">
+                Face Wash
+            </a>
+
+
+            <a href="#">
+                Hair Care
+            </a>
+
+
+            <a href="#">
+                Herbal
+            </a>
+
+
+            <a href="#">
+                Kiddos
+            </a>
+
+
+            <a href="#">
+                Personal Care
+            </a>
+
+
+            <a href="#">
+                Toothpaste
+            </a>
+
+
+        </div>
+
+
+        <!-- MENU LAIN -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Menu Lainnya
+            </div>
+
+
+            <div class="other-menu">
+
+
+                <a href="lagu.html">
+                    Lagu
+                </a>
+
+
+                <a href="program.html">
+                    Program
+                </a>
+
+
+                <a href="games.html">
+                    Games
+                </a>
+
+
+                <a href="gambar.html">
+                    Gambar
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        Dunia Landak
+
+    </footer>
+
+
+</body>
+
+</html>
+```
