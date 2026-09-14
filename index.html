@@ -6,27 +6,25 @@
 
   <title>Dunia Landak</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --background-image: url("images.jfif");
 
-      --text-main: #f5f1e8;
-      --text-soft: #c9c3b7;
-      --text-muted: #999286;
+      --text-main: #f5f5f5;
+      --text-soft: #d0d0d0;
+      --text-muted: #8d8d8d;
 
-      --card-bg: rgba(18, 17, 15, 0.78);
-      --card-border: rgba(255, 255, 255, 0.10);
+      --card-bg: rgba(25, 25, 25, 0.82);
+      --card-border: rgba(255, 255, 255, 0.08);
 
-      --accent: #f0d39a;
-      --accent-soft: rgba(240, 211, 154, 0.18);
+      --accent: #ffffff;
+      --accent-soft: rgba(255, 255, 255, 0.12);
     }
 
     * {
@@ -35,21 +33,15 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       min-height: 100vh;
       font-family: "IBM Plex Mono", monospace;
       color: var(--text-main);
 
-      background-image:
+      background:
         linear-gradient(
-          180deg,
-          rgba(5, 5, 4, 0.70) 0%,
-          rgba(8, 8, 6, 0.82) 45%,
-          rgba(5, 5, 4, 0.95) 100%
+          rgba(0, 0, 0, 0.78),
+          rgba(0, 0, 0, 0.92)
         ),
         var(--background-image);
 
@@ -57,17 +49,8 @@
       background-position: center;
       background-attachment: fixed;
 
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       CONTAINER
-    ========================= */
-
-    .container {
-      width: min(900px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 70px 0 35px;
+      display: flex;
+      flex-direction: column;
     }
 
     /* =========================
@@ -76,33 +59,48 @@
 
     header {
       text-align: center;
-      margin-bottom: 50px;
+      padding: 80px 20px 50px;
     }
 
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    h1 {
+    .logo {
       font-family: "Fraunces", serif;
-      font-size: clamp(48px, 9vw, 86px);
-      line-height: 0.95;
+      font-size: clamp(48px, 10vw, 100px);
       font-weight: 700;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
       color: var(--text-main);
-      text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.03);
+      opacity: 0.8;
     }
 
     .subtitle {
-      max-width: 650px;
-      margin: 22px auto 0;
-      color: var(--text-soft);
+      margin-top: 15px;
+      color: var(--text-muted);
       font-size: 14px;
-      line-height: 1.8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: min(900px, 92%);
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    .menu-title-main {
+      text-align: center;
+      font-family: "Fraunces", serif;
+      font-size: 30px;
+      margin-bottom: 30px;
     }
 
     /* =========================
@@ -117,226 +115,77 @@
 
     .menu a {
       position: relative;
+
       display: flex;
       align-items: center;
       gap: 18px;
 
-      min-height: 105px;
-      padding: 22px 24px;
+      padding: 24px;
 
-      color: var(--text-main);
       text-decoration: none;
+      color: var(--text-main);
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.055),
-          rgba(255, 255, 255, 0.018)
-        ),
-        var(--card-bg);
-
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 18px;
 
-      overflow: hidden;
-
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
 
       transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-    }
-
-    .menu a::before {
-      content: "";
-
-      position: absolute;
-      width: 180px;
-      height: 180px;
-
-      top: -100px;
-      right: -70px;
-
-      background: radial-gradient(
-        circle,
-        var(--accent-soft),
-        transparent 70%
-      );
-
-      opacity: 0;
-
-      transition: opacity 0.3s ease;
-      pointer-events: none;
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
     }
 
     .menu a:hover {
-      transform: translateY(-6px);
-
-      border-color: rgba(240, 211, 154, 0.35);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.085),
-          rgba(255, 255, 255, 0.025)
-        ),
-        rgba(20, 19, 17, 0.86);
-
-      box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.45);
+      transform: translateY(-5px);
+      background: rgba(40, 40, 40, 0.9);
+      border-color: rgba(255, 255, 255, 0.2);
     }
-
-    .menu a:hover::before {
-      opacity: 1;
-    }
-
-    /* =========================
-       ICON
-    ========================= */
 
     .icon {
-      position: relative;
-      z-index: 1;
-
-      flex: 0 0 58px;
-
-      width: 58px;
-      height: 58px;
+      width: 50px;
+      height: 50px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      font-size: 28px;
+      flex-shrink: 0;
 
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 15px;
+      border-radius: 14px;
+      background: var(--accent-soft);
 
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+      font-size: 24px;
     }
-
-    .menu a:hover .icon {
-      transform: scale(1.1) rotate(-3deg);
-      background: rgba(240, 211, 154, 0.12);
-    }
-
-    /* =========================
-       CARD TEXT
-    ========================= */
 
     .menu-content {
-      position: relative;
-      z-index: 1;
+      flex: 1;
     }
 
     .menu-title {
       font-family: "Fraunces", serif;
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 600;
       margin-bottom: 7px;
     }
 
     .menu-description {
+      color: var(--text-muted);
       font-size: 12px;
       line-height: 1.6;
-      color: var(--text-muted);
     }
 
     .arrow {
-      position: relative;
-      z-index: 1;
-
-      margin-left: auto;
-
+      font-size: 22px;
       color: var(--text-muted);
-      font-size: 18px;
 
-      transition:
-        transform 0.3s ease,
-        color 0.3s ease;
+      transition: transform 0.25s ease;
     }
 
     .menu a:hover .arrow {
       transform: translateX(5px);
-      color: var(--accent);
-    }
-
-    /* =========================
-       MUSIC BUTTON
-    ========================= */
-
-    .music-button {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-
-      width: 52px;
-      height: 52px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 50%;
-
-      background: rgba(15, 14, 12, 0.82);
       color: var(--text-main);
-
-      font-size: 20px;
-
-      cursor: pointer;
-
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35);
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .music-button:hover {
-      transform: scale(1.08);
-
-      background: rgba(240, 211, 154, 0.12);
-      border-color: rgba(240, 211, 154, 0.35);
-    }
-
-    .music-button.playing {
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow:
-          0 0 0 0 rgba(240, 211, 154, 0.20),
-          0 10px 30px rgba(0, 0, 0, 0.35);
-      }
-
-      70% {
-        box-shadow:
-          0 0 0 12px rgba(240, 211, 154, 0),
-          0 10px 30px rgba(0, 0, 0, 0.35);
-      }
-
-      100% {
-        box-shadow:
-          0 0 0 0 rgba(240, 211, 154, 0),
-          0 10px 30px rgba(0, 0, 0, 0.35);
-      }
     }
 
     /* =========================
@@ -345,29 +194,50 @@
 
     footer {
       text-align: center;
-      margin-top: 65px;
-      padding-top: 28px;
+      padding: 50px 20px 30px;
 
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-title {
-      font-family: "Fraunces", serif;
-      font-size: 22px;
-      color: var(--text-main);
-      margin-bottom: 8px;
-    }
-
-    .footer-text {
       color: var(--text-muted);
       font-size: 11px;
-      line-height: 1.7;
+      letter-spacing: 1px;
     }
 
-    .copyright {
-      margin-top: 15px;
-      color: rgba(255, 255, 255, 0.35);
-      font-size: 10px;
+    /* =========================
+       MUSIC BUTTON
+    ========================= */
+
+    .music-button {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      width: 52px;
+      height: 52px;
+
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+
+      background: rgba(20, 20, 20, 0.9);
+      color: white;
+
+      cursor: pointer;
+
+      font-size: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      backdrop-filter: blur(10px);
+
+      transition: 0.25s ease;
+
+      z-index: 100;
+    }
+
+    .music-button:hover {
+      transform: scale(1.08);
+      background: rgba(50, 50, 50, 0.95);
     }
 
     /* =========================
@@ -375,53 +245,33 @@
     ========================= */
 
     @media (max-width: 650px) {
-      .container {
-        width: min(100% - 22px, 900px);
-        padding-top: 50px;
-      }
 
       header {
-        margin-bottom: 35px;
+        padding: 60px 20px 40px;
       }
 
-      h1 {
-        font-size: clamp(42px, 15vw, 65px);
+      .logo {
+        letter-spacing: -2px;
       }
 
       .subtitle {
-        font-size: 12px;
-        padding: 0 10px;
+        font-size: 11px;
       }
 
       .menu {
         grid-template-columns: 1fr;
-        gap: 13px;
       }
 
       .menu a {
-        min-height: 92px;
-        padding: 18px;
-        gap: 14px;
-      }
-
-      .icon {
-        flex-basis: 50px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
+        padding: 20px;
       }
 
       .menu-title {
-        font-size: 22px;
+        font-size: 20px;
       }
 
       .menu-description {
         font-size: 11px;
-      }
-
-      .music-button {
-        right: 16px;
-        bottom: 16px;
       }
     }
   </style>
@@ -429,40 +279,58 @@
 
 <body>
 
-  <main class="container">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <!-- HEADER -->
-    <header>
-      <div class="eyebrow">Personal Website</div>
+  <header>
 
-      <h1>Dunia Landak</h1>
+    <!-- Klik logo untuk kembali ke halaman utama -->
+    <a href="index.html" class="logo">
+      Dunia Landak
+    </a>
 
-      <p class="subtitle">
-        Tempat kecil untuk menyimpan berbagai hal,
-        mulai dari game, program, lagu, hingga gambar.
-      </p>
-    </header>
+    <div class="subtitle">
+      Welcome to my little world
+    </div>
+
+  </header>
 
 
-    <!-- MENU UTAMA -->
+  <!-- =========================
+       MAIN MENU
+  ========================== -->
+
+  <main>
+
+    <h2 class="menu-title-main">
+      Menu
+    </h2>
+
     <nav class="menu">
 
       <!-- GAMES -->
       <a href="games.html">
 
-        <span class="icon">🎮</span>
+        <span class="icon">
+          🎮
+        </span>
 
         <div class="menu-content">
+
           <div class="menu-title">
             Games
           </div>
 
           <div class="menu-description">
-            Koleksi game dan berbagai permainan.
+            Bermain berbagai permainan sederhana di Dunia Landak.
           </div>
+
         </div>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
 
       </a>
 
@@ -470,19 +338,25 @@
       <!-- PROGRAM -->
       <a href="program.html">
 
-        <span class="icon">💻</span>
+        <span class="icon">
+          💻
+        </span>
 
         <div class="menu-content">
+
           <div class="menu-title">
             Program
           </div>
 
           <div class="menu-description">
-            Kumpulan aplikasi dan software.
+            Kumpulan program dan eksperimen yang dibuat di sini.
           </div>
+
         </div>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
 
       </a>
 
@@ -490,19 +364,25 @@
       <!-- LAGU -->
       <a href="lagu.html">
 
-        <span class="icon">🎵</span>
+        <span class="icon">
+          🎵
+        </span>
 
         <div class="menu-content">
+
           <div class="menu-title">
             Lagu
           </div>
 
           <div class="menu-description">
-            Koleksi lagu favorit yang tersimpan.
+            Dengarkan musik dan lagu yang ada di Dunia Landak.
           </div>
+
         </div>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
 
       </a>
 
@@ -510,92 +390,144 @@
       <!-- GAMBAR -->
       <a href="gambar.html">
 
-        <span class="icon">🖼️</span>
+        <span class="icon">
+          🖼️
+        </span>
 
         <div class="menu-content">
+
           <div class="menu-title">
             Gambar
           </div>
 
           <div class="menu-description">
-            Galeri gambar dan berbagai koleksi visual.
+            Galeri gambar dan koleksi visual Dunia Landak.
           </div>
+
         </div>
 
-        <span class="arrow">→</span>
+        <span class="arrow">
+          →
+        </span>
+
+      </a>
+
+
+      <!-- PRODUK KECANTIKAN -->
+      <a href="Produk-Kecantikan.html">
+
+        <span class="icon">
+          💄
+        </span>
+
+        <div class="menu-content">
+
+          <div class="menu-title">
+            Produk Kecantikan
+          </div>
+
+          <div class="menu-description">
+            Koleksi dan kategori produk kecantikan.
+          </div>
+
+        </div>
+
+        <span class="arrow">
+          →
+        </span>
 
       </a>
 
     </nav>
 
-
-    <!-- FOOTER -->
-    <footer>
-
-      <div class="footer-title">
-        Dunia Landak
-      </div>
-
-      <p class="footer-text">
-        Dibuat &amp; dihosting oleh mrland.
-      </p>
-
-      <div class="copyright">
-        © Dunia Landak
-      </div>
-
-    </footer>
-
   </main>
 
 
-  <!-- TOMBOL MUSIK -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+    © 2026 Dunia Landak
+  </footer>
+
+
+  <!-- =========================
+       MUSIC BUTTON
+  ========================== -->
+
   <button
     class="music-button"
     id="musicButton"
-    type="button"
-    aria-label="Putar atau hentikan musik"
-    title="Putar / Hentikan Musik"
+    aria-label="Putar musik"
   >
-    ♪
+    ▶
   </button>
 
 
-  <!-- AUDIO -->
+  <!-- =========================
+       AUDIO
+  ========================== -->
+
   <audio id="backgroundMusic" loop>
-    <source src="musik.mp3" type="audio/mpeg">
+
+    <source
+      src="musik.mp3"
+      type="audio/mpeg"
+    >
+
   </audio>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
   <script>
-    const musicButton = document.getElementById("musicButton");
-    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    const musicButton =
+      document.getElementById("musicButton");
+
+    const backgroundMusic =
+      document.getElementById("backgroundMusic");
+
 
     let isPlaying = false;
 
+
     musicButton.addEventListener("click", function () {
+
       if (isPlaying) {
+
         backgroundMusic.pause();
 
-        musicButton.classList.remove("playing");
-        musicButton.textContent = "♪";
+        musicButton.textContent = "▶";
+
+        musicButton.setAttribute(
+          "aria-label",
+          "Putar musik"
+        );
 
         isPlaying = false;
-      } else {
-        backgroundMusic.play()
-          .then(() => {
-            musicButton.classList.add("playing");
-            musicButton.textContent = "♫";
 
-            isPlaying = true;
-          })
-          .catch(() => {
-            alert("Musik tidak dapat diputar. Pastikan file musik.mp3 tersedia.");
-          });
+      } else {
+
+        backgroundMusic.play();
+
+        musicButton.textContent = "❚❚";
+
+        musicButton.setAttribute(
+          "aria-label",
+          "Jeda musik"
+        );
+
+        isPlaying = true;
+
       }
+
     });
+
   </script>
 
 </body>
 </html>
-```
