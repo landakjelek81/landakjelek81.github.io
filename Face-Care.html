@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Face Care - Dunia Landak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: #f5eadc;
+
+      background:
+        linear-gradient(
+          rgba(35, 20, 12, 0.88),
+          rgba(35, 20, 12, 0.94)
+        ),
+        url("gambar.jfif");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 25px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+
+      color: #d8b08a;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-family: "Fraunces", serif;
+      font-size: 46px;
+      line-height: 1.1;
+
+      color: #fff4e8;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+
+      color: #cbb8a5;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 15px 20px 50px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      overflow: hidden;
+
+      background: rgba(58, 35, 22, 0.88);
+      border: 1px solid rgba(214, 174, 133, 0.18);
+      border-radius: 18px;
+
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      border-color: rgba(214, 174, 133, 0.4);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 260px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 18px;
+
+      background: rgba(20, 12, 8, 0.45);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      display: block;
+    }
+
+    .product-content {
+      padding: 20px;
+    }
+
+    .category {
+      margin-bottom: 8px;
+
+      color: #d8b08a;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-title {
+      margin: 0 0 10px;
+
+      color: #fff4e8;
+
+      font-family: "Fraunces", serif;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .description {
+      margin: 0 0 14px;
+
+      color: #d7c5b4;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .details {
+      margin: 0;
+      padding-top: 14px;
+
+      border-top: 1px solid rgba(214, 174, 133, 0.14);
+
+      color: #a99481;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .price {
+      margin-top: 12px;
+
+      color: #f0d1ad;
+
+      font-family: "Fraunces", serif;
+      font-size: 23px;
+      font-weight: 700;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 35px;
+
+      color: #806d5b;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 30px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <a class="back" href="Produk-Kecantikan.html">
+      ← Kembali ke Produk Kecantikan
+    </a>
+
+    <h1>Face Care</h1>
+
+    <p class="subtitle">
+      Koleksi produk perawatan wajah Dunia Landak.
+    </p>
+
+  </header>
+
+
+  <main>
+
+    <div class="products">
+
+
+      <!-- =====================================================
+           PRODUK 1
+           ===================================================== -->
+
+      <article class="product">
+
+        <div class="product-image">
+
+          <img
+            src="NAMA-FILE-GAMBAR.jpg"
+            alt="Nama Produk Face Care"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="product-content">
+
+          <div class="category">
+            Face Care
+          </div>
+
+          <h2 class="product-title">
+            Nama Produk
+          </h2>
+
+          <p class="description">
+            Deskripsi produk akan ditulis di sini.
+          </p>
+
+          <div class="details">
+            BPOM: -
+            <br>
+            Ukuran: -
+          </div>
+
+          <div class="price">
+            Rp 0
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- =====================================================
+           COPY BLOK PRODUK DI ATAS UNTUK PRODUK BERIKUTNYA
+           ===================================================== -->
+
+
+    </div>
+
+  </main>
+
+
+  <footer>
+    Dunia Landak · Face Care
+  </footer>
+
+</body>
+</html>
